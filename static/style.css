@@ -1,0 +1,625 @@
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: #222;
+  background: #fafafa;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.site-header {
+  background: #1a3d5c;
+  color: white;
+  padding: 15px 0;
+}
+.site-header a { color: white; text-decoration: none; }
+.site-header .container {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap;
+}
+.logo { font-weight: bold; font-size: 1.3em; }
+.site-header nav a { margin-left: 15px; font-size: 0.95em; }
+
+main { padding: 30px 20px; background: white; }
+
+h1 { font-size: 1.9em; margin-top: 0; color: #1a3d5c; }
+h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+.lead { font-size: 1.05em; color: #444; }
+
+.key-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px; margin: 25px 0;
+}
+.stat {
+  background: #f0f5fa; padding: 15px; border-radius: 6px;
+  text-align: center; border-left: 4px solid #1a3d5c;
+}
+.stat-label { display: block; font-size: 0.85em; color: #666; text-transform: uppercase; }
+.stat-value { display: block; font-size: 1.5em; font-weight: bold; color: #1a3d5c; margin-top: 5px; }
+
+.data-table {
+  width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em;
+}
+.data-table th, .data-table td {
+  padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee;
+}
+.data-table th { background: #f0f5fa; font-weight: 600; color: #1a3d5c; }
+.data-table tr:hover { background: #f9fbfd; }
+.data-table a { color: #1a3d5c; text-decoration: none; }
+.data-table a:hover { text-decoration: underline; }
+
+.ad-slot {
+  margin: 30px 0; padding: 10px;
+  background: #f9f9f9; border: 1px dashed #ddd;
+  min-height: 90px; text-align: center;
+}
+
+.ranking-list { list-style: none; padding: 0; }
+.ranking-list li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 1.05em; }
+.ranking-list a { color: #1a3d5c; text-decoration: none; }
+.ranking-list a:hover { text-decoration: underline; }
+
+.state-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px; list-style: none; padding: 0;
+}
+.state-grid a {
+  display: block; padding: 8px 12px; background: #f0f5fa;
+  border-radius: 4px; color: #1a3d5c; text-decoration: none;
+  font-size: 0.9em;
+}
+.state-grid a:hover { background: #d9e6f2; }
+
+.methodology {
+  font-size: 0.9em; color: #666; background: #f9f9f9;
+  padding: 15px; border-radius: 6px; margin-top: 30px;
+}
+
+.site-footer {
+  background: #1a3d5c; color: #ccd; padding: 20px 0;
+  margin-top: 40px; font-size: 0.9em;
+}
+.site-footer a { color: #ccd; text-decoration: none; margin: 0 5px; }
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.5em; }
+  .data-table { font-size: 0.85em; }
+  .data-table th, .data-table td { padding: 8px 6px; }
+}
+.static-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.static-page h2 {
+  margin-top: 2em;
+}
+.static-page p, .static-page li {
+  line-height: 1.7;
+}
+.static-page ul {
+  padding-left: 22px;
+}
+.page-meta {
+  color: #888;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-bottom: 1.5em;
+}
+.breadcrumb {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 10px;
+}
+.breadcrumb a {
+  color: #1a3d5c;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+/* AI Editor's Insight */
+.ai-insight {
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  border-left: 4px solid #1a3d5c;
+  padding: 20px 25px;
+  margin: 30px 0;
+  border-radius: 6px;
+}
+.ai-insight h2 {
+  margin-top: 0;
+  border-bottom: none;
+  color: #1a3d5c;
+}
+.ai-insight p {
+  line-height: 1.75;
+  margin-bottom: 15px;
+  font-size: 1.02em;
+}
+.insight-meta {
+  font-size: 0.85em;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 0;
+}
+/* Chart Container */
+.chart-container {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f9fbfd;
+  border-radius: 8px;
+  border: 1px solid #e0e8f0;
+}
+.chart-container h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: none;
+  font-size: 1.25em;
+}
+.chart-wrapper {
+  position: relative;
+  height: 380px;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .chart-wrapper { height: 280px; }
+  .chart-container { padding: 15px; }
+}
+/* ── FHFA 섹션 ── */
+.fhfa-section {
+  margin-top: 2rem;
+  border-top: 2px dashed #e0e0e0;
+  padding-top: 1.5rem;
+}
+
+.chart-subtitle {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.insight-box {
+  background: #f0f9f4;
+  border-left: 4px solid #27ae60;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.insight-box .up   { color: #c0392b; font-weight: bold; }
+.insight-box .down { color: #27ae60; font-weight: bold; }
+
+.fhfa-missing {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+}
+.insight-source {
+  color: #888;
+  font-size: 0.85rem;
+}
+/* ── Static Pages (About / Privacy / Contact) ── */
+.static-page h1 {
+  margin-bottom: 0.5rem;
+}
+
+.last-updated {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.static-page .muted {
+  color: #888;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+/* ── Blog Index ── */
+.blog-index { max-width: 900px; margin: 0 auto; }
+
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.post-card {
+  padding: 20px 24px;
+  background: white;
+  border: 1px solid #e0e8f0;
+  border-radius: 8px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.post-card:hover {
+  box-shadow: 0 4px 12px rgba(26, 61, 92, 0.1);
+  transform: translateY(-2px);
+}
+.post-card h2 { margin: 8px 0; border: none; font-size: 1.3em; }
+.post-card h2 a { color: #1a3d5c; text-decoration: none; }
+.post-card h2 a:hover { text-decoration: underline; }
+.post-description { color: #555; margin: 8px 0; }
+.post-meta { color: #888; font-size: 0.85em; margin-top: 12px; }
+
+.post-category {
+  display: inline-block;
+  padding: 2px 10px;
+  background: #e8f0f8;
+  color: #1a3d5c;
+  border-radius: 12px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ── Blog Post ── */
+.blog-post { max-width: 780px; margin: 0 auto; line-height: 1.75; }
+.blog-post h1 { margin-bottom: 0.5rem; }
+.blog-post h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: #1a3d5c;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.4rem;
+}
+.blog-post h3 { margin-top: 1.8rem; color: #1a3d5c; }
+.post-meta-header { color: #888; font-size: 0.9em; margin-bottom: 2rem; }
+.post-content p { font-size: 1.05em; margin-bottom: 1.2em; }
+.post-content ul, .post-content ol { padding-left: 1.5rem; margin-bottom: 1.2em; }
+.post-content li { margin-bottom: 0.5em; }
+.post-content a { color: #1a3d5c; text-decoration: underline; }
+.post-content .lead { font-size: 1.15em; color: #333; }
+.post-content .formula {
+  background: #f0f5fa;
+  padding: 12px 16px;
+  border-left: 4px solid #1a3d5c;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  margin: 1rem 0;
+}
+
+.related-links {
+  margin-top: 3rem;
+  padding: 20px;
+  background: #f9fbfd;
+  border-radius: 8px;
+}
+.related-links h3 { margin-top: 0; color: #1a3d5c; }
+.related-links ul { padding-left: 1.2rem; }
+
+@media (min-width: 700px) {
+  .post-grid { grid-template-columns: 1fr 1fr; }
+}
+/* ── About 페이지 전용 ── */
+.static-page h3 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+  color: #1a3d5c;
+  font-size: 1.05rem;
+}
+
+.static-page .data-table {
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.static-page .data-table th,
+.static-page .data-table td {
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+.attribution-notice {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.6;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #1a3d5c;
+  margin-top: 1.5rem;
+}
+/* ── Economic Snapshot ── */
+.econ-snapshot {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f9fbfd;
+  border-radius: 8px;
+  border: 1px solid #e0e8f0;
+}
+.econ-snapshot h2 {
+  margin-top: 0;
+  border-bottom: none;
+  color: #1a3d5c;
+}
+.econ-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.econ-card {
+  background: white;
+  padding: 18px;
+  border-radius: 6px;
+  border-left: 4px solid #27ae60;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.econ-icon {
+  font-size: 1.8em;
+  margin-bottom: 8px;
+}
+.econ-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.95em;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.econ-value {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #1a3d5c;
+  margin-bottom: 4px;
+}
+.econ-value.positive { color: #27ae60; }
+.econ-value.negative { color: #c0392b; }
+.econ-label {
+  font-size: 0.85em;
+  color: #888;
+  margin-bottom: 12px;
+}
+.econ-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85em;
+  color: #555;
+}
+.econ-details li {
+  padding: 3px 0;
+}
+.econ-source {
+  color: #aaa;
+  font-size: 0.8em;
+  margin-top: 8px;
+  font-style: italic;
+}
+.rate-banner {
+  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
+  color: white;
+  padding: 14px 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+.rate-banner .rate-value {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #f39c12;
+  margin: 0 6px;
+}
+.rate-banner .rate-date {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+/* ── Sub-Market Activity (ZIP section) ── */
+.zip-section {
+  background: #fff9f0;
+  border: 1px solid #ffe4c4;
+}
+.zip-section h2 {
+  color: #1a3d5c;
+}
+.zip-section .data-table {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+.zip-section .data-table th {
+  background: #fdf3e7;
+  color: #1a3d5c;
+}
+.zip-section .data-table td {
+  padding: 8px 12px;
+}
+.zip-section .up { color: #c0392b; font-weight: 600; }
+.zip-section .down { color: #27ae60; font-weight: 600; }
+.zip-section .econ-source {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.75em;
+  color: #aaa;
+  font-style: italic;
+}
+/* ── ZIP Page ── */
+.zip-page .key-stats .stat-value.up   { color: #c0392b; }
+.zip-page .key-stats .stat-value.down { color: #27ae60; }
+
+/* 카운티 페이지 Sub-Market 테이블 ZIP 링크 */
+.zip-section .data-table a {
+  color: #1a3d5c;
+  text-decoration: none;
+  border-bottom: 1px dotted #1a3d5c;
+}
+.zip-section .data-table a:hover {
+  color: #27ae60;
+  border-bottom-color: #27ae60;
+}
+
+/* ZIP 페이지의 up/down 스타일 */
+.key-stats .stat-value.up   { color: #c0392b; }
+.key-stats .stat-value.down { color: #27ae60; }
+.up   { color: #c0392b; font-weight: 600; }
+.down { color: #27ae60; font-weight: 600; }
+/* ═══════════════════════════════════════════
+   MORTGAGE CALCULATOR
+   ═══════════════════════════════════════════ */
+.calculator-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px 0;
+}
+@media (max-width: 900px) {
+  .calc-grid { grid-template-columns: 1fr; }
+}
+.calc-section {
+  background: #f9fbfd;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e8f0;
+}
+.calc-section h3 {
+  margin-top: 0;
+  color: #1a3d5c;
+  font-size: 1.1em;
+}
+.calc-field {
+  margin-bottom: 16px;
+}
+.calc-field label {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.input-group-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8px;
+}
+.input-group .prefix,
+.input-group .suffix {
+  padding: 10px 12px;
+  background: #f0f5fa;
+  color: #666;
+  font-weight: 600;
+}
+.input-group input {
+  border: 0;
+  padding: 10px 12px;
+  flex: 1;
+  font-size: 1em;
+  width: 100%;
+  outline: none;
+}
+.calc-field select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  background: white;
+}
+.calc-field .hint {
+  display: block;
+  color: #888;
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+.result-main {
+  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.result-label {
+  font-size: 0.9em;
+  opacity: 0.9;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.result-value {
+  font-size: 3em;
+  font-weight: bold;
+  color: #f39c12;
+  margin: 10px 0;
+}
+.result-sub {
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+.result-breakdown,
+.result-summary {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e8f0;
+  margin-bottom: 20px;
+}
+.result-breakdown h3,
+.result-summary h3 {
+  margin-top: 0;
+  font-size: 1em;
+  color: #1a3d5c;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+.breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.breakdown-table td {
+  padding: 8px 0;
+  font-size: 0.95em;
+}
+.breakdown-table .amount {
+  text-align: right;
+  font-weight: 600;
+  color: #1a3d5c;
+}
+.breakdown-table .total-row {
+  border-top: 2px solid #eee;
+}
+.breakdown-table .total-row td {
+  padding-top: 12px;
+  font-size: 1.1em;
+}
+.result-limit {
+  padding: 15px;
+  border-radius: 8px;
+  background: #f9fbfd;
+  border: 1px solid #e0e8f0;
+}
+.result-limit .limit-ok {
+  color: #27ae60;
+  margin: 0;
+}
+.result-limit .limit-warn {
+  color: #c0392b;
+  margin: 0;
+  font-weight: 600;
+}
+.result-limit .limit-hint {
+  color: #666;
+  margin: 0;
+}

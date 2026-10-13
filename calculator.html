@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a3d5c'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3EH%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="mach6lnfa3pBwVHZieOD4_1wwS_s0kobDz9h4xyb7AE" />
+<title>Mortgage Calculator 2026 — FHA, VA, Conventional Loans | US Housing Data</title>
+<meta name="description" content="Free mortgage calculator for 2026. Compare FHA, VA, USDA, and Conventional loans. Auto-applies 2026 county loan limits. Calculate monthly payment, MIP, PMI, and total interest.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2850461542641038"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">US Mortgage Data</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/calculator.html">Calculator</a>
+      <a href="/rates.html">Rates</a>
+      <a href="/states/california.html">States</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 상단 광고 슬롯 -->
+<div class="container ad-slot ad-top">
+  <!-- AdSense 광고 코드 삽입 위치 (승인 후) -->
+</div>
+
+<main class="container">
+
+
+<article class="calculator-page">
+<h1>Mortgage Calculator 2026</h1>
+<p class="lead">
+  Calculate your monthly mortgage payment with automatic 2026 loan limit lookups.
+  Compare FHA, VA, USDA, and Conventional loans side-by-side.
+</p>
+
+<!-- 광고 슬롯 -->
+<div class="ad-slot ad-in-article"></div>
+
+<div class="calc-grid">
+
+  <!-- 좌측: 입력 -->
+  <div class="calc-inputs">
+
+    <div class="calc-section">
+      <h3>🏠 Property & Loan</h3>
+
+      <div class="calc-field">
+        <label for="homePrice">Home Price</label>
+        <div class="input-group">
+          <span class="prefix">$</span>
+          <input type="number" id="homePrice" value="400000" min="10000" step="5000">
+        </div>
+      </div>
+
+      <div class="calc-field">
+        <label for="loanType">Loan Type</label>
+        <select id="loanType">
+          <option value="conventional">Conventional (5% min)</option>
+          <option value="fha" selected>FHA (3.5% min)</option>
+          <option value="va">VA (0% down, veterans)</option>
+          <option value="usda">USDA (0% down, rural)</option>
+        </select>
+      </div>
+
+      <div class="calc-field">
+        <label for="downPayment">Down Payment</label>
+        <div class="input-group-row">
+          <div class="input-group">
+            <span class="prefix">$</span>
+            <input type="number" id="downPayment" value="14000" min="0" step="1000">
+          </div>
+          <div class="input-group small">
+            <input type="number" id="downPct" value="3.5" min="0" max="100" step="0.5">
+            <span class="suffix">%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-field">
+        <label for="loanTerm">Loan Term</label>
+        <select id="loanTerm">
+          <option value="30" selected>30 years</option>
+          <option value="20">20 years</option>
+          <option value="15">15 years</option>
+          <option value="10">10 years</option>
+        </select>
+      </div>
+
+      <div class="calc-field">
+        <label for="interestRate">Interest Rate</label>
+        <div class="input-group">
+          <input type="number" id="interestRate" value="6.85" min="0.1" max="20" step="0.01">
+          <span class="suffix">%</span>
+        </div>
+        <small class="hint">Auto-filled with current market rate. Adjust as needed.</small>
+      </div>
+
+    </div>
+
+    <div class="calc-section">
+      <h3>📍 Location (for Loan Limits)</h3>
+
+      <div class="calc-field">
+        <label for="stateSelect">State</label>
+        <select id="stateSelect">
+          <option value="">-- All States --</option>
+        </select>
+      </div>
+
+      <div class="calc-field">
+        <label for="countySelect">County</label>
+        <select id="countySelect">
+          <option value="">-- Select State First --</option>
+        </select>
+        <small class="hint" id="limitInfo"></small>
+      </div>
+    </div>
+
+    <div class="calc-section">
+      <h3>💰 Additional Costs</h3>
+
+      <div class="calc-field">
+        <label for="propertyTax">Property Tax (%/yr)</label>
+        <div class="input-group">
+          <input type="number" id="propertyTax" value="1.1" min="0" max="5" step="0.1">
+          <span class="suffix">%</span>
+        </div>
+      </div>
+
+      <div class="calc-field">
+        <label for="homeInsurance">Home Insurance ($/yr)</label>
+        <div class="input-group">
+          <span class="prefix">$</span>
+          <input type="number" id="homeInsurance" value="1500" min="0" step="100">
+        </div>
+      </div>
+
+      <div class="calc-field">
+        <label for="hoa">HOA Fees ($/mo)</label>
+        <div class="input-group">
+          <span class="prefix">$</span>
+          <input type="number" id="hoa" value="0" min="0" step="10">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 우측: 결과 -->
+  <div class="calc-results">
+
+    <div class="result-main">
+      <div class="result-label">Estimated Monthly Payment</div>
+      <div class="result-value" id="monthlyPayment">$0</div>
+      <div class="result-sub" id="loanAmountInfo">Loan Amount: $0</div>
+    </div>
+
+    <div class="result-breakdown">
+      <h3>Monthly Breakdown</h3>
+      <table class="breakdown-table">
+        <tbody>
+          <tr>
+            <td>Principal & Interest</td>
+            <td class="amount" id="piAmount">$0</td>
+          </tr>
+          <tr id="mipRow" style="display: none;">
+            <td><span id="mipLabel">FHA MIP</span></td>
+            <td class="amount" id="mipAmount">$0</td>
+          </tr>
+          <tr>
+            <td>Property Tax</td>
+            <td class="amount" id="taxAmount">$0</td>
+          </tr>
+          <tr>
+            <td>Home Insurance</td>
+            <td class="amount" id="insAmount">$0</td>
+          </tr>
+          <tr id="hoaRow" style="display: none;">
+            <td>HOA Fees</td>
+            <td class="amount" id="hoaAmount">$0</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Total</strong></td>
+            <td class="amount"><strong id="totalMonthly">$0</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="result-summary">
+      <h3>Loan Summary</h3>
+      <table class="breakdown-table">
+        <tbody>
+          <tr>
+            <td>Loan Amount</td>
+            <td class="amount" id="summaryLoan">$0</td>
+          </tr>
+          <tr>
+            <td>Total Interest Paid</td>
+            <td class="amount" id="summaryInterest">$0</td>
+          </tr>
+          <tr>
+            <td>Total Cost (P&I)</td>
+            <td class="amount" id="summaryTotal">$0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="result-limit" id="limitBox">
+      <!-- 한도 초과 시 경고 표시 -->
+    </div>
+
+  </div>
+
+</div>
+
+<!-- AdSense 광고 슬롯 -->
+<div class="ad-slot ad-in-article"></div>
+
+<h2>How to Use This Calculator</h2>
+<p>
+  Enter your target home price and down payment. The calculator automatically
+  applies the <strong>2026 FHA and Conforming loan limits</strong> for your selected
+  county. Monthly payments include principal, interest, property tax, insurance,
+  and (for FHA loans) mortgage insurance premiums.
+</p>
+<p>
+  Use the loan type comparison to see how FHA, VA, USDA, and Conventional loans
+  differ in total cost. VA and USDA loans offer 0% down payment options for
+  eligible borrowers.
+</p>
+
+<h2>2026 Loan Limits Quick Reference</h2>
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Loan Type</th>
+      <th>Baseline Limit (1-Unit)</th>
+      <th>High-Cost Ceiling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Conforming</strong></td>
+      <td>$832,750</td>
+      <td>$1,249,125</td>
+    </tr>
+    <tr>
+      <td><strong>FHA</strong></td>
+      <td>$524,225 (floor)</td>
+      <td>$1,209,750 (ceiling)</td>
+    </tr>
+    <tr>
+      <td><strong>VA</strong></td>
+      <td>No limit (with full entitlement)</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>USDA</strong></td>
+      <td>No limit (rural areas only)</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="methodology">
+  <strong>Data Source:</strong> FHFA Conforming Loan Limits 2026, HUD FHA
+  Forward Mortgage Limits 2026. Rate auto-filled from FRED (MORTGAGE30US).
+  This calculator is for educational purposes only and does not constitute
+  financial advice.
+</p>
+
+</article>
+
+<script src="/static/calculator.js"></script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 US Mortgage Data. Data sourced from FHFA, HUD, and FRED.</p>
+    <nav>
+      <a href="/about.html">About</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/terms.html">Terms</a> ·
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+  <p class="disclaimer">
+    Mortgage data: FHFA Conforming Loan Limits, HUD FHA Forward Limits, FRED.<br>
+    <strong>This product uses FHFA Data but is neither endorsed nor certified by FHFA.</strong>
+  </p>
+</footer>
+</body>
+</html>
