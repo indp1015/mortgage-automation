@@ -13,7 +13,8 @@
   let stateMap = {};  // {state: [[fips, name, fha, conf], ...]}
 
   // ─── 초기 로드 ───
-  fetch('{{ base_url }}/static/counties_limits.json')
+  // ─── 초기 로드 ───
+  fetch('/static/counties_limits.json')
     .then(r => r.json())
     .then(data => {
       countyData = data.counties;
