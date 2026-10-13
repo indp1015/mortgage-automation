@@ -623,3 +623,111 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   color: #666;
   margin: 0;
 }
+/* ═══════════════════════════════════════════
+   GUIDE PAGES (FHA / VA / Rates)
+   ═══════════════════════════════════════════ */
+.guide-page,
+.rates-page {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+.guide-page h2,
+.rates-page h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.guide-page h3 {
+  margin-top: 1.8rem;
+  color: #1a3d5c;
+  font-size: 1.1em;
+}
+.guide-page ul, .guide-page ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.2em;
+}
+.guide-page li {
+  margin-bottom: 0.5em;
+}
+.guide-page p {
+  margin-bottom: 1.2em;
+}
+
+/* 금리 카드 그리드 */
+.rate-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 25px 0;
+}
+.rate-card {
+  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+.rate-card-name {
+  font-size: 0.85em;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+.rate-card-value {
+  font-size: 2.4em;
+  font-weight: bold;
+  color: #f39c12;
+  margin: 5px 0;
+}
+.rate-card-date {
+  font-size: 0.8em;
+  opacity: 0.75;
+}
+.rate-card-source {
+  font-size: 0.75em;
+  opacity: 0.6;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* FAQ (details/summary) */
+.faq {
+  border: 1px solid #e0e8f0;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+  background: #f9fbfd;
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #1a3d5c;
+  padding: 5px 0;
+  list-style: none;
+  position: relative;
+  padding-right: 25px;
+}
+.faq summary::after {
+  content: "▸";
+  position: absolute;
+  right: 5px;
+  transition: transform 0.2s;
+}
+.faq[open] summary::after {
+  transform: rotate(90deg);
+}
+.faq p {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  color: #444;
+  font-size: 0.95em;
+}
+
+/* 안내문 */
+.notice {
+  background: #fff9e6;
+  border-left: 4px solid #f39c12;
+  padding: 12px 16px;
+  border-radius: 4px;
+  color: #7f6000;
+}
