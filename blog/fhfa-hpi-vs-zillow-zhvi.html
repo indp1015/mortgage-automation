@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a3d5c'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3EH%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="mach6lnfa3pBwVHZieOD4_1wwS_s0kobDz9h4xyb7AE" />
+<title>FHFA HPI vs. Zillow ZHVI: Which Housing Index Should You Trust? | US Housing Data</title>
+<meta name="description" content="Two popular home price indices measure different things. Here's how they differ and when to use each.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2850461542641038"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">US Mortgage Data</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/calculator.html">Calculator</a>
+      <a href="/rates.html">Rates</a>
+      <a href="/states/california.html">States</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 상단 광고 슬롯 -->
+<div class="container ad-slot ad-top">
+  <!-- AdSense 광고 코드 삽입 위치 (승인 후) -->
+</div>
+
+<main class="container">
+
+
+<article class="blog-post">
+<p class="breadcrumb">
+  <a href="/">Home</a> ›
+  <a href="/blog/">Blog</a> ›
+  FHFA HPI vs. Zillow ZHVI: Which Housing Index Should You Trust?
+</p>
+
+<h1>FHFA HPI vs. Zillow ZHVI: Which Housing Index Should You Trust?</h1>
+<p class="post-meta-header">
+  <span class="post-category">Comparison</span>
+  · Published 2026-09-29
+  
+  · 6 min read
+</p>
+
+<div class="post-content">
+  <p class='lead'>Two of the most cited U.S. home price indices—the FHFA House Price Index and the Zillow Home Value Index—often tell different stories. Understanding why helps you interpret headlines and make better decisions.</p><h2>FHFA House Price Index (HPI)</h2><p>The FHFA HPI is published by the Federal Housing Finance Agency and is based on <strong>actual mortgage transactions</strong> from Fannie Mae and Freddie Mac.</p><ul><li><strong>Method:</strong> Repeat-sales index measuring price changes on the same homes over time</li><li><strong>Coverage:</strong> National, state, and county level (about 2,800 counties)</li><li><strong>Frequency:</strong> Quarterly</li><li><strong>Sample:</strong> Conforming loans only (under Fannie/Freddie limits)</li></ul><h2>Zillow Home Value Index (ZHVI)</h2><p>The Zillow ZHVI is a smoothed, seasonally adjusted measure of typical home values, based on Zillow's proprietary valuation models.</p><ul><li><strong>Method:</strong> Median estimated home value across all properties in an area</li><li><strong>Coverage:</strong> National, state, metro, county, ZIP, and neighborhood</li><li><strong>Frequency:</strong> Monthly</li><li><strong>Sample:</strong> All homes, regardless of financing</li></ul><h2>Key Differences</h2><p>Here's how they diverge in practice:</p><ol><li><strong>Sample selection:</strong> FHFA uses only conforming loans (typically &lt; $766,550 in 2024). Zillow uses all homes. In high-cost markets where jumbo loans dominate, FHFA may miss a large share of transactions.</li><li><strong>Price measurement:</strong> FHFA compares the sale price of the same home over time, removing composition bias. Zillow estimates what every home is worth, including homes that haven't sold recently.</li><li><strong>Timing:</strong> FHFA is quarterly and lags by 1-2 months. Zillow is monthly and lags by ~2 weeks.</li><li><strong>Revision behavior:</strong> FHFA revises historical data infrequently. Zillow revises monthly as new data arrives.</li></ol><h2>Why They Sometimes Disagree</h2><p>During 2020-2022, the two indices diverged significantly in some markets. This happens when:</p><ul><li><strong>Jumbo loans dominate:</strong> Coastal markets often see FHFA missing high-end transactions, understating price growth.</li><li><strong>New construction:</strong> Zillow includes new builds; FHFA focuses on repeat sales.</li><li><strong>Model assumptions:</strong> Zillow's valuation model can shift with changes in their algorithm.</li></ul><h2>Which Should You Use?</h2><p>It depends on your goal:</p><ul><li><strong>Long-term trends:</strong> FHFA is highly reliable because it's based on verified Repeat-Sales transactions.</li><li><strong>Recent momentum:</strong> Zillow updates monthly and offers granular neighborhood-level signals.</li><li><strong>Cross-county comparison:</strong> FHFA provides strong consistency across standard county boundaries.</li><li><strong>Data Integration:</strong> Public domain data like FHFA serves as a transparent baseline, while private datasets add high-frequency depth.</li></ul><h2>Our Current Data Architecture and Expansion Plans</h2><p>US Housing Data currently relies on the <strong>FHFA HPI</strong> alongside Census ACS estimates as our foundational core. We chose FHFA for our launch phase because:</p><ol><li>It provides a fully transparent, transaction-verified government baseline</li><li>Its repeat-sales methodology offers consistent historical comparisons</li><li>Its quarterly cadence perfectly complements our annual Census ACS data</li></ol><p><strong>Looking Ahead:</strong> To offer our readers an even richer and more complete view of local real estate trends, we plan to integrate private market indicators—including Zillow ZHVI and Redfin metrics—into our platform in upcoming feature releases. Combining official government statistics with high-frequency private data will give users the ultimate tool for both structural and real-time housing analysis.</p><h2>Practical Advice</h2><p>Never rely on a single index. When you see a headline saying 'home prices rose 5%,' check:</p><ol><li>Which index is being cited</li><li>What time period it covers</li><li>Whether the market has unusual financing patterns</li><li>What the long-term trend looks like from multiple sources</li></ol><p>Two indices that disagree by 2-3 percentage points are both probably right—they're just measuring slightly different things.</p><h2>The Bottom Line</h2><p>FHFA and Zillow are both useful, but for different purposes. For structural analysis and long-term trends, FHFA offers a solid baseline. For recent momentum and neighborhood-level detail, private indices excel. As our site grows, we look forward to bringing both perspectives directly into your housing market research.</p>
+</div>
+
+<hr>
+
+<div class="related-links">
+  <h3>Explore Related Data</h3>
+  <ul>
+    <li><a href="/">U.S. Housing Market Overview</a></li>
+    <li><a href="/rankings/most-expensive-counties.html">100 Most Expensive Counties</a></li>
+    <li><a href="/rankings/best-price-to-rent.html">Best Price-to-Rent Ratios</a></li>
+    <li><a href="/states/california.html">California Housing Market</a></li>
+  </ul>
+</div>
+
+<p class="methodology">
+  <strong>Disclaimer:</strong> This article is for informational purposes only
+  and does not constitute financial, investment, or real estate advice. Data
+  referenced is sourced from the U.S. Census Bureau (ACS) and the FHFA. This
+  product uses FHFA Data but is neither endorsed nor certified by FHFA.
+</p>
+
+</article>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 US Mortgage Data. Data sourced from FHFA, HUD, and FRED.</p>
+    <nav>
+      <a href="/about.html">About</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/terms.html">Terms</a> ·
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+  <p class="disclaimer">
+    Mortgage data: FHFA Conforming Loan Limits, HUD FHA Forward Limits, FRED.<br>
+    <strong>This product uses FHFA Data but is neither endorsed nor certified by FHFA.</strong>
+  </p>
+</footer>
+</body>
+</html>

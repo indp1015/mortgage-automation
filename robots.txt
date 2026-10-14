@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://indp1015.github.io/housing-automation/sitemap.xml
