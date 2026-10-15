@@ -3,16 +3,15 @@
  * - FHA / VA / USDA / Conventional 지원
  * - 카운티별 자동 한도 적용
  * - MIP / PMI 자동 계산
+ * - URL 파라미터: ?state=MI&county=26071&price=109100&rate=7.4&type=fha
  */
 
 (function() {
   'use strict';
 
-  // ─── 카운티 데이터 캐시 ───
   let countyData = null;
-  let stateMap = {};  // {state: [[fips, name, fha, conf], ...]}
+  let stateMap = {};  // {state: [{fips, name, fha, conf}, ...]}
 
-  // ─── 초기 로드 ───
   // ─── 초기 로드 ───
   fetch('/static/counties_limits.json')
     .then(r => r.json())
@@ -20,23 +19,39 @@
       countyData = data.counties;
       buildStateMap();
       populateStateSelect();
+      applyUrlParams();   // 🆕 URL 파라미터 적용
     })
     .catch(err => console.error('카운티 데이터 로드 실패:', err));
 
+  // ─── State Map 구성 (배열 구조 대응) ───
   function buildStateMap() {
     for (const [fips, info] of Object.entries(countyData)) {
-      const state = info[1];
+      const state = info[1];   // ["Moore","TN",541287,832750] → info[1] = "TN"
+      if (!state) continue;
+
       if (!stateMap[state]) stateMap[state] = [];
-      stateMap[state].push([fips, ...info]);
+      stateMap[state].push({
+        fips: fips,
+        name: info[0],
+        fha: info[2] || 0,
+        conf: info[3] || 0,
+      });
     }
-    // 각 주별로 카운티 이름순 정렬
+    // 카운티 이름순 정렬
     for (const state in stateMap) {
-      stateMap[state].sort((a, b) => a[1].localeCompare(b[1]));
+      stateMap[state].sort((a, b) => a.name.localeCompare(b.name));
     }
+    console.log('[Calculator] State map:', Object.keys(stateMap).length, 'states');
   }
 
   function populateStateSelect() {
     const sel = document.getElementById('stateSelect');
+    if (!sel) {
+      console.error('[Calculator] stateSelect 요소를 찾을 수 없음');
+      return;
+    }
+    sel.innerHTML = '<option value="">-- All States --</option>';
+
     const states = Object.keys(stateMap).sort();
     for (const s of states) {
       const opt = document.createElement('option');
@@ -44,6 +59,94 @@
       opt.textContent = s;
       sel.appendChild(opt);
     }
+  }
+
+  function populateCountySelect(state) {
+    const sel = document.getElementById('countySelect');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">-- Select County --</option>';
+
+    if (!state || !stateMap[state]) return;
+
+    for (const c of stateMap[state]) {
+      const opt = document.createElement('option');
+      opt.value = c.fips;
+      opt.textContent = c.name;
+      opt.dataset.fha = c.fha;
+      opt.dataset.conf = c.conf;
+      sel.appendChild(opt);
+    }
+  }
+
+  // ─── URL 파라미터 적용 (핵심) ───
+  function applyUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+
+    // 1) State
+    const stateParam = params.get('state');
+    if (stateParam) {
+      const stateSel = document.getElementById('stateSelect');
+      if (stateSel) {
+        stateSel.value = stateParam;
+        populateCountySelect(stateParam);
+
+        // 2) County (FIPS 또는 이름으로 매칭)
+        const countyParam = params.get('county');
+        if (countyParam) {
+          const countySel = document.getElementById('countySelect');
+          if (countySel) {
+            let found = false;
+            for (const opt of countySel.options) {
+              if (opt.value === countyParam) {
+                countySel.value = countyParam;
+                found = true;
+                break;
+              }
+            }
+            if (!found) {
+              for (const opt of countySel.options) {
+                if (opt.textContent.toUpperCase().includes(countyParam.toUpperCase())) {
+                  countySel.value = opt.value;
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 3) Home Price
+    const priceParam = params.get('price');
+    if (priceParam) {
+      const priceInput = document.getElementById('homePrice');
+      if (priceInput) {
+        priceInput.value = priceParam;
+        const price = parseFloat(priceParam) || 0;
+        const pct = parseFloat(document.getElementById('downPct').value) || 3.5;
+        document.getElementById('downPayment').value = Math.round(price * pct / 100);
+      }
+    }
+
+    // 4) Interest Rate
+    const rateParam = params.get('rate');
+    if (rateParam) {
+      const rateInput = document.getElementById('interestRate');
+      if (rateInput) rateInput.value = rateParam;
+    }
+
+    // 5) Loan Type
+    const typeParam = params.get('type');
+    if (typeParam) {
+      const loanSel = document.getElementById('loanType');
+      if (loanSel) {
+        loanSel.value = typeParam;
+        applyMinDownPayment(typeParam);
+      }
+    }
+
+    // 6) 계산 실행
+    calculate();
   }
 
   // ─── 이벤트 바인딩 ───
@@ -62,7 +165,6 @@
 
   // ─── 입력 처리 ───
   function handleInput(e) {
-    // 다운페이 비율 ↔ 금액 동기화
     if (e && e.target.id === 'downPct') {
       const price = parseFloat(document.getElementById('homePrice').value) || 0;
       const pct = parseFloat(document.getElementById('downPct').value) || 0;
@@ -73,17 +175,14 @@
       document.getElementById('downPct').value = price > 0
         ? (dp / price * 100).toFixed(2) : 0;
     } else if (e && e.target.id === 'homePrice') {
-      // 가격 바뀌면 다운페이 재계산
       const price = parseFloat(document.getElementById('homePrice').value) || 0;
       const pct = parseFloat(document.getElementById('downPct').value) || 0;
       document.getElementById('downPayment').value = Math.round(price * pct / 100);
     } else if (e && e.target.id === 'loanType') {
-      // 대출 타입별 최소 다운페이 자동 조정
       applyMinDownPayment(e.target.value);
     } else if (e && e.target.id === 'stateSelect') {
       populateCountySelect(e.target.value);
     }
-
     calculate();
   }
 
@@ -94,23 +193,7 @@
     document.getElementById('downPayment').value = Math.round(price * minPct / 100);
   }
 
-  function populateCountySelect(state) {
-    const sel = document.getElementById('countySelect');
-    sel.innerHTML = '<option value="">-- Select County --</option>';
-
-    if (!state || !stateMap[state]) return;
-
-    for (const [fips, name, st, fha, conf] of stateMap[state]) {
-      const opt = document.createElement('option');
-      opt.value = fips;
-      opt.textContent = name;
-      opt.dataset.fha = fha;
-      opt.dataset.conf = conf;
-      sel.appendChild(opt);
-    }
-  }
-
-  // ─── 계산 ───
+  // ─── 계산 (기존과 동일) ───
   function calculate() {
     const price = parseFloat(document.getElementById('homePrice').value) || 0;
     const dp = parseFloat(document.getElementById('downPayment').value) || 0;
@@ -122,58 +205,44 @@
     const loanType = document.getElementById('loanType').value;
 
     const loanAmount = Math.max(0, price - dp);
-
     if (loanAmount <= 0 || rate <= 0 || term <= 0) {
       resetOutputs();
       return;
     }
 
-    // 월 이자율
     const monthlyRate = rate / 100 / 12;
     const n = term * 12;
-
-    // P&I (원리금)
     const pi = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, n)
              / (Math.pow(1 + monthlyRate, n) - 1);
 
-    // 세금/보험
     const taxMo = price * taxPct / 100 / 12;
     const insMo = insYr / 12;
 
-    // MIP/PMI 계산
     let mipMo = 0;
     let mipLabel = '';
     if (loanType === 'fha') {
-      // FHA MIP: 연 0.55% (기본), LTV > 95%시 0.85%
       const ltv = loanAmount / price;
       const mipRate = ltv > 0.95 ? 0.0085 : 0.0055;
       mipMo = loanAmount * mipRate / 12;
       mipLabel = 'FHA MIP';
     } else if (loanType === 'conventional') {
-      // PMI: LTV > 80%시 연 0.5~1.5%. 0.7% 가정
       const ltv = loanAmount / price;
       if (ltv > 0.8) {
         mipMo = loanAmount * 0.007 / 12;
         mipLabel = 'PMI (est.)';
       }
     }
-    // VA, USDA는 MIP 없음
 
     const totalMonthly = pi + taxMo + insMo + mipMo + hoaMo;
-
-    // 총 이자
     const totalPaid = pi * n;
     const totalInterest = totalPaid - loanAmount;
 
-    // ─── 출력 ───
     document.getElementById('monthlyPayment').textContent = fmt(totalMonthly);
     document.getElementById('loanAmountInfo').textContent = 'Loan Amount: ' + fmt(loanAmount);
-
     document.getElementById('piAmount').textContent = fmt(pi);
     document.getElementById('taxAmount').textContent = fmt(taxMo);
     document.getElementById('insAmount').textContent = fmt(insMo);
 
-    // MIP
     const mipRow = document.getElementById('mipRow');
     if (mipMo > 0) {
       mipRow.style.display = '';
@@ -183,7 +252,6 @@
       mipRow.style.display = 'none';
     }
 
-    // HOA
     const hoaRow = document.getElementById('hoaRow');
     if (hoaMo > 0) {
       hoaRow.style.display = '';
@@ -197,7 +265,6 @@
     document.getElementById('summaryInterest').textContent = fmt(totalInterest);
     document.getElementById('summaryTotal').textContent = fmt(totalPaid);
 
-    // ─── 한도 체크 ───
     checkLoanLimit(loanType, loanAmount, price);
   }
 
@@ -206,7 +273,7 @@
     const box = document.getElementById('limitBox');
     const info = document.getElementById('limitInfo');
 
-    if (!countySel.value) {
+    if (!countySel || !countySel.value) {
       box.innerHTML = '<p class="limit-hint">💡 Select a county above to verify loan limits.</p>';
       info.textContent = '';
       return;
@@ -215,13 +282,11 @@
     const opt = countySel.options[countySel.selectedIndex];
     const fhaLimit = parseInt(opt.dataset.fha) || 524225;
     const confLimit = parseInt(opt.dataset.conf) || 832750;
-
     const limit = (loanType === 'fha') ? fhaLimit : confLimit;
     const limitLabel = (loanType === 'fha') ? 'FHA' : 'Conforming';
 
     info.textContent = `${limitLabel} limit: ${fmt(limit)}`;
 
-    // VA/USDA는 한도 없음
     if (loanType === 'va' || loanType === 'usda') {
       box.innerHTML = `<p class="limit-ok">✅ ${loanType.toUpperCase()} loans have no county limit for eligible borrowers.</p>`;
       return;
@@ -237,24 +302,19 @@
   function resetOutputs() {
     ['monthlyPayment', 'piAmount', 'taxAmount', 'insAmount', 'totalMonthly',
      'summaryLoan', 'summaryInterest', 'summaryTotal', 'mipAmount', 'hoaAmount']
-      .forEach(id => document.getElementById(id).textContent = '$0');
-    document.getElementById('mipRow').style.display = 'none';
-    document.getElementById('hoaRow').style.display = 'none';
+      .forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '$0';
+      });
+    const mipRow = document.getElementById('mipRow');
+    const hoaRow = document.getElementById('hoaRow');
+    if (mipRow) mipRow.style.display = 'none';
+    if (hoaRow) hoaRow.style.display = 'none';
   }
 
   function fmt(n) {
     if (!isFinite(n) || n <= 0) return '$0';
     return '$' + Math.round(n).toLocaleString('en-US');
   }
-
-  // 초기 계산 (페이지 로드 시)
-  window.addEventListener('DOMContentLoaded', () => {
-    // URL에서 자동 채우기 (예: ?price=500000&county=06037)
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('price')) document.getElementById('homePrice').value = params.get('price');
-    if (params.get('rate')) document.getElementById('interestRate').value = params.get('rate');
-
-    setTimeout(calculate, 500);
-  });
 
 })();
