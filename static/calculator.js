@@ -11,6 +11,7 @@
 
   let countyData = null;
   let stateMap = {};  // {state: [{fips, name, fha, conf}, ...]}
+  let propertyTaxData = null;   // 🆕 {fips: [name, state, median_tax, rate]}
 
   // ─── 초기 로드 ───
   fetch('/static/counties_limits.json')
@@ -19,9 +20,20 @@
       countyData = data.counties;
       buildStateMap();
       populateStateSelect();
-      applyUrlParams();   // 🆕 URL 파라미터 적용
+      applyUrlParams();
     })
     .catch(err => console.error('카운티 데이터 로드 실패:', err));
+
+  // 🆕 세율 데이터 로드
+  fetch('/static/counties_tax_rates.json')
+    .then(r => r.json())
+    .then(data => {
+      propertyTaxData = data.counties || {};
+      console.log('[Calculator] Tax rates loaded:', Object.keys(propertyTaxData).length);
+      const cSel = document.getElementById('countySelect');
+      if (cSel && cSel.value) applyCountyTaxRate(cSel.value);
+    })
+    .catch(err => console.warn('세율 데이터 로드 실패 (선택):', err));
 
   // ─── State Map 구성 (배열 구조 대응) ───
   function buildStateMap() {
@@ -111,6 +123,8 @@
                 }
               }
             }
+            // 🆕 세율 적용 (데이터가 아직 로드 안 됐으면 나중에 자동 재시도)
+            if (countySel.value) applyCountyTaxRate(countySel.value);
           }
         }
       }
@@ -182,8 +196,25 @@
       applyMinDownPayment(e.target.value);
     } else if (e && e.target.id === 'stateSelect') {
       populateCountySelect(e.target.value);
+    } else if (e && e.target.id === 'countySelect') {
+      applyCountyTaxRate(e.target.value);   // 🆕
     }
     calculate();
+  }
+  // 🆕 카운티 선택 시 세율 자동 반영
+  function applyCountyTaxRate(fips) {
+    if (!propertyTaxData || !fips) return;
+    const info = propertyTaxData[fips];
+    if (!info || !Array.isArray(info)) return;
+    // 구조: [name, state, median_tax, effective_rate]
+    const rate = parseFloat(info[3]);
+    if (isNaN(rate) || rate <= 0) return;
+    const taxInput = document.getElementById('propertyTax');
+    if (taxInput) {
+      taxInput.value = rate.toFixed(2);
+      calculate();
+      console.log('[Calculator] Applied tax rate for', fips, ':', rate + '%');
+    }
   }
 
   function applyMinDownPayment(type) {
