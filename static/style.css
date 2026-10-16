@@ -773,3 +773,130 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   .cross-link-box { padding: 18px 20px; }
   .cross-link-btn { display: block; text-align: center; }
 }
+/* ═══════════════════════════════════════════
+   AMORTIZATION SCHEDULE
+   ═══════════════════════════════════════════ */
+.show-amort-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  margin: 24px 0;
+  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.show-amort-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(26, 61, 92, 0.25);
+}
+.amort-section {
+  background: white;
+  border: 1px solid #e0e8f0;
+  border-radius: 10px;
+  padding: 24px;
+  margin: 24px 0;
+}
+.amort-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.amort-header h2 {
+  margin: 0;
+  border: none;
+  padding: 0;
+  color: #1a3d5c;
+}
+.amort-close {
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: #999;
+  cursor: pointer;
+  padding: 0 8px;
+}
+.amort-close:hover { color: #c0392b; }
+.amort-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.amort-stat {
+  background: #f0f5fa;
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: center;
+  border-left: 4px solid #1a3d5c;
+}
+.amort-stat span {
+  display: block;
+  font-size: 0.78em;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.amort-stat strong {
+  display: block;
+  font-size: 1.3em;
+  color: #1a3d5c;
+}
+.amort-chart-wrapper {
+  position: relative;
+  height: 320px;
+  margin-bottom: 20px;
+}
+.amort-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.amort-tab {
+  padding: 8px 18px;
+  background: #f0f5fa;
+  border: 1px solid #d4e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  font-size: 0.9em;
+}
+.amort-tab.active {
+  background: #1a3d5c;
+  color: white;
+  border-color: #1a3d5c;
+}
+.amort-table-wrapper {
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #e0e8f0;
+  border-radius: 8px;
+}
+.amort-table {
+  font-size: 0.85em;
+  margin: 0;
+}
+.amort-table th {
+  position: sticky;
+  top: 0;
+  background: #1a3d5c;
+  color: white;
+  z-index: 2;
+}
+.amort-table tbody tr:nth-child(even) {
+  background: #f9fbfd;
+}
+.amort-note {
+  font-size: 0.78em;
+  color: #888;
+  font-style: italic;
+  margin: 16px 0 0 0;
+  line-height: 1.5;
+}

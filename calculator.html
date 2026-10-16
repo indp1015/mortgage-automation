@@ -229,7 +229,54 @@
   </div>
 
 </div>
+<!-- Amortization Section -->
+<div class="amort-section" id="amortSection" style="display:none;">
+  <div class="amort-header">
+    <h2>📅 Amortization Schedule</h2>
+    <button id="closeAmort" class="amort-close">×</button>
+  </div>
 
+  <div class="amort-summary">
+    <div class="amort-stat">
+      <span>First Payment P&I</span>
+      <strong id="amortFirstPayment">—</strong>
+    </div>
+    <div class="amort-stat">
+      <span>Last Payment P&I</span>
+      <strong id="amortLastPayment">—</strong>
+    </div>
+    <div class="amort-stat">
+      <span>Total Interest</span>
+      <strong id="amortTotalInterest">—</strong>
+    </div>
+  </div>
+
+  <div class="amort-chart-wrapper">
+    <canvas id="amortChart"></canvas>
+  </div>
+
+  <div class="amort-toggle">
+    <button id="viewYearly" class="amort-tab active">Yearly View</button>
+    <button id="viewMonthly" class="amort-tab">Monthly View</button>
+  </div>
+
+  <div class="amort-table-wrapper">
+    <table class="data-table amort-table">
+      <thead id="amortThead"></thead>
+      <tbody id="amortTbody"></tbody>
+    </table>
+  </div>
+
+  <p class="amort-note">
+    Estimates based on fixed-rate loan at the specified rate and term.
+    Actual payments may vary due to escrow changes, PMI removal, or rate adjustments.
+  </p>
+</div>
+
+<!-- Amortization Toggle Button -->
+<button id="showAmort" class="show-amort-btn">
+  📅 View Amortization Schedule →
+</button>
 <!-- AdSense 광고 슬롯 -->
 <div class="ad-slot ad-in-article"></div>
 

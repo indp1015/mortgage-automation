@@ -234,7 +234,7 @@
     </a>`;
     linkBox.style.display = 'block';
   }
-  
+
   function applyMinDownPayment(type) {
     const minPct = { conventional: 5, fha: 3.5, va: 0, usda: 0 }[type] || 3.5;
     const price = parseFloat(document.getElementById('homePrice').value) || 0;
@@ -365,5 +365,243 @@
     if (!isFinite(n) || n <= 0) return '$0';
     return '$' + Math.round(n).toLocaleString('en-US');
   }
+  // ═══════════════════════════════════════════
+  // AMORTIZATION SCHEDULE
+  // ═══════════════════════════════════════════
+  let amortChart = null;
+  let amortData = [];
+  let amortView = 'yearly';
 
+  const showAmortBtn = document.getElementById('showAmort');
+  const closeAmortBtn = document.getElementById('closeAmort');
+  const viewYearlyBtn = document.getElementById('viewYearly');
+  const viewMonthlyBtn = document.getElementById('viewMonthly');
+
+  if (showAmortBtn) {
+    showAmortBtn.addEventListener('click', () => {
+      generateAmortization();
+      document.getElementById('amortSection').style.display = 'block';
+      showAmortBtn.style.display = 'none';
+      document.getElementById('amortSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  if (closeAmortBtn) {
+    closeAmortBtn.addEventListener('click', () => {
+      document.getElementById('amortSection').style.display = 'none';
+      showAmortBtn.style.display = 'block';
+    });
+  }
+
+  if (viewYearlyBtn) {
+    viewYearlyBtn.addEventListener('click', () => {
+      amortView = 'yearly';
+      viewYearlyBtn.classList.add('active');
+      viewMonthlyBtn.classList.remove('active');
+      renderAmortTable();
+    });
+  }
+
+  if (viewMonthlyBtn) {
+    viewMonthlyBtn.addEventListener('click', () => {
+      amortView = 'monthly';
+      viewMonthlyBtn.classList.add('active');
+      viewYearlyBtn.classList.remove('active');
+      renderAmortTable();
+    });
+  }
+
+  function generateAmortization() {
+    const price = parseFloat(document.getElementById('homePrice').value) || 0;
+    const dp = parseFloat(document.getElementById('downPayment').value) || 0;
+    const term = parseInt(document.getElementById('loanTerm').value) || 30;
+    const rate = parseFloat(document.getElementById('interestRate').value) || 6.85;
+    const loanAmount = Math.max(0, price - dp);
+
+    if (loanAmount <= 0 || rate <= 0) return;
+
+    const monthlyRate = rate / 100 / 12;
+    const n = term * 12;
+    const payment = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, n)
+                  / (Math.pow(1 + monthlyRate, n) - 1);
+
+    let balance = loanAmount;
+    let totalInterest = 0;
+    amortData = [];
+
+    for (let m = 1; m <= n; m++) {
+      const interest = balance * monthlyRate;
+      const principal = payment - interest;
+      balance = Math.max(0, balance - principal);
+      totalInterest += interest;
+
+      amortData.push({
+        month: m,
+        year: Math.ceil(m / 12),
+        payment: payment,
+        principal: principal,
+        interest: interest,
+        balance: balance,
+        totalInterest: totalInterest,
+      });
+    }
+
+    // 요약
+    document.getElementById('amortFirstPayment').textContent = fmt(payment);
+    document.getElementById('amortLastPayment').textContent = fmt(payment);
+    document.getElementById('amortTotalInterest').textContent = fmt(totalInterest);
+
+    renderAmortChart();
+    renderAmortTable();
+  }
+
+  function renderAmortChart() {
+    const ctx = document.getElementById('amortChart');
+    if (!ctx) return;
+
+    // 연도별 집계
+    const yearlyData = [];
+    let yearAgg = { principal: 0, interest: 0, balance: 0 };
+
+    amortData.forEach((row, idx) => {
+      yearAgg.principal += row.principal;
+      yearAgg.interest += row.interest;
+      yearAgg.balance = row.balance;
+
+      if ((idx + 1) % 12 === 0 || idx === amortData.length - 1) {
+        yearlyData.push({
+          year: row.year,
+          principal: yearAgg.principal,
+          interest: yearAgg.interest,
+          balance: yearAgg.balance,
+        });
+        yearAgg = { principal: 0, interest: 0, balance: 0 };
+      }
+    });
+
+    const labels = yearlyData.map(d => 'Year ' + d.year);
+
+    if (amortChart) amortChart.destroy();
+
+    amortChart = new Chart(ctx.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Principal',
+            data: yearlyData.map(d => d.principal),
+            backgroundColor: 'rgba(26, 61, 92, 0.75)',
+            stack: 'payments',
+          },
+          {
+            label: 'Interest',
+            data: yearlyData.map(d => d.interest),
+            backgroundColor: 'rgba(230, 126, 34, 0.75)',
+            stack: 'payments',
+          },
+          {
+            label: 'Remaining Balance',
+            data: yearlyData.map(d => d.balance),
+            type: 'line',
+            borderColor: '#27ae60',
+            backgroundColor: 'rgba(39, 174, 96, 0.1)',
+            borderWidth: 2,
+            pointRadius: 3,
+            fill: false,
+            yAxisID: 'y1',
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top' },
+          tooltip: {
+            callbacks: {
+              label: c => c.dataset.label + ': ' + fmt(c.parsed.y),
+            },
+          },
+        },
+        scales: {
+          y: {
+            stacked: true,
+            title: { display: true, text: 'Yearly Payment ($)' },
+            ticks: { callback: v => '$' + (v / 1000).toFixed(0) + 'k' },
+          },
+          y1: {
+            position: 'right',
+            title: { display: true, text: 'Balance ($)' },
+            grid: { drawOnChartArea: false },
+            ticks: { callback: v => '$' + (v / 1000).toFixed(0) + 'k' },
+          },
+          x: { grid: { display: false } },
+        },
+      },
+    });
+  }
+
+  function renderAmortTable() {
+    const thead = document.getElementById('amortThead');
+    const tbody = document.getElementById('amortTbody');
+    if (!thead || !tbody) return;
+
+    if (amortView === 'yearly') {
+      thead.innerHTML = `
+        <tr>
+          <th>Year</th>
+          <th>Principal</th>
+          <th>Interest</th>
+          <th>Balance</th>
+        </tr>
+      `;
+
+      // 연도별 집계
+      const yearly = [];
+      let agg = { principal: 0, interest: 0, balance: 0 };
+      amortData.forEach((row, idx) => {
+        agg.principal += row.principal;
+        agg.interest += row.interest;
+        agg.balance = row.balance;
+        if ((idx + 1) % 12 === 0 || idx === amortData.length - 1) {
+          yearly.push({
+            year: row.year,
+            principal: agg.principal,
+            interest: agg.interest,
+            balance: agg.balance,
+          });
+          agg = { principal: 0, interest: 0, balance: 0 };
+        }
+      });
+
+      tbody.innerHTML = yearly.map(y => `
+        <tr>
+          <td><strong>${y.year}</strong></td>
+          <td>${fmt(y.principal)}</td>
+          <td>${fmt(y.interest)}</td>
+          <td>${fmt(y.balance)}</td>
+        </tr>
+      `).join('');
+    } else {
+      thead.innerHTML = `
+        <tr>
+          <th>#</th>
+          <th>Payment</th>
+          <th>Principal</th>
+          <th>Interest</th>
+          <th>Balance</th>
+        </tr>
+      `;
+      tbody.innerHTML = amortData.map(row => `
+        <tr>
+          <td>${row.month}</td>
+          <td>${fmt(row.payment)}</td>
+          <td>${fmt(row.principal)}</td>
+          <td>${fmt(row.interest)}</td>
+          <td>${fmt(row.balance)}</td>
+        </tr>
+      `).join('');
+    }
+  }
 })();
