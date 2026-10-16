@@ -365,6 +365,103 @@
     if (!isFinite(n) || n <= 0) return '$0';
     return '$' + Math.round(n).toLocaleString('en-US');
   }
+    // ═══════════════════════════════════════════
+  // PURCHASE / REFINANCE MODE TABS
+  // ═══════════════════════════════════════════
+  const tabPurchase = document.getElementById('tabPurchase');
+  const tabRefinance = document.getElementById('tabRefinance');
+  const purchaseMode = document.getElementById('purchaseMode');
+  const refinanceMode = document.getElementById('refinanceMode');
+
+  if (tabPurchase && tabRefinance) {
+    tabPurchase.addEventListener('click', () => {
+      tabPurchase.classList.add('active');
+      tabRefinance.classList.remove('active');
+      purchaseMode.style.display = '';
+      refinanceMode.style.display = 'none';
+    });
+
+    tabRefinance.addEventListener('click', () => {
+      tabRefinance.classList.add('active');
+      tabPurchase.classList.remove('active');
+      purchaseMode.style.display = 'none';
+      refinanceMode.style.display = '';
+      calculateRefinance();
+    });
+  }
+
+  const refInputIds = [
+    'refBalance', 'refCurrentRate', 'refRemainingYears',
+    'refNewRate', 'refNewTerm', 'refClosingCosts'
+  ];
+  refInputIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', calculateRefinance);
+      el.addEventListener('change', calculateRefinance);
+    }
+  });
+
+  function monthlyPI(principal, annualRate, years) {
+    const r = annualRate / 100 / 12;
+    const n = years * 12;
+    if (r === 0) return principal / n;
+    return principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+  }
+
+  function calculateRefinance() {
+    const balance = parseFloat(document.getElementById('refBalance').value) || 0;
+    const currentRate = parseFloat(document.getElementById('refCurrentRate').value) || 0;
+    const remainYears = parseInt(document.getElementById('refRemainingYears').value) || 25;
+    const newRate = parseFloat(document.getElementById('refNewRate').value) || 0;
+    const newTerm = parseInt(document.getElementById('refNewTerm').value) || 30;
+    const closingCosts = parseFloat(document.getElementById('refClosingCosts').value) || 0;
+
+    if (balance <= 0 || currentRate <= 0 || newRate <= 0) {
+      ['refMonthlySavings','refCurrentPI','refNewPI','refMonthlySavings2',
+       'refCurrentTotal','refNewTotal','refLifetimeSavings'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '$0';
+      });
+      document.getElementById('refBreakEven').textContent = 'Break-even: —';
+      document.getElementById('refInsight').innerHTML = '';
+      return;
+    }
+
+    const currentPI = monthlyPI(balance, currentRate, remainYears);
+    const newPI = monthlyPI(balance, newRate, newTerm);
+    const monthlySavings = currentPI - newPI;
+    const currentTotal = currentPI * remainYears * 12;
+    const newTotal = newPI * newTerm * 12 + closingCosts;
+    const lifetimeSavings = currentTotal - newTotal;
+
+    document.getElementById('refMonthlySavings').textContent = fmt(monthlySavings) + '/mo';
+    document.getElementById('refCurrentPI').textContent = fmt(currentPI);
+    document.getElementById('refNewPI').textContent = fmt(newPI);
+    document.getElementById('refMonthlySavings2').textContent = fmt(monthlySavings);
+    document.getElementById('refCurrentTotal').textContent = fmt(currentTotal);
+    document.getElementById('refNewTotal').textContent = fmt(newTotal);
+    document.getElementById('refLifetimeSavings').textContent = fmt(lifetimeSavings);
+
+    let breakEvenText = '—';
+    if (monthlySavings > 0 && closingCosts > 0) {
+      const months = Math.ceil(closingCosts / monthlySavings);
+      breakEvenText = months + ' months';
+    } else if (monthlySavings > 0) {
+      breakEvenText = 'Immediate';
+    }
+    document.getElementById('refBreakEven').textContent = 'Break-even: ' + breakEvenText;
+
+    const insight = document.getElementById('refInsight');
+    if (monthlySavings > 0 && lifetimeSavings > 0) {
+      insight.innerHTML = `<p class="limit-ok">✅ Refinancing would save ${fmt(monthlySavings)}/month and ${fmt(lifetimeSavings)} over the life of the loan.</p>`;
+    } else if (monthlySavings > 0 && lifetimeSavings <= 0) {
+      insight.innerHTML = `<p class="limit-warn">⚠️ Monthly savings of ${fmt(monthlySavings)}, but total cost increases by ${fmt(-lifetimeSavings)} due to the extended term.</p>`;
+    } else {
+      insight.innerHTML = `<p class="limit-warn">⚠️ New loan has higher or equal monthly payment. Refinancing not beneficial at these terms.</p>`;
+    }
+  }
+
   // ═══════════════════════════════════════════
   // AMORTIZATION SCHEDULE
   // ═══════════════════════════════════════════

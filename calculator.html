@@ -43,9 +43,15 @@
   Compare FHA, VA, USDA, and Conventional loans side-by-side.
 </p>
 
+<!-- 🆕 Mode Tabs -->
+<div class="mode-tabs">
+  <button id="tabPurchase" class="mode-tab active">🏠 Purchase</button>
+  <button id="tabRefinance" class="mode-tab">🔄 Refinance</button>
+</div>
+
 <!-- 광고 슬롯 -->
 <div class="ad-slot ad-in-article"></div>
-
+<div id="purchaseMode">     ← 🆕 추가
 <div class="calc-grid">
 
   <!-- 좌측: 입력 -->
@@ -228,6 +234,118 @@
 
   </div>
 
+</div>
+</div>          ← 🆕 purchaseMode 닫는 태그 추가
+<!-- 🆕 Refinance Mode -->
+<div id="refinanceMode" style="display:none;">
+  <div class="calc-grid">
+    <div class="calc-inputs">
+      <div class="calc-section">
+        <h3>📊 Current Loan</h3>
+        <div class="calc-field">
+          <label for="refBalance">Remaining Balance</label>
+          <div class="input-group">
+            <span class="prefix">$</span>
+            <input type="number" id="refBalance" value="250000" min="0" step="1000">
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="refCurrentRate">Current Interest Rate</label>
+          <div class="input-group">
+            <input type="number" id="refCurrentRate" value="7.50" min="0.1" max="20" step="0.01">
+            <span class="suffix">%</span>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="refRemainingYears">Remaining Term</label>
+          <select id="refRemainingYears">
+            <option value="30">30 years</option>
+            <option value="25" selected>25 years</option>
+            <option value="20">20 years</option>
+            <option value="15">15 years</option>
+            <option value="10">10 years</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-section">
+        <h3>🔄 New Loan</h3>
+        <div class="calc-field">
+          <label for="refNewRate">New Interest Rate</label>
+          <div class="input-group">
+            <input type="number" id="refNewRate" value="6.25" min="0.1" max="20" step="0.01">
+            <span class="suffix">%</span>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label for="refNewTerm">New Term</label>
+          <select id="refNewTerm">
+            <option value="30" selected>30 years</option>
+            <option value="20">20 years</option>
+            <option value="15">15 years</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="refClosingCosts">Closing Costs</label>
+          <div class="input-group">
+            <span class="prefix">$</span>
+            <input type="number" id="refClosingCosts" value="4000" min="0" step="500">
+          </div>
+          <small class="hint">Typical refinance costs: 2–5% of loan amount.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-results">
+      <div class="result-main">
+        <div class="result-label">Monthly Savings</div>
+        <div class="result-value" id="refMonthlySavings">$0</div>
+        <div class="result-sub" id="refBreakEven">Break-even: —</div>
+      </div>
+
+      <div class="result-breakdown">
+        <h3>Payment Comparison</h3>
+        <table class="breakdown-table">
+          <tbody>
+            <tr>
+              <td>Current Monthly P&amp;I</td>
+              <td class="amount" id="refCurrentPI">$0</td>
+            </tr>
+            <tr>
+              <td>New Monthly P&amp;I</td>
+              <td class="amount" id="refNewPI">$0</td>
+            </tr>
+            <tr class="total-row">
+              <td><strong>Monthly Savings</strong></td>
+              <td class="amount"><strong id="refMonthlySavings2">$0</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="result-summary">
+        <h3>Lifetime Analysis</h3>
+        <table class="breakdown-table">
+          <tbody>
+            <tr>
+              <td>Remaining Payments (current)</td>
+              <td class="amount" id="refCurrentTotal">$0</td>
+            </tr>
+            <tr>
+              <td>New Total (incl. closing)</td>
+              <td class="amount" id="refNewTotal">$0</td>
+            </tr>
+            <tr>
+              <td>Lifetime Savings</td>
+              <td class="amount" id="refLifetimeSavings">$0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="result-limit" id="refInsight"></div>
+    </div>
+  </div>
 </div>
 <!-- Amortization Section -->
 <div class="amort-section" id="amortSection" style="display:none;">

@@ -900,3 +900,33 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   margin: 16px 0 0 0;
   line-height: 1.5;
 }
+/* ═══════════════════════════════════════════
+   MODE TABS (Purchase / Refinance)
+   ═══════════════════════════════════════════ */
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 24px 0;
+  border-bottom: 2px solid #e0e8f0;
+}
+.mode-tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -2px;
+  font-family: inherit;
+}
+.mode-tab:hover { color: #1a3d5c; }
+.mode-tab.active {
+  color: #1a3d5c;
+  border-bottom-color: #f39c12;
+}
+@media (max-width: 600px) {
+  .mode-tab { padding: 10px 14px; font-size: 0.9em; }
+}
