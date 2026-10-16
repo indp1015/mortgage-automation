@@ -1,40 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a3d5c'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3EH%3C/text%3E%3C/svg%3E">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="mach6lnfa3pBwVHZieOD4_1wwS_s0kobDz9h4xyb7AE" />
-<title>Mortgage Calculator 2026 — FHA, VA, Conventional Loans | US Mortgage Data</title>
-<meta name="description" content="Free mortgage calculator for 2026. Compare FHA, VA, USDA, and Conventional loans. Auto-applies 2026 county loan limits. Calculate monthly payment, MIP, PMI, and total interest.">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<link rel="stylesheet" href="/static/style.css">
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2850461542641038"
-     crossorigin="anonymous"></script>
-</head>
-<body>
-<header class="site-header">
-  <div class="container">
-    <a href="/" class="logo">US Mortgage Data</a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/calculator.html">Calculator</a>
-      <a href="/rates.html">Rates</a>
-      <a href="/states/california.html">States</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about.html">About</a>
-    </nav>
-  </div>
-</header>
-
-<!-- 상단 광고 슬롯 -->
-<div class="container ad-slot ad-top">
-  <!-- AdSense 광고 코드 삽입 위치 (승인 후) -->
-</div>
-
-<main class="container">
-
+{% extends "base.html" %}
+{% block title %}Mortgage Calculator 2026 — FHA, VA, Conventional Loans | {{ site_name }}{% endblock %}
+{% block description %}Free mortgage calculator for 2026. Compare FHA, VA, USDA, and Conventional loans. Auto-applies 2026 county loan limits. Calculate monthly payment, MIP, PMI, and total interest.{% endblock %}
+{% block content %}
 
 <article class="calculator-page">
 <h1>Mortgage Calculator 2026</h1>
@@ -99,7 +66,7 @@
       <div class="calc-field">
         <label for="interestRate">Interest Rate</label>
         <div class="input-group">
-          <input type="number" id="interestRate" value="7.4" min="0.1" max="20" step="0.01">
+          <input type="number" id="interestRate" value="{{ default_rate | default('6.85') }}" min="0.1" max="20" step="0.01">
           <span class="suffix">%</span>
         </div>
         <small class="hint">Auto-filled with current market rate. Adjust as needed.</small>
@@ -221,6 +188,11 @@
       <!-- 한도 초과 시 경고 표시 -->
     </div>
 
+    <!-- 🆕 Property Tax 상세 링크 (JS 동적 생성) -->
+    <div class="tax-detail-link" id="taxDetailLink" style="display:none; margin-top: 16px; padding: 12px 16px; background: #f0f9f4; border-left: 4px solid #27ae60; border-radius: 6px;">
+      <!-- JS가 여기에 링크 삽입 -->
+    </div>
+
   </div>
 
 </div>
@@ -283,24 +255,5 @@
 
 </article>
 
-<script src="/static/calculator.js"></script>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2026 US Mortgage Data. Data sourced from FHFA, HUD, and FRED.</p>
-    <nav>
-      <a href="/about.html">About</a> ·
-      <a href="/privacy.html">Privacy Policy</a> ·
-      <a href="/terms.html">Terms</a> ·
-      <a href="/contact.html">Contact</a>
-    </nav>
-  </div>
-  <p class="disclaimer">
-    Mortgage data: FHFA Conforming Loan Limits, HUD FHA Forward Limits, FRED.<br>
-    <strong>This product uses FHFA Data but is neither endorsed nor certified by FHFA.</strong>
-  </p>
-</footer>
-</body>
-</html>
+<script src="{{ base_url }}/static/calculator.js"></script>
+{% endblock %}

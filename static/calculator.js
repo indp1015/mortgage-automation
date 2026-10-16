@@ -215,8 +215,26 @@
       calculate();
       console.log('[Calculator] Applied tax rate for', fips, ':', rate + '%');
     }
+    updateTaxDetailLink(info[0], info[1]);   // 🆕 이 줄 추가
   }
 
+  // 🆕 Property Tax 사이트로 상세 링크 생성
+  function updateTaxDetailLink(countyName, stateName) {
+    const linkBox = document.getElementById('taxDetailLink');
+    if (!linkBox || !countyName || !stateName) return;
+
+    const slug = (countyName + '-' + stateName).toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-');
+
+    linkBox.innerHTML = `<a href="https://propertytax.dataindp.com/counties/${slug}.html" 
+                            target="_blank" rel="noopener"
+                            style="color: #1a3d5c; font-weight: 600; text-decoration: none; font-size: 0.95em;">
+      📊 See detailed property tax analysis for ${countyName} →
+    </a>`;
+    linkBox.style.display = 'block';
+  }
+  
   function applyMinDownPayment(type) {
     const minPct = { conventional: 5, fha: 3.5, va: 0, usda: 0 }[type] || 3.5;
     const price = parseFloat(document.getElementById('homePrice').value) || 0;
