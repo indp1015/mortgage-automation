@@ -964,3 +964,51 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   .ranking-table { font-size: 0.85em; }
   .ranking-table th, .ranking-table td { padding: 8px 6px; }
 }
+/* =========================================
+   🆕 Header Layout (Logo + Hub Button)
+   ========================================= */
+
+/* 모바일 기본 레이아웃 */
+.header-top {
+  display: flex;
+  justify-content: space-between; /* 로고는 왼쪽, 버튼은 오른쪽 끝 */
+  align-items: center;
+  width: 100%; /* 모바일에서 한 줄을 꽉 채움 */
+  margin-bottom: 10px; /* 서브메뉴와의 간격 */
+}
+
+/* 허브 버튼 스타일 */
+.hub-btn {
+  background-color: #e67e22; /* 눈에 띄는 주황색 */
+  color: white !important;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85em;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.hub-btn:hover {
+  background-color: #d35400;
+}
+
+/* 데스크톱(넓은 화면) 레이아웃 */
+@media (min-width: 768px) {
+  .header-top {
+    width: auto; /* 데스크톱에서는 내용물 크기만큼만 차지 */
+    margin-bottom: 0;
+    gap: 30px; /* 로고와 버튼 사이 간격 */
+  }
+  
+  /* 네비게이션 메뉴가 버튼과 자연스럽게 배치되도록 수정 */
+  .site-header .container {
+    justify-content: space-between;
+  }
+  
+  .site-header nav {
+    display: flex;
+    align-items: center;
+  }
+}
