@@ -215,7 +215,10 @@
       calculate();
       console.log('[Calculator] Applied tax rate for', fips, ':', rate + '%');
     }
-    updateCountyLinks(fips, info[0], info[1]);   // 🆕 fips 추가 전달
+    // 🆕 stateAbbr은 counties_limits.json(countyData)에서 가져옴 (2자리 약자)
+    //    counties_tax_rates.json의 info[1]은 "Tennessee" 같은 전체 이름이라 부적합
+    const stateAbbr = (countyData && countyData[fips] && countyData[fips][1]) || '';
+    updateCountyLinks(fips, info[0], stateAbbr);
   }
 
     // 🆕 Property Tax + Insurance 역방향 링크 생성
