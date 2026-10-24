@@ -215,23 +215,50 @@
       calculate();
       console.log('[Calculator] Applied tax rate for', fips, ':', rate + '%');
     }
-    updateTaxDetailLink(info[0], info[1]);   // 🆕 이 줄 추가
+    updateCountyLinks(fips, info[0], info[1]);   // 🆕 fips 추가 전달
   }
 
-  // 🆕 Property Tax 사이트로 상세 링크 생성
-  function updateTaxDetailLink(countyName, stateName) {
+    // 🆕 Property Tax + Insurance 역방향 링크 생성
+  function updateCountyLinks(fips, countyName, stateAbbr) {
     const linkBox = document.getElementById('taxDetailLink');
-    if (!linkBox || !countyName || !stateName) return;
+    if (!linkBox || !fips || !countyName || !stateAbbr) {
+      if (linkBox) linkBox.style.display = 'none';
+      return;
+    }
 
-    const slug = (countyName + '-' + stateName).toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-');
+    // 슬러그 결정: synced 데이터(index 4) 우선, 없으면 이름 기반 생성
+    let slug = null;
+    if (propertyTaxData && propertyTaxData[fips] && propertyTaxData[fips].length >= 5) {
+      slug = propertyTaxData[fips][4];
+    }
+    if (!slug) {
+      slug = (countyName + ' ' + stateAbbr).toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-');
+    }
 
-    linkBox.innerHTML = `<a href="https://propertytax.dataindp.com/counties/${slug}.html" 
-                            target="_blank" rel="noopener"
-                            style="color: #1a3d5c; font-weight: 600; text-decoration: none; font-size: 0.95em;">
-      📊 See detailed property tax analysis for ${countyName} →
-    </a>`;
+    // 현재 입력된 home price → URL 파라미터로 전달
+    const price = parseFloat(document.getElementById('homePrice').value) || 0;
+    const qs = `state=${encodeURIComponent(stateAbbr)}`
+             + `&county=${encodeURIComponent(fips)}`
+             + `&price=${encodeURIComponent(Math.round(price))}`;
+
+    // ✅ property-tax: 계산기 페이지 (county 상세 페이지 아님)
+    const propertyTaxUrl = `https://propertytax.dataindp.com/calculator.html?${qs}`;
+    // ✅ insurance: 카운티 상세 페이지
+    const insuranceUrl = `https://insurance.dataindp.com/counties/${encodeURIComponent(slug)}.html`;
+
+    linkBox.innerHTML = `
+      <div style="font-size: 0.85em; color: #666; margin-bottom: 8px;">Continue your research:</div>
+      <a href="${propertyTaxUrl}" target="_blank" rel="noopener"
+         style="display:block; margin-bottom:6px; color: #1a3d5c; font-weight: 600; text-decoration: none; font-size: 0.95em;">
+        🏛️ Calculate property tax for ${countyName} →
+      </a>
+      <a href="${insuranceUrl}" target="_blank" rel="noopener"
+         style="display:block; color: #1a3d5c; font-weight: 600; text-decoration: none; font-size: 0.95em;">
+        🛡️ See climate &amp; insurance risk analysis for ${countyName} →
+      </a>
+    `;
     linkBox.style.display = 'block';
   }
 
