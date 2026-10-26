@@ -19,7 +19,6 @@ fetch('/static/fred_prime_rate.json')
   .then(d => {
     if (d.latest && d.latest.value) {
       primeRate = d.latest.value;
-      console.log('[HELOC] Prime rate fetched:', primeRate);
 
       // Update both displays (banner + table)
       const bannerEl = document.getElementById('primeRateDisplay');
@@ -50,7 +49,7 @@ fetch('/static/fred_prime_rate.json')
     .then(r => r.json())
     .then(data => {
       helocEquityData = data.counties || {};
-      console.log('[HELOC] Equity data loaded:', Object.keys(helocEquityData).length, 'counties');
+      
       // If county already selected (from URL), update context
       const cSel = document.getElementById('countySelect');
       if (cSel && cSel.value) updateCountyContext(cSel.value);
@@ -83,9 +82,15 @@ fetch('/static/fred_prime_rate.json')
 
   function populateCountySelect(state) {
     const sel = document.getElementById('countySelect');
-    if (!sel) return;
+    if (!sel) {
+      console.error('[HELOC] countySelect element NOT FOUND in DOM!');
+      return;
+    }
     sel.innerHTML = '<option value="">-- Select County --</option>';
-    if (!state || !stateMap[state]) return;
+    if (!state || !stateMap[state]) {
+      console.warn('[HELOC] No counties for state:', state);
+      return;
+    }
     for (const c of stateMap[state]) {
       const opt = document.createElement('option');
       opt.value = c.fips;
@@ -101,19 +106,22 @@ fetch('/static/fred_prime_rate.json')
   ];
   inputIds.forEach(id => {
     const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('input', handleInput);
+    if (!el) return;
+    // select: change only (fires once); input[type=number]: input only
+    if (el.tagName === 'SELECT') {
       el.addEventListener('change', handleInput);
+    } else {
+      el.addEventListener('input', handleInput);
     }
   });
 
   function handleInput(e) {
     if (e && e.target.id === 'stateSelect') {
       populateCountySelect(e.target.value);
-      hideCountyContext();   // 🆕 state 변경 시 이전 county context 숨김
+      hideCountyContext();
     }
     if (e && e.target.id === 'countySelect') {
-      updateCountyContext(e.target.value);   // 🆕
+      updateCountyContext(e.target.value);
     }
     recalculate();
   }
