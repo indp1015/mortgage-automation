@@ -14,17 +14,24 @@
   let stateMap = {};
 
   // ---- Fetch Prime Rate (Public Domain) ----
-  fetch('/static/fred_prime_rate.json')
-    .then(r => r.json())
-    .then(d => {
-      if (d.latest && d.latest.value) {
-        primeRate = d.latest.value;
-        const el = document.getElementById('primeRateDisplay');
-        if (el) el.textContent = primeRate.toFixed(2) + '%';
-        recalculate();
-      }
-    })
-    .catch(() => console.warn('[HELOC] Prime rate unavailable, using fallback'));
+fetch('/static/fred_prime_rate.json')
+  .then(r => r.json())
+  .then(d => {
+    if (d.latest && d.latest.value) {
+      primeRate = d.latest.value;
+      console.log('[HELOC] Prime rate fetched:', primeRate);
+
+      // Update both displays (banner + table)
+      const bannerEl = document.getElementById('primeRateDisplay');
+      if (bannerEl) bannerEl.textContent = primeRate.toFixed(2) + '%';
+
+      const tableEl = document.getElementById('primeRateBenchmarkDisplay');
+      if (tableEl) tableEl.textContent = primeRate.toFixed(2) + '%';
+
+      recalculate();
+    }
+  })
+  .catch(() => console.warn('[HELOC] Prime rate unavailable, using fallback'));
 
   // ---- Load County Data (for pre-fill) ----
   fetch('/static/counties_limits.json')
@@ -127,7 +134,8 @@
     setText('maxBorrowing', formatMoney(availableCredit));
     setText('currentLtvDisplay', (currentLtv * 100).toFixed(1) + '%');
     setText('helocRateDisplay', (helocRate * 100).toFixed(2) + '%');
-    setText('primeRateDisplay', primeRate.toFixed(2) + '%');
+    setText('primeRateDisplay', primeRate.toFixed(2) + '%');           // banner
+    setText('primeRateBenchmarkDisplay', primeRate.toFixed(2) + '%');  // 🆕 table
     setText('marginDisplay', '+' + (margin * 100).toFixed(2) + '%');
     setText('interestOnlyMonthly', formatMoney(interestOnlyMonthly) + '/mo');
     setText('amortizedMonthly', formatMoney(amortizedMonthly) + '/mo');
@@ -151,6 +159,15 @@
           formatMoney(availableCredit) + ' in HELOC credit.</p>';
       }
     }
+
+        // 🆕 Debug log (all variables in scope here)
+    console.log('[HELOC] Recalculated:', {
+      creditTier,
+      margin: (margin * 100).toFixed(2) + '%',
+      primeRate: primeRate.toFixed(2) + '%',
+      helocRate: (helocRate * 100).toFixed(2) + '%',
+      availableCredit
+    });
   }
 
   function pAndI(principal, annualRatePct, years) {
