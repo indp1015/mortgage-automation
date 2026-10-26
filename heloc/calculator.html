@@ -116,15 +116,23 @@
         <small class="hint">Rates shown are typical ranges. Your actual rate depends on the lender.</small>
       </div>
 
-      <div class="calc-field">
+            <div class="calc-field">
         <label for="stateSelect">State (optional — for local data)</label>
         <select id="stateSelect">
           <option value="">-- All States --</option>
         </select>
       </div>
 
-<!-- 🆕 County context box (hidden by default) -->
-      <div id="countyContext" style="display: none; margin-top: 20px; padding: 15px; background: #f0f4f8; border-left: 4px solid #e67e22; border-radius: 6px;">
+      <!-- 🆕 County dropdown (was missing) -->
+      <div class="calc-field">
+        <label for="countySelect">County (optional)</label>
+        <select id="countySelect">
+          <option value="">-- Select State First --</option>
+        </select>
+      </div>
+
+      <!-- 🆕 County context box (hidden by default) -->
+      <div id="countyContext" style="display: none; margin-top: 15px; padding: 15px; background: #f0f4f8; border-left: 4px solid #e67e22; border-radius: 6px;">
         <!-- JS will populate -->
       </div>
     </div>
