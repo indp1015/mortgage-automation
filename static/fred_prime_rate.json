@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "series": "DPRIME",
+    "source": "Federal Reserve Board via FRED (Federal Reserve Bank of St. Louis)",
+    "license": "Public Domain (U.S. Government Work)",
+    "attribution": "Source: Board of Governors of the Federal Reserve System via FRED",
+    "fetched_at": "2026-10-26T09:55:29"
+  },
+  "latest": {
+    "date": "2026-10-21",
+    "value": 7.0
+  },
+  "recent": [
+    {
+      "date": "2026-10-21",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-20",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-19",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-16",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-15",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-14",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-13",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-12",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-09",
+      "value": 7.0
+    },
+    {
+      "date": "2026-10-08",
+      "value": 7.0
+    }
+  ]
+}

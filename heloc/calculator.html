@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a3d5c'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold'%3EH%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="mach6lnfa3pBwVHZieOD4_1wwS_s0kobDz9h4xyb7AE" />
+<title>HELOC Calculator 2026 — How Much Can You Borrow? | US Mortgage Data</title>
+<meta name="description" content="Free HELOC calculator for 2026. Estimate your home equity, borrowing power, and monthly payments. Uses the Federal Reserve Prime Rate benchmark.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2850461542641038"
+     crossorigin="anonymous"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPS0MR3SX5"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RPS0MR3SX5');
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <!-- 🆕 로고와 허브 버튼을 감싸는 영역 -->
+    <div class="header-top">
+      <a href="/" class="logo">US Mortgage Data</a>
+      <a href="https://dataindp.com" class="hub-btn">Go Data in DP ↗</a>
+    </div>
+    
+    <nav>
+      <a href="/">Home</a>
+      <a href="/calculator.html">Calculator</a>
+      <a href="/heloc/">HELOC</a>
+      <a href="/rankings/best-fha-loan-counties.html">Rankings</a>
+      <a href="/rates.html">Rates</a>
+      <a href="/states/california.html">States</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 상단 광고 슬롯 -->
+<div class="container ad-slot ad-top">
+  <!-- AdSense 광고 코드 삽입 위치 (승인 후) -->
+</div>
+
+<main class="container">
+
+
+<article class="calculator-page">
+<h1>HELOC Calculator 2026</h1>
+<p class="lead">
+  Estimate how much you can borrow from your home with a HELOC
+  (Home Equity Line of Credit). Based on your home value, current mortgage
+  balance, and credit profile.
+</p>
+
+<div class="notice" style="margin: 20px 0;">
+  ℹ️ <strong>Benchmark rate:</strong> Prime Rate <strong id="primeRateDisplay">8.00%</strong>
+  (Source: Federal Reserve Board, Public Domain). HELOC rates typically run
+  Prime + 0.5% to 2.5% depending on your credit score.
+</div>
+
+<div class="calc-grid">
+
+  <!-- Inputs -->
+  <div class="calc-inputs">
+    <div class="calc-section">
+      <h3>🏠 Your Home</h3>
+
+      <div class="calc-field">
+        <label for="homeValue">Estimated Home Value</label>
+        <div class="input-group">
+          <span class="prefix">$</span>
+          <input type="number" id="homeValue" value="400000" min="10000" step="5000">
+        </div>
+      </div>
+
+      <div class="calc-field">
+        <label for="mortgageBalance">Current Mortgage Balance</label>
+        <div class="input-group">
+          <span class="prefix">$</span>
+          <input type="number" id="mortgageBalance" value="250000" min="0" step="1000">
+        </div>
+        <small class="hint">Enter the remaining principal on your first mortgage.</small>
+      </div>
+
+      <div class="calc-field">
+        <label for="ltvLimit">Max Combined LTV Allowed</label>
+        <select id="ltvLimit">
+          <option value="0.80">80% (conservative)</option>
+          <option value="0.85" selected>85% (standard)</option>
+          <option value="0.90">90% (aggressive, some lenders)</option>
+        </select>
+        <small class="hint">Most HELOC lenders cap total debt at 85% of home value.</small>
+      </div>
+    </div>
+
+    <div class="calc-section">
+      <h3>👤 Your Credit Profile</h3>
+
+      <div class="calc-field">
+        <label for="creditTier">Credit Score Range</label>
+        <select id="creditTier">
+          <option value="760+">760+ (Excellent)</option>
+          <option value="720-759" selected>720–759 (Very Good)</option>
+          <option value="680-719">680–719 (Good)</option>
+          <option value="640-679">640–679 (Fair)</option>
+          <option value="620-639">620–639 (Below Average)</option>
+        </select>
+        <small class="hint">Rates shown are typical ranges. Your actual rate depends on the lender.</small>
+      </div>
+
+      <div class="calc-field">
+        <label for="stateSelect">State (optional — for local data)</label>
+        <select id="stateSelect">
+          <option value="">-- All States --</option>
+        </select>
+      </div>
+
+      <div class="calc-field">
+        <label for="countySelect">County (optional)</label>
+        <select id="countySelect">
+          <option value="">-- Select State First --</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="calc-results">
+    <div class="result-main">
+      <div class="result-label">Maximum HELOC Amount</div>
+      <div class="result-value" id="maxBorrowing">$0</div>
+      <div class="result-sub" id="availableCreditInfo">Available credit: $0</div>
+    </div>
+
+    <div class="result-breakdown">
+      <h3>Rate & Payment</h3>
+      <table class="breakdown-table">
+        <tbody>
+          <tr>
+            <td>Prime Rate (benchmark)</td>
+            <td class="amount" id="primeRateDisplay">8.00%</td>
+          </tr>
+          <tr>
+            <td>Your estimated margin</td>
+            <td class="amount" id="marginDisplay">+1.00%</td>
+          </tr>
+          <tr>
+            <td><strong>Estimated HELOC rate</strong></td>
+            <td class="amount"><strong id="helocRateDisplay">9.00%</strong></td>
+          </tr>
+          <tr>
+            <td>Current LTV</td>
+            <td class="amount" id="currentLtvDisplay">62.5%</td>
+          </tr>
+          <tr>
+            <td>Monthly (interest-only, draw period)</td>
+            <td class="amount" id="interestOnlyMonthly">$0/mo</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Monthly (amortized, 20yr repayment)</strong></td>
+            <td class="amount"><strong id="amortizedMonthly">$0/mo</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="result-limit" id="helocWarn">
+      <p class="limit-hint">💡 Enter your home value and current mortgage balance to see your HELOC capacity.</p>
+    </div>
+
+    <div class="cross-link-box">
+      <h3>📍 Continue Your Research</h3>
+      <p>Explore county-level home values, property taxes, and insurance risk.</p>
+      <a href="/calculator.html" class="cross-link-btn">
+        🏦 Mortgage Calculator →
+      </a>
+      <a href="https://propertytax.dataindp.com" class="cross-link-btn" style="margin-left: 10px;">
+        🧾 Property Tax Data →
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<h2>How HELOC Borrowing Works</h2>
+<ol>
+  <li><strong>Home value × max LTV (typically 85%)</strong> = maximum total debt allowed</li>
+  <li><strong>Minus your current mortgage balance</strong> = available HELOC credit</li>
+  <li><strong>Your rate = Prime Rate + credit-based margin</strong> (0.5% to 2.5%)</li>
+</ol>
+
+<h2>HELOC vs. Home Equity Loan</h2>
+<p>
+  A HELOC is a revolving line of credit (like a credit card) during the draw
+  period, then converts to an amortized payment. A home equity loan is a
+  one-time lump sum with a fixed rate. See our
+  <a href="/heloc/vs-home-equity-loan.html">full comparison →</a>
+</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<details class="faq">
+  <summary>How much can I borrow with a HELOC?</summary>
+  <p>
+    Most lenders allow a combined loan-to-value (CLTV) of 80% to 85%. If your
+    home is worth $400,000 and you owe $250,000, at 85% CLTV you could borrow
+    up to $90,000 (85% × $400,000 = $340,000; $340,000 − $250,000 = $90,000).
+  </p>
+</details>
+
+<details class="faq">
+  <summary>What credit score do I need for a HELOC?</summary>
+  <p>
+    Most lenders require a score of at least 620, and prefer 680+ for the best
+    rates. Scores above 760 typically receive the lowest margins (Prime + 0.5%).
+  </p>
+</details>
+
+<details class="faq">
+  <summary>Are HELOC interest payments tax-deductible?</summary>
+  <p>
+    Interest may be deductible if funds are used to buy, build, or substantially
+    improve the home securing the loan. Other uses (debt consolidation, vacations)
+    generally do not qualify. Consult a tax professional. IRS Publication 936
+    has the details.
+  </p>
+</details>
+
+<details class="faq">
+  <summary>Is a HELOC the same as a home equity loan?</summary>
+  <p>
+    No. A HELOC is a revolving line with variable rates. A home equity loan is
+    a fixed lump sum with a fixed rate. See our
+    <a href="/heloc/vs-home-equity-loan.html">detailed comparison</a>.
+  </p>
+</details>
+
+<p class="methodology">
+  <strong>Data Sources:</strong> Prime Rate from the Federal Reserve Board via
+  FRED (Public Domain). Home equity estimates from U.S. Census Bureau ACS
+  5-Year Estimates (CC0 1.0).<br>
+  <strong>Disclaimer:</strong> This calculator provides estimates only and is
+  not a loan offer or credit decision. Rates vary by lender, credit profile,
+  and property. Consult a licensed loan officer for actual terms.
+</p>
+
+</article>
+
+<script src="/static/heloc-calculator.js"></script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 US Mortgage Data. Data sourced from FHFA, HUD, and FRED.</p>
+    <nav>
+      <a href="/about.html">About</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/terms.html">Terms</a> ·
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+  <p class="disclaimer">
+    Mortgage data: FHFA Conforming Loan Limits, HUD FHA Forward Limits, FRED.<br>
+    <strong>This product uses FHFA Data but is neither endorsed nor certified by FHFA.</strong>
+  </p>
+</footer>
+</body>
+</html>
