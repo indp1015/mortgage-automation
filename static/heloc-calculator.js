@@ -159,15 +159,6 @@ fetch('/static/fred_prime_rate.json')
           formatMoney(availableCredit) + ' in HELOC credit.</p>';
       }
     }
-
-        // 🆕 Debug log (all variables in scope here)
-    console.log('[HELOC] Recalculated:', {
-      creditTier,
-      margin: (margin * 100).toFixed(2) + '%',
-      primeRate: primeRate.toFixed(2) + '%',
-      helocRate: (helocRate * 100).toFixed(2) + '%',
-      availableCredit
-    });
   }
 
   function pAndI(principal, annualRatePct, years) {
