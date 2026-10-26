@@ -44,6 +44,19 @@ fetch('/static/fred_prime_rate.json')
     })
     .catch(err => console.error('[HELOC] County data load failed:', err));
 
+      // 🆕 Load HELOC equity data (for county context)
+  let helocEquityData = null;
+  fetch('/static/heloc_equity.json')
+    .then(r => r.json())
+    .then(data => {
+      helocEquityData = data.counties || {};
+      console.log('[HELOC] Equity data loaded:', Object.keys(helocEquityData).length, 'counties');
+      // If county already selected (from URL), update context
+      const cSel = document.getElementById('countySelect');
+      if (cSel && cSel.value) updateCountyContext(cSel.value);
+    })
+    .catch(err => console.warn('[HELOC] Equity data not available:', err));
+
   function buildStateMap() {
     for (const [fips, info] of Object.entries(countyData)) {
       const st = info[1];
@@ -97,10 +110,80 @@ fetch('/static/fred_prime_rate.json')
   function handleInput(e) {
     if (e && e.target.id === 'stateSelect') {
       populateCountySelect(e.target.value);
+      hideCountyContext();   // 🆕 state 변경 시 이전 county context 숨김
+    }
+    if (e && e.target.id === 'countySelect') {
+      updateCountyContext(e.target.value);   // 🆕
     }
     recalculate();
   }
+  // 🆕 Hide county context (when state changes)
+  function hideCountyContext() {
+    const box = document.getElementById('countyContext');
+    if (box) box.style.display = 'none';
+  }
 
+  // 🆕 Show county-specific equity context
+  function updateCountyContext(fips) {
+    const box = document.getElementById('countyContext');
+    if (!box) return;
+
+    if (!fips || !helocEquityData || !helocEquityData[fips]) {
+      box.style.display = 'none';
+      return;
+    }
+
+    const eq = helocEquityData[fips];
+    const countySel = document.getElementById('countySelect');
+    const stateSel = document.getElementById('stateSelect');
+    const countyName = countySel.selectedOptions[0]?.textContent || 'this county';
+    const stateAbbr = stateSel.value || '';
+
+    // Build sister-site URLs
+    const propertyTaxUrl =
+      `https://propertytax.dataindp.com/calculator.html?state=${encodeURIComponent(stateAbbr)}&county=${encodeURIComponent(fips)}`;
+    const insuranceSlug = (countyName + ' ' + stateAbbr)
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-');
+    const insuranceUrl =
+      `https://insurance.dataindp.com/counties/${encodeURIComponent(insuranceSlug)}.html`;
+
+    box.innerHTML = `
+      <h4 style="margin: 0 0 8px 0; color: var(--primary);">📍 ${countyName}, ${stateAbbr} Reference</h4>
+      <p style="font-size: 0.85em; color: #666; margin-bottom: 10px;">
+        How does your situation compare to other homeowners in this county?
+      </p>
+      <table class="breakdown-table">
+        <tbody>
+          <tr>
+            <td>Average home value (mortgaged)</td>
+            <td class="amount">$${eq.avg_value_with_mortgage.toLocaleString()}</td>
+          </tr>
+          <tr>
+            <td>Estimated average equity</td>
+            <td class="amount">$${eq.est_equity_per_mortgaged_home.toLocaleString()}</td>
+          </tr>
+          <tr>
+            <td>Estimated HELOC capacity</td>
+            <td class="amount">$${eq.est_heloc_capacity.toLocaleString()}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.85em; color: #666; margin-top: 12px;">
+        Source: U.S. Census Bureau ACS 5-Year Estimates (CC0 1.0). Estimates only.
+      </p>
+      <p style="margin-top: 10px; font-size: 0.9em;">
+        <a href="${propertyTaxUrl}" style="color: var(--primary); font-weight: 600; margin-right: 12px;">
+          🏛️ Property Tax →
+        </a>
+        <a href="${insuranceUrl}" style="color: var(--primary); font-weight: 600;">
+          🛡️ Insurance Risk →
+        </a>
+      </p>
+    `;
+    box.style.display = 'block';
+  }
   // ---- Core Calculation ----
   function recalculate() {
     const homeValue = parseFloat((document.getElementById('homeValue') || {}).value) || 0;
