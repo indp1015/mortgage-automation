@@ -87,37 +87,16 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   .data-table { font-size: 0.85em; }
   .data-table th, .data-table td { padding: 8px 6px; }
 }
-.static-page {
-  max-width: 800px;
-  margin: 0 auto;
-}
-.static-page h2 {
-  margin-top: 2em;
-}
-.static-page p, .static-page li {
-  line-height: 1.7;
-}
-.static-page ul {
-  padding-left: 22px;
-}
-.page-meta {
-  color: #888;
-  font-size: 0.9em;
-  font-style: italic;
-  margin-bottom: 1.5em;
-}
-.breadcrumb {
-  font-size: 0.9em;
-  color: #888;
-  margin-bottom: 10px;
-}
-.breadcrumb a {
-  color: #1a3d5c;
-  text-decoration: none;
-}
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
+
+.static-page { max-width: 800px; margin: 0 auto; }
+.static-page h2 { margin-top: 2em; }
+.static-page p, .static-page li { line-height: 1.7; }
+.static-page ul { padding-left: 22px; }
+.page-meta { color: #888; font-size: 0.9em; font-style: italic; margin-bottom: 1.5em; }
+.breadcrumb { font-size: 0.9em; color: #888; margin-bottom: 10px; }
+.breadcrumb a { color: #1a3d5c; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
 /* AI Editor's Insight */
 .ai-insight {
   background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
@@ -126,154 +105,59 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   margin: 30px 0;
   border-radius: 6px;
 }
-.ai-insight h2 {
-  margin-top: 0;
-  border-bottom: none;
-  color: #1a3d5c;
-}
-.ai-insight p {
-  line-height: 1.75;
-  margin-bottom: 15px;
-  font-size: 1.02em;
-}
-.insight-meta {
-  font-size: 0.85em;
-  color: #888;
-  font-style: italic;
-  margin-bottom: 0;
-}
+.ai-insight h2 { margin-top: 0; border-bottom: none; color: #1a3d5c; }
+.ai-insight p { line-height: 1.75; margin-bottom: 15px; font-size: 1.02em; }
+.insight-meta { font-size: 0.85em; color: #888; font-style: italic; margin-bottom: 0; }
+
 /* Chart Container */
 .chart-container {
-  margin: 30px 0;
-  padding: 20px;
-  background: #f9fbfd;
-  border-radius: 8px;
-  border: 1px solid #e0e8f0;
+  margin: 30px 0; padding: 20px; background: #f9fbfd;
+  border-radius: 8px; border: 1px solid #e0e8f0;
 }
-.chart-container h2 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  border-bottom: none;
-  font-size: 1.25em;
-}
-.chart-wrapper {
-  position: relative;
-  height: 380px;
-  width: 100%;
-}
+.chart-container h2 { margin-top: 0; margin-bottom: 15px; border-bottom: none; font-size: 1.25em; }
+.chart-wrapper { position: relative; height: 380px; width: 100%; }
 @media (max-width: 600px) {
   .chart-wrapper { height: 280px; }
   .chart-container { padding: 15px; }
 }
+
 /* ── FHFA 섹션 ── */
-.fhfa-section {
-  margin-top: 2rem;
-  border-top: 2px dashed #e0e0e0;
-  padding-top: 1.5rem;
-}
-
-.chart-subtitle {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 0.8rem;
-}
-
+.fhfa-section { margin-top: 2rem; border-top: 2px dashed #e0e0e0; padding-top: 1.5rem; }
+.chart-subtitle { font-size: 0.85rem; color: #666; margin-bottom: 0.8rem; }
 .insight-box {
-  background: #f0f9f4;
-  border-left: 4px solid #27ae60;
-  padding: 0.8rem 1rem;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  font-size: 0.95rem;
+  background: #f0f9f4; border-left: 4px solid #27ae60;
+  padding: 0.8rem 1rem; margin-bottom: 1rem; border-radius: 4px; font-size: 0.95rem;
 }
+.fhfa-missing { background: #f5f5f5; padding: 1rem; border-radius: 4px; color: #666; font-size: 0.9rem; margin-top: 1.5rem; }
+.disclaimer { font-size: 0.8rem; color: #888; margin-top: 1.5rem; line-height: 1.5; }
+.insight-source { color: #888; font-size: 0.85rem; }
 
-.insight-box .up   { color: #c0392b; font-weight: bold; }
-.insight-box .down { color: #27ae60; font-weight: bold; }
-
-.fhfa-missing {
-  background: #f5f5f5;
-  padding: 1rem;
-  border-radius: 4px;
-  color: #666;
-  font-size: 0.9rem;
-  margin-top: 1.5rem;
-}
-
-.disclaimer {
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 1.5rem;
-  line-height: 1.5;
-}
-.insight-source {
-  color: #888;
-  font-size: 0.85rem;
-}
 /* ── Static Pages (About / Privacy / Contact) ── */
-.static-page h1 {
-  margin-bottom: 0.5rem;
-}
+.static-page h1 { margin-bottom: 0.5rem; }
+.last-updated { color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; }
+.static-page .muted { color: #888; font-size: 0.9rem; font-style: italic; }
 
-.last-updated {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-
-.static-page .muted {
-  color: #888;
-  font-size: 0.9rem;
-  font-style: italic;
-}
-/* ── Blog Index ── */
+/* ── Blog Index & Post ── */
 .blog-index { max-width: 900px; margin: 0 auto; }
-
-.post-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  margin-top: 2rem;
-}
-
+.post-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 2rem; }
 .post-card {
-  padding: 20px 24px;
-  background: white;
-  border: 1px solid #e0e8f0;
-  border-radius: 8px;
-  transition: box-shadow 0.2s, transform 0.2s;
+  padding: 20px 24px; background: white; border: 1px solid #e0e8f0;
+  border-radius: 8px; transition: box-shadow 0.2s, transform 0.2s;
 }
-.post-card:hover {
-  box-shadow: 0 4px 12px rgba(26, 61, 92, 0.1);
-  transform: translateY(-2px);
-}
+.post-card:hover { box-shadow: 0 4px 12px rgba(26, 61, 92, 0.1); transform: translateY(-2px); }
 .post-card h2 { margin: 8px 0; border: none; font-size: 1.3em; }
 .post-card h2 a { color: #1a3d5c; text-decoration: none; }
 .post-card h2 a:hover { text-decoration: underline; }
 .post-description { color: #555; margin: 8px 0; }
 .post-meta { color: #888; font-size: 0.85em; margin-top: 12px; }
-
 .post-category {
-  display: inline-block;
-  padding: 2px 10px;
-  background: #e8f0f8;
-  color: #1a3d5c;
-  border-radius: 12px;
-  font-size: 0.75em;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  display: inline-block; padding: 2px 10px; background: #e8f0f8;
+  color: #1a3d5c; border-radius: 12px; font-size: 0.75em;
+  text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;
 }
-
-/* ── Blog Post ── */
 .blog-post { max-width: 780px; margin: 0 auto; line-height: 1.75; }
 .blog-post h1 { margin-bottom: 0.5rem; }
-.blog-post h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 0.8rem;
-  color: #1a3d5c;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 0.4rem;
-}
+.blog-post h2 { margin-top: 2.5rem; margin-bottom: 0.8rem; color: #1a3d5c; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.4rem; }
 .blog-post h3 { margin-top: 1.8rem; color: #1a3d5c; }
 .post-meta-header { color: #888; font-size: 0.9em; margin-bottom: 2rem; }
 .post-content p { font-size: 1.05em; margin-bottom: 1.2em; }
@@ -281,781 +165,223 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
 .post-content li { margin-bottom: 0.5em; }
 .post-content a { color: #1a3d5c; text-decoration: underline; }
 .post-content .lead { font-size: 1.15em; color: #333; }
-.post-content .formula {
-  background: #f0f5fa;
-  padding: 12px 16px;
-  border-left: 4px solid #1a3d5c;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  margin: 1rem 0;
-}
-
-.related-links {
-  margin-top: 3rem;
-  padding: 20px;
-  background: #f9fbfd;
-  border-radius: 8px;
-}
+.post-content .formula { background: #f0f5fa; padding: 12px 16px; border-left: 4px solid #1a3d5c; border-radius: 4px; font-family: 'Courier New', monospace; margin: 1rem 0; }
+.related-links { margin-top: 3rem; padding: 20px; background: #f9fbfd; border-radius: 8px; }
 .related-links h3 { margin-top: 0; color: #1a3d5c; }
 .related-links ul { padding-left: 1.2rem; }
+@media (min-width: 700px) { .post-grid { grid-template-columns: 1fr 1fr; } }
 
-@media (min-width: 700px) {
-  .post-grid { grid-template-columns: 1fr 1fr; }
-}
 /* ── About 페이지 전용 ── */
-.static-page h3 {
-  margin-top: 1.8rem;
-  margin-bottom: 0.6rem;
-  color: #1a3d5c;
-  font-size: 1.05rem;
-}
-
-.static-page .data-table {
-  font-size: 0.9rem;
-  margin: 1.5rem 0;
-}
-
-.static-page .data-table th,
-.static-page .data-table td {
-  padding: 10px 12px;
-  vertical-align: top;
-}
-
+.static-page h3 { margin-top: 1.8rem; margin-bottom: 0.6rem; color: #1a3d5c; font-size: 1.05rem; }
+.static-page .data-table { font-size: 0.9rem; margin: 1.5rem 0; }
+.static-page .data-table th, .static-page .data-table td { padding: 10px 12px; vertical-align: top; }
 .attribution-notice {
-  font-size: 0.85rem;
-  color: #666;
-  line-height: 1.6;
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 6px;
-  border-left: 4px solid #1a3d5c;
-  margin-top: 1.5rem;
+  font-size: 0.85rem; color: #666; line-height: 1.6; background: #f9f9f9;
+  padding: 15px; border-radius: 6px; border-left: 4px solid #1a3d5c; margin-top: 1.5rem;
 }
+
 /* ── Economic Snapshot ── */
-.econ-snapshot {
-  margin: 30px 0;
-  padding: 20px;
-  background: #f9fbfd;
-  border-radius: 8px;
-  border: 1px solid #e0e8f0;
-}
-.econ-snapshot h2 {
-  margin-top: 0;
-  border-bottom: none;
-  color: #1a3d5c;
-}
-.econ-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-.econ-card {
-  background: white;
-  padding: 18px;
-  border-radius: 6px;
-  border-left: 4px solid #27ae60;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-.econ-icon {
-  font-size: 1.8em;
-  margin-bottom: 8px;
-}
-.econ-card h3 {
-  margin: 0 0 10px 0;
-  font-size: 0.95em;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.econ-value {
-  font-size: 1.8em;
-  font-weight: bold;
-  color: #1a3d5c;
-  margin-bottom: 4px;
-}
+.econ-snapshot { margin: 30px 0; padding: 20px; background: #f9fbfd; border-radius: 8px; border: 1px solid #e0e8f0; }
+.econ-snapshot h2 { margin-top: 0; border-bottom: none; color: #1a3d5c; }
+.econ-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
+.econ-card { background: white; padding: 18px; border-radius: 6px; border-left: 4px solid #27ae60; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.econ-icon { font-size: 1.8em; margin-bottom: 8px; }
+.econ-card h3 { margin: 0 0 10px 0; font-size: 0.95em; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+.econ-value { font-size: 1.8em; font-weight: bold; color: #1a3d5c; margin-bottom: 4px; }
 .econ-value.positive { color: #27ae60; }
 .econ-value.negative { color: #c0392b; }
-.econ-label {
-  font-size: 0.85em;
-  color: #888;
-  margin-bottom: 12px;
-}
-.econ-details {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.85em;
-  color: #555;
-}
-.econ-details li {
-  padding: 3px 0;
-}
-.econ-source {
-  color: #aaa;
-  font-size: 0.8em;
-  margin-top: 8px;
-  font-style: italic;
-}
+.econ-label { font-size: 0.85em; color: #888; margin-bottom: 12px; }
+.econ-details { list-style: none; padding: 0; margin: 0; font-size: 0.85em; color: #555; }
+.econ-details li { padding: 3px 0; }
+.econ-source { color: #aaa; font-size: 0.8em; margin-top: 8px; font-style: italic; }
+
+/* Rate Banner */
 .rate-banner {
   background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
-  color: white;
-  padding: 14px 20px;
-  border-radius: 8px;
-  margin: 20px 0;
-  font-size: 1rem;
-  text-align: center;
+  color: white; padding: 14px 20px; border-radius: 8px; margin: 20px 0; font-size: 1rem; text-align: center;
 }
-.rate-banner .rate-value {
-  font-size: 1.4em;
-  font-weight: bold;
-  color: #f39c12;
-  margin: 0 6px;
-}
-.rate-banner .rate-date {
-  font-size: 0.85em;
-  opacity: 0.8;
-}
+.rate-banner .rate-value { font-size: 1.4em; font-weight: bold; color: #f39c12; margin: 0 6px; }
+.rate-banner .rate-date { font-size: 0.85em; opacity: 0.8; }
+
 /* ── Sub-Market Activity (ZIP section) ── */
-.zip-section {
-  background: #fff9f0;
-  border: 1px solid #ffe4c4;
-}
-.zip-section h2 {
-  color: #1a3d5c;
-}
-.zip-section .data-table {
-  font-size: 0.9rem;
-  margin: 1rem 0;
-}
-.zip-section .data-table th {
-  background: #fdf3e7;
-  color: #1a3d5c;
-}
-.zip-section .data-table td {
-  padding: 8px 12px;
-}
-.zip-section .up { color: #c0392b; font-weight: 600; }
-.zip-section .down { color: #27ae60; font-weight: 600; }
-.zip-section .econ-source {
-  display: block;
-  margin-top: 12px;
-  font-size: 0.75em;
-  color: #aaa;
-  font-style: italic;
-}
-/* ── ZIP Page ── */
-.zip-page .key-stats .stat-value.up   { color: #c0392b; }
-.zip-page .key-stats .stat-value.down { color: #27ae60; }
+.zip-section { background: #fff9f0; border: 1px solid #ffe4c4; }
+.zip-section h2 { color: #1a3d5c; }
+.zip-section .data-table { font-size: 0.9rem; margin: 1rem 0; }
+.zip-section .data-table th { background: #fdf3e7; color: #1a3d5c; }
+.zip-section .data-table td { padding: 8px 12px; }
+.zip-section .econ-source { display: block; margin-top: 12px; font-size: 0.75em; color: #aaa; font-style: italic; }
 
-/* 카운티 페이지 Sub-Market 테이블 ZIP 링크 */
-.zip-section .data-table a {
-  color: #1a3d5c;
-  text-decoration: none;
-  border-bottom: 1px dotted #1a3d5c;
-}
-.zip-section .data-table a:hover {
-  color: #27ae60;
-  border-bottom-color: #27ae60;
-}
-
-/* ZIP 페이지의 up/down 스타일 */
-.key-stats .stat-value.up   { color: #c0392b; }
-.key-stats .stat-value.down { color: #27ae60; }
-.up   { color: #c0392b; font-weight: 600; }
+/* 데이터 증감 표시 (통합 및 중복 제거) */
+.up { color: #c0392b; font-weight: 600; }
 .down { color: #27ae60; font-weight: 600; }
+.key-stats .stat-value.up { color: #c0392b; }
+.key-stats .stat-value.down { color: #27ae60; }
+.insight-box .up { font-weight: bold; }
+.insight-box .down { font-weight: bold; }
+.zip-section .data-table a { color: #1a3d5c; text-decoration: none; border-bottom: 1px dotted #1a3d5c; }
+.zip-section .data-table a:hover { color: #27ae60; border-bottom-color: #27ae60; }
+
 /* ═══════════════════════════════════════════
    MORTGAGE CALCULATOR
    ═══════════════════════════════════════════ */
-.calculator-page {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin: 30px 0;
-}
-@media (max-width: 900px) {
-  .calc-grid { grid-template-columns: 1fr; }
-}
-.calc-section {
-  background: #f9fbfd;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #e0e8f0;
-}
-.calc-section h3 {
-  margin-top: 0;
-  color: #1a3d5c;
-  font-size: 1.1em;
-}
-.calc-field {
-  margin-bottom: 16px;
-}
-.calc-field label {
-  display: block;
-  font-size: 0.9em;
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 6px;
-}
-.input-group {
-  display: flex;
-  align-items: center;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.input-group-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 8px;
-}
-.input-group .prefix,
-.input-group .suffix {
-  padding: 10px 12px;
-  background: #f0f5fa;
-  color: #666;
-  font-weight: 600;
-}
-.input-group input {
-  border: 0;
-  padding: 10px 12px;
-  flex: 1;
-  font-size: 1em;
-  width: 100%;
-  outline: none;
-}
-.calc-field select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1em;
-  background: white;
-}
-.calc-field .hint {
-  display: block;
-  color: #888;
-  font-size: 0.8em;
-  margin-top: 4px;
-}
-.result-main {
-  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
-  color: white;
-  padding: 30px;
-  border-radius: 8px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.result-label {
-  font-size: 0.9em;
-  opacity: 0.9;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-.result-value {
-  font-size: 3em;
-  font-weight: bold;
-  color: #f39c12;
-  margin: 10px 0;
-}
-.result-sub {
-  font-size: 0.9em;
-  opacity: 0.85;
-}
-.result-breakdown,
-.result-summary {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #e0e8f0;
-  margin-bottom: 20px;
-}
-.result-breakdown h3,
-.result-summary h3 {
-  margin-top: 0;
-  font-size: 1em;
-  color: #1a3d5c;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 8px;
-}
-.breakdown-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.breakdown-table td {
-  padding: 8px 0;
-  font-size: 0.95em;
-}
-.breakdown-table .amount {
-  text-align: right;
-  font-weight: 600;
-  color: #1a3d5c;
-}
-.breakdown-table .total-row {
-  border-top: 2px solid #eee;
-}
-.breakdown-table .total-row td {
-  padding-top: 12px;
-  font-size: 1.1em;
-}
-.result-limit {
-  padding: 15px;
-  border-radius: 8px;
-  background: #f9fbfd;
-  border: 1px solid #e0e8f0;
-}
-.result-limit .limit-ok {
-  color: #27ae60;
-  margin: 0;
-}
-.result-limit .limit-warn {
-  color: #c0392b;
-  margin: 0;
-  font-weight: 600;
-}
-.result-limit .limit-hint {
-  color: #666;
-  margin: 0;
-}
+.calculator-page { max-width: 1200px; margin: 0 auto; }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
+@media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc-section { background: #f9fbfd; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #e0e8f0; }
+.calc-section h3 { margin-top: 0; color: #1a3d5c; font-size: 1.1em; }
+.calc-field { margin-bottom: 16px; }
+.calc-field label { display: block; font-size: 0.9em; font-weight: 600; color: #444; margin-bottom: 6px; }
+.input-group { display: flex; align-items: center; background: white; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; }
+.input-group-row { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; }
+.input-group .prefix, .input-group .suffix { padding: 10px 12px; background: #f0f5fa; color: #666; font-weight: 600; }
+.input-group input { border: 0; padding: 10px 12px; flex: 1; font-size: 1em; width: 100%; outline: none; }
+.calc-field select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; background: white; }
+.calc-field .hint { display: block; color: #888; font-size: 0.8em; margin-top: 4px; }
+.result-main { background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%); color: white; padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
+.result-label { font-size: 0.9em; opacity: 0.9; letter-spacing: 1px; text-transform: uppercase; }
+.result-value { font-size: 3em; font-weight: bold; color: #f39c12; margin: 10px 0; }
+.result-sub { font-size: 0.9em; opacity: 0.85; }
+.result-breakdown, .result-summary { background: white; padding: 20px; border-radius: 8px; border: 1px solid #e0e8f0; margin-bottom: 20px; }
+.result-breakdown h3, .result-summary h3 { margin-top: 0; font-size: 1em; color: #1a3d5c; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+.breakdown-table { width: 100%; border-collapse: collapse; }
+.breakdown-table td { padding: 8px 0; font-size: 0.95em; }
+.breakdown-table .amount { text-align: right; font-weight: 600; color: #1a3d5c; }
+.breakdown-table .total-row { border-top: 2px solid #eee; }
+.breakdown-table .total-row td { padding-top: 12px; font-size: 1.1em; }
+.result-limit { padding: 15px; border-radius: 8px; background: #f9fbfd; border: 1px solid #e0e8f0; }
+.result-limit .limit-ok { color: #27ae60; margin: 0; }
+.result-limit .limit-warn { color: #c0392b; margin: 0; font-weight: 600; }
+.result-limit .limit-hint { color: #666; margin: 0; }
+
 /* ═══════════════════════════════════════════
    GUIDE PAGES (FHA / VA / Rates)
    ═══════════════════════════════════════════ */
-.guide-page,
-.rates-page {
-  max-width: 900px;
-  margin: 0 auto;
-  line-height: 1.75;
-}
-.guide-page h2,
-.rates-page h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 0.8rem;
-}
-.guide-page h3 {
-  margin-top: 1.8rem;
-  color: #1a3d5c;
-  font-size: 1.1em;
-}
-.guide-page ul, .guide-page ol {
-  padding-left: 1.5rem;
-  margin-bottom: 1.2em;
-}
-.guide-page li {
-  margin-bottom: 0.5em;
-}
-.guide-page p {
-  margin-bottom: 1.2em;
-}
+.guide-page, .rates-page { max-width: 900px; margin: 0 auto; line-height: 1.75; }
+.guide-page h2, .rates-page h2 { margin-top: 2.5rem; margin-bottom: 0.8rem; }
+.guide-page h3 { margin-top: 1.8rem; color: #1a3d5c; font-size: 1.1em; }
+.guide-page ul, .guide-page ol { padding-left: 1.5rem; margin-bottom: 1.2em; }
+.guide-page li { margin-bottom: 0.5em; }
+.guide-page p { margin-bottom: 1.2em; }
 
 /* 금리 카드 그리드 */
-.rate-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin: 25px 0;
-}
-.rate-card {
-  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-}
-.rate-card-name {
-  font-size: 0.85em;
-  opacity: 0.9;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-}
-.rate-card-value {
-  font-size: 2.4em;
-  font-weight: bold;
-  color: #f39c12;
-  margin: 5px 0;
-}
-.rate-card-date {
-  font-size: 0.8em;
-  opacity: 0.75;
-}
-.rate-card-source {
-  font-size: 0.75em;
-  opacity: 0.6;
-  margin-top: 6px;
-  font-style: italic;
-}
+.rate-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 25px 0; }
+.rate-card { background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%); color: white; padding: 20px; border-radius: 8px; text-align: center; }
+.rate-card-name { font-size: 0.85em; opacity: 0.9; letter-spacing: 0.5px; margin-bottom: 8px; }
+.rate-card-value { font-size: 2.4em; font-weight: bold; color: #f39c12; margin: 5px 0; }
+.rate-card-date { font-size: 0.8em; opacity: 0.75; }
+.rate-card-source { font-size: 0.75em; opacity: 0.6; margin-top: 6px; font-style: italic; }
 
 /* FAQ (details/summary) */
-.faq {
-  border: 1px solid #e0e8f0;
-  border-radius: 6px;
-  padding: 12px 18px;
-  margin-bottom: 12px;
-  background: #f9fbfd;
-}
-.faq summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #1a3d5c;
-  padding: 5px 0;
-  list-style: none;
-  position: relative;
-  padding-right: 25px;
-}
-.faq summary::after {
-  content: "▸";
-  position: absolute;
-  right: 5px;
-  transition: transform 0.2s;
-}
-.faq[open] summary::after {
-  transform: rotate(90deg);
-}
-.faq p {
-  margin-top: 12px;
-  margin-bottom: 5px;
-  color: #444;
-  font-size: 0.95em;
-}
+.faq { border: 1px solid #e0e8f0; border-radius: 6px; padding: 12px 18px; margin-bottom: 12px; background: #f9fbfd; }
+.faq summary { cursor: pointer; font-weight: 600; color: #1a3d5c; padding: 5px 0; list-style: none; position: relative; padding-right: 25px; }
+.faq summary::after { content: "▸"; position: absolute; right: 5px; transition: transform 0.2s; }
+.faq[open] summary::after { transform: rotate(90deg); }
+.faq p { margin-top: 12px; margin-bottom: 5px; color: #444; font-size: 0.95em; }
 
-/* 안내문 */
-.notice {
-  background: #fff9e6;
-  border-left: 4px solid #f39c12;
-  padding: 12px 16px;
-  border-radius: 4px;
-  color: #7f6000;
-}
+.notice { background: #fff9e6; border-left: 4px solid #f39c12; padding: 12px 16px; border-radius: 4px; color: #7f6000; }
+
 /* ═══════════════════════════════════════════
    CROSS-LINK BOX (sister site)
    ═══════════════════════════════════════════ */
-.cross-link-box {
-  margin: 30px 0;
-  padding: 24px 28px;
-  background: linear-gradient(135deg, #e8f4f8 0%, #d4ecf5 100%);
-  border-left: 5px solid #2c5f8a;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(44, 95, 138, 0.08);
-}
-.cross-link-box h3 {
-  margin: 0 0 10px 0;
-  color: #1a3d5c;
-  font-size: 1.15em;
-}
-.cross-link-box p {
-  margin: 0 0 16px 0;
-  color: #444;
-  font-size: 0.95em;
-  line-height: 1.6;
-}
-.cross-link-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #1a3d5c;
-  color: white !important;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95em;
-  transition: background 0.2s, transform 0.2s;
-}
-.cross-link-btn:hover {
-  background: #2c5f8a;
-  transform: translateX(3px);
-  text-decoration: none;
-}
+.cross-link-box { margin: 30px 0; padding: 24px 28px; background: linear-gradient(135deg, #e8f4f8 0%, #d4ecf5 100%); border-left: 5px solid #2c5f8a; border-radius: 8px; box-shadow: 0 2px 8px rgba(44, 95, 138, 0.08); }
+.cross-link-box h3 { margin: 0 0 10px 0; color: #1a3d5c; font-size: 1.15em; }
+.cross-link-box p { margin: 0 0 16px 0; color: #444; font-size: 0.95em; line-height: 1.6; }
+.cross-link-btn { display: inline-block; padding: 10px 20px; background: #1a3d5c; color: white !important; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.95em; transition: background 0.2s, transform 0.2s; }
+.cross-link-btn:hover { background: #2c5f8a; transform: translateX(3px); text-decoration: none; }
 @media (max-width: 600px) {
   .cross-link-box { padding: 18px 20px; }
   .cross-link-btn { display: block; text-align: center; }
 }
+
 /* ═══════════════════════════════════════════
-   AMORTIZATION SCHEDULE
+   AMORTIZATION SCHEDULE & TABS
    ═══════════════════════════════════════════ */
-.show-amort-btn {
-  display: block;
-  width: 100%;
-  padding: 14px 24px;
-  margin: 24px 0;
-  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.show-amort-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(26, 61, 92, 0.25);
-}
-.amort-section {
-  background: white;
-  border: 1px solid #e0e8f0;
-  border-radius: 10px;
-  padding: 24px;
-  margin: 24px 0;
-}
-.amort-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.amort-header h2 {
-  margin: 0;
-  border: none;
-  padding: 0;
-  color: #1a3d5c;
-}
-.amort-close {
-  background: none;
-  border: none;
-  font-size: 1.8em;
-  color: #999;
-  cursor: pointer;
-  padding: 0 8px;
-}
+.show-amort-btn { display: block; width: 100%; padding: 14px 24px; margin: 24px 0; background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.show-amort-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(26, 61, 92, 0.25); }
+.amort-section { background: white; border: 1px solid #e0e8f0; border-radius: 10px; padding: 24px; margin: 24px 0; }
+.amort-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.amort-header h2 { margin: 0; border: none; padding: 0; color: #1a3d5c; }
+.amort-close { background: none; border: none; font-size: 1.8em; color: #999; cursor: pointer; padding: 0 8px; }
 .amort-close:hover { color: #c0392b; }
-.amort-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.amort-stat {
-  background: #f0f5fa;
-  border-radius: 8px;
-  padding: 14px 16px;
-  text-align: center;
-  border-left: 4px solid #1a3d5c;
-}
-.amort-stat span {
-  display: block;
-  font-size: 0.78em;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
-.amort-stat strong {
-  display: block;
-  font-size: 1.3em;
-  color: #1a3d5c;
-}
-.amort-chart-wrapper {
-  position: relative;
-  height: 320px;
-  margin-bottom: 20px;
-}
-.amort-toggle {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-.amort-tab {
-  padding: 8px 18px;
-  background: #f0f5fa;
-  border: 1px solid #d4e8f0;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  color: #666;
-  font-size: 0.9em;
-}
-.amort-tab.active {
-  background: #1a3d5c;
-  color: white;
-  border-color: #1a3d5c;
-}
-.amort-table-wrapper {
-  max-height: 500px;
-  overflow-y: auto;
-  border: 1px solid #e0e8f0;
-  border-radius: 8px;
-}
-.amort-table {
-  font-size: 0.85em;
-  margin: 0;
-}
-.amort-table th {
-  position: sticky;
-  top: 0;
-  background: #1a3d5c;
-  color: white;
-  z-index: 2;
-}
-.amort-table tbody tr:nth-child(even) {
-  background: #f9fbfd;
-}
-.amort-note {
-  font-size: 0.78em;
-  color: #888;
-  font-style: italic;
-  margin: 16px 0 0 0;
-  line-height: 1.5;
-}
-/* ═══════════════════════════════════════════
-   MODE TABS (Purchase / Refinance)
-   ═══════════════════════════════════════════ */
-.mode-tabs {
-  display: flex;
-  gap: 8px;
-  margin: 20px 0 24px 0;
-  border-bottom: 2px solid #e0e8f0;
-}
-.mode-tab {
-  padding: 12px 24px;
-  background: none;
-  border: none;
-  border-bottom: 3px solid transparent;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #666;
-  transition: color 0.15s, border-color 0.15s;
-  margin-bottom: -2px;
-  font-family: inherit;
-}
+.amort-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.amort-stat { background: #f0f5fa; border-radius: 8px; padding: 14px 16px; text-align: center; border-left: 4px solid #1a3d5c; }
+.amort-stat span { display: block; font-size: 0.78em; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.amort-stat strong { display: block; font-size: 1.3em; color: #1a3d5c; }
+.amort-chart-wrapper { position: relative; height: 320px; margin-bottom: 20px; }
+.amort-toggle { display: flex; gap: 8px; margin-bottom: 14px; }
+.amort-tab { padding: 8px 18px; background: #f0f5fa; border: 1px solid #d4e8f0; border-radius: 6px; cursor: pointer; font-weight: 600; color: #666; font-size: 0.9em; }
+.amort-tab.active { background: #1a3d5c; color: white; border-color: #1a3d5c; }
+.amort-table-wrapper { max-height: 500px; overflow-y: auto; border: 1px solid #e0e8f0; border-radius: 8px; }
+.amort-table { font-size: 0.85em; margin: 0; }
+.amort-table th { position: sticky; top: 0; background: #1a3d5c; color: white; z-index: 2; }
+.amort-table tbody tr:nth-child(even) { background: #f9fbfd; }
+.amort-note { font-size: 0.78em; color: #888; font-style: italic; margin: 16px 0 0 0; line-height: 1.5; }
+
+.mode-tabs { display: flex; gap: 8px; margin: 20px 0 24px 0; border-bottom: 2px solid #e0e8f0; }
+.mode-tab { padding: 12px 24px; background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: #666; transition: color 0.15s, border-color 0.15s; margin-bottom: -2px; font-family: inherit; }
 .mode-tab:hover { color: #1a3d5c; }
-.mode-tab.active {
-  color: #1a3d5c;
-  border-bottom-color: #f39c12;
-}
-@media (max-width: 600px) {
-  .mode-tab { padding: 10px 14px; font-size: 0.9em; }
-}
+.mode-tab.active { color: #1a3d5c; border-bottom-color: #f39c12; }
+@media (max-width: 600px) { .mode-tab { padding: 10px 14px; font-size: 0.9em; } }
+
 /* ═══════════════════════════════════════════
-   RANKINGS
+   RANKINGS & HEADER LAYOUT
    ═══════════════════════════════════════════ */
-.ranking-meta {
-  font-size: 0.95em;
-  color: #666;
-  margin: 8px 0 20px 0;
-}
-.ranking-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-.ranking-nav a {
-  display: inline-block;
-  padding: 6px 12px;
-  background: #f0f5fa;
-  color: #1a3d5c;
-  border-radius: 6px;
-  font-size: 0.85em;
-  text-decoration: none;
-  font-weight: 600;
-}
+.ranking-meta { font-size: 0.95em; color: #666; margin: 8px 0 20px 0; }
+.ranking-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.ranking-nav a { display: inline-block; padding: 6px 12px; background: #f0f5fa; color: #1a3d5c; border-radius: 6px; font-size: 0.85em; text-decoration: none; font-weight: 600; }
 .ranking-nav a:hover { background: #d9e6f2; }
-.ranking-table .rank-num {
-  font-weight: 800;
-  color: #2c5f8a;
-  font-size: 1.05em;
-}
+.ranking-table .rank-num { font-weight: 800; color: #2c5f8a; font-size: 1.05em; }
 @media (max-width: 700px) {
   .ranking-table { font-size: 0.85em; }
   .ranking-table th, .ranking-table td { padding: 8px 6px; }
 }
-/* =========================================
-   🆕 Header Layout (Logo + Hub Button)
-   ========================================= */
 
-/* 모바일 기본 레이아웃 */
-.header-top {
-  display: flex;
-  justify-content: space-between; /* 로고는 왼쪽, 버튼은 오른쪽 끝 */
-  align-items: center;
-  width: 100%; /* 모바일에서 한 줄을 꽉 채움 */
-  margin-bottom: 10px; /* 서브메뉴와의 간격 */
-}
-
-/* 허브 버튼 스타일 */
-.hub-btn {
-  background-color: #e67e22; /* 눈에 띄는 주황색 */
-  color: white !important;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 0.85em;
-  text-decoration: none !important;
-  white-space: nowrap;
-  transition: background-color 0.2s;
-}
-
-.hub-btn:hover {
-  background-color: #d35400;
-}
-
-/* 데스크톱(넓은 화면) 레이아웃 */
+.header-top { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 10px; }
+.hub-btn { background-color: #e67e22; color: white !important; padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 0.85em; text-decoration: none !important; white-space: nowrap; transition: background-color 0.2s; }
+.hub-btn:hover { background-color: #d35400; }
 @media (min-width: 768px) {
-  .header-top {
-    width: auto; /* 데스크톱에서는 내용물 크기만큼만 차지 */
-    margin-bottom: 0;
-    gap: 30px; /* 로고와 버튼 사이 간격 */
-  }
-  
-  /* 네비게이션 메뉴가 버튼과 자연스럽게 배치되도록 수정 */
-  .site-header .container {
-    justify-content: space-between;
-  }
-  
-  .site-header nav {
-    display: flex;
-    align-items: center;
-  }
+  .header-top { width: auto; margin-bottom: 0; gap: 30px; }
+  .site-header .container { justify-content: space-between; }
+  .site-header nav { display: flex; align-items: center; }
 }
+
 /* ═══════════════════════════════════════════
    HELOC PAGES
    ═══════════════════════════════════════════ */
 .heloc-hub .hero { margin-bottom: 30px; }
-.heloc-hub .rate-banner {
-  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
-  color: white;
-  padding: 16px 22px;
-  border-radius: 8px;
-  margin: 15px 0;
-  text-align: center;
-  font-size: 1.05em;
-}
-.heloc-hub .rate-banner .rate-value {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #f39c12;
-  margin: 0 8px;
-}
-.heloc-hub .rate-banner .rate-date {
-  font-size: 0.8em;
-  opacity: 0.8;
-  display: block;
-  margin-top: 4px;
-}
-
-/* HELOC calculator specific */
-.heloc-calculator .result-main {
-  background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%);
-}
-.heloc-calculator .result-value {
-  color: #f39c12;
-}
-
+.heloc-hub .rate-banner { background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%); color: white; padding: 16px 22px; border-radius: 8px; margin: 15px 0; text-align: center; font-size: 1.05em; }
+.heloc-hub .rate-banner .rate-value { font-size: 1.5em; font-weight: bold; color: #f39c12; margin: 0 8px; }
+.heloc-hub .rate-banner .rate-date { font-size: 0.8em; opacity: 0.8; display: block; margin-top: 4px; }
+.heloc-calculator .result-main { background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 100%); }
+.heloc-calculator .result-value { color: #f39c12; }
 @media (max-width: 600px) {
   .heloc-hub .rate-banner { font-size: 0.95em; padding: 12px 16px; }
   .heloc-hub .rate-banner .rate-value { font-size: 1.3em; }
 }
+
 /* ═══════════════════════════════════════════
-   SEARCH BAR (Housing Site Style)
+   🆕 SEARCH BAR & HERO SECTION (Housing Site Style)
    ═══════════════════════════════════════════ */
+
+/* 히어로 섹션 (제목, 설명, 검색창 감싸는 영역) - 가운데 정렬 */
+.hero-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hero-section h1 {
+  margin-bottom: 15px;
+}
+
+.hero-section .lead {
+  max-width: 800px;
+  margin: 0 auto 25px auto; /* 텍스트 중앙 정렬 및 하단 여백 */
+}
+
+/* 검색창 래퍼 - 가운데 정렬 */
 .search-wrapper {
   max-width: 700px;
-  margin: 25px 0 30px 0; /* 상하 여백 */
+  margin: 0 auto 30px auto; /* 상하 여백 조정 및 좌우 auto로 중앙 정렬 */
 }
 
 .search-box {
@@ -1066,7 +392,7 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.02);
   overflow: hidden;
-  padding: 4px; /* 내부 여백 */
+  padding: 4px;
 }
 
 .search-icon {
@@ -1082,9 +408,7 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   outline: none;
   color: #333;
 }
-.search-box input::placeholder {
-  color: #999;
-}
+.search-box input::placeholder { color: #999; }
 
 .search-box button {
   background: #e67e22; /* 주황색 버튼 */
@@ -1098,27 +422,25 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   transition: background 0.2s;
   margin-right: 2px;
 }
+.search-box button:hover { background: #d35400; }
 
-.search-box button:hover {
-  background: #d35400;
-}
-
+/* 검색창 하단 링크 (Use my location, Popular) */
 .search-sub-links {
   margin-top: 12px;
   font-size: 0.85rem;
   color: #555;
-  padding-left: 4px;
+  display: flex;
+  justify-content: center; /* 하단 링크도 가운데 정렬 */
+  align-items: center;
+  flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
+  gap: 10px;
 }
 
 .search-sub-links a {
   color: #0066cc;
   text-decoration: none;
-  margin-right: 8px;
 }
-
-.search-sub-links a:hover {
-  text-decoration: underline;
-}
+.search-sub-links a:hover { text-decoration: underline; }
 
 .location-btn {
   display: inline-flex;
@@ -1126,4 +448,11 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   gap: 4px;
   color: #1a3d5c !important; /* 파란색 텍스트 */
   font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .search-sub-links {
+    flex-direction: column; /* 모바일에서는 세로로 배치 */
+    gap: 8px;
+  }
 }
