@@ -40,6 +40,7 @@
       <a href="/states/california.html">States</a>
       <a href="/blog/">Blog</a>
       <a href="/about.html">About</a>
+      <a href="/search.html" title="Search" style="font-size: 1.1em; margin-left: 15px;">🔍</a>
     </nav>
   </div>
 </header>
@@ -52,14 +53,33 @@
 <main class="container">
 
 
+<!-- 1. 제목 및 설명 -->
 <h1>U.S. Mortgage Data, County by County</h1>
-
-<p class="lead">
-  Calculate monthly mortgage payments with <strong>automatic 2026 loan limit
-  lookups</strong> for all <strong>3134</strong> U.S. counties.
-  Compare FHA, VA, USDA, and conventional loans side-by-side.
+<p class="lead" style="max-width: 800px;">
+  Calculate monthly mortgage payments and explore <strong>2026 loan limits</strong> for all <strong>3134</strong> U.S. counties. Compare FHA, VA, USDA, and conventional loans side-by-side.
 </p>
 
+<!-- 2. 검색 바 (하우징 사이트 스타일) -->
+<div class="search-wrapper">
+  <div class="search-box">
+    <!-- 돋보기 아이콘 -->
+    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <input type="text" id="searchInput" placeholder="Enter ZIP, county, or state (e.g., Los Angeles, CA)">
+    <button onclick="performSearch()">Find</button>
+  </div>
+  
+  <div class="search-sub-links">
+    <!-- 위치 아이콘 -->
+    <a href="#" onclick="useMyLocation(event)" class="location-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      <strong>Use my location</strong>
+    </a>
+    <span style="margin: 0 10px; color: #ccc;">|</span>
+    <span>Popular: <a href="/states/california.html">California</a> <a href="/states/texas.html">Texas</a> <a href="/states/florida.html">Florida</a></span>
+  </div>
+</div>
+
+<!-- 3. 금리 배너 -->
 
 <div class="rate-banner">
   🏠 <strong>Today's 30-Year Mortgage Rate:</strong>
@@ -68,10 +88,12 @@
 </div>
 
 
+<!-- 이하 나머지 코드는 그대로 유지 (ad-slot, 툴 링크 등) -->
 <div class="ad-slot ad-in-article"></div>
 
+<!-- 툴 링크 섹션 -->
 <h2>🔧 Free Mortgage Tools</h2>
-<ul class="ranking-list">
+<ul class="ranking-list" style="margin-bottom: 40px;">
   <li><a href="/calculator.html">Mortgage Calculator</a> — Monthly payment, FHA vs conventional, MIP/PMI</li>
   <li><a href="/rates.html">Today's Mortgage Rates</a> — 30-year, 15-year, ARM, Fed funds, 10-year Treasury</li>
   <li><a href="/fha-loans.html">FHA Loan Guide</a> — 2026 limits, 3.5% down, requirements</li>
@@ -79,12 +101,21 @@
   <li><a href="/heloc/">HELOC &amp; Home Equity</a> — Borrowing power calculator, rate benchmarks, county equity data</li>
 </ul>
 
+<!-- 🔥 텍스트 보강 (Thin Content 해결) -->
+<div class="content-section" style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-bottom: 40px;">
+  <h2>Understanding the 2026 U.S. Mortgage Market</h2>
+  <p>Navigating the U.S. housing market requires a clear understanding of how loan limits, interest rates, and local housing values intersect. In 2026, the Federal Housing Finance Agency (FHFA) and the Department of Housing and Urban Development (HUD) have adjusted conforming and FHA loan limits to reflect rising home prices across the country.</p>
+  
+  <h3>1. Conforming vs. FHA Loan Limits</h3>
+  <p>Conforming loans are backed by Fannie Mae and Freddie Mac and are subject to strict baseline limits (ranging from $832,750 to $1,249,125 in high-cost areas). FHA loans, insured by the federal government, have different floor and ceiling limits ($541,287 to $1,209,750) and are designed for borrowers with lower credit scores. Knowing your county's specific limit is crucial before you start house hunting.</p>
+  
+  <h3>2. How Interest Rates Impact Your Monthly Payment</h3>
+  <p>Even a 0.5% difference in your 30-year fixed mortgage rate can add hundreds of dollars to your monthly payment over the life of the loan. Our calculators use real-time data from the Federal Reserve (FRED) to help you estimate your principal, interest, taxes, and insurance (PITI).</p>
+</div>
+
+<!-- 2026 Loan Limits by State -->
 <h2>📍 2026 Loan Limits by State</h2>
-<p>
-  FHA loan limits range from $541,287 (floor) to $1,209,750 (ceiling) in
-  2026. Conforming limits range from $832,750 to $1,249,125. Select a state
-  below to see county-by-county limits.
-</p>
+<p>FHA loan limits range from $541,287 (floor) to $1,209,750 (ceiling) in 2026. Select a state below to see county-by-county limits.</p>
 
 <ul class="state-grid">
   
@@ -194,19 +225,91 @@
 
 <div class="ad-slot ad-in-article"></div>
 
-<h2>Why Use US Mortgage Data?</h2>
-<ul>
-  <li><strong>2026 Official Limits</strong> — FHFA and HUD data, updated annually</li>
-  <li><strong>Auto County Lookup</strong> — No need to search for your county's limit</li>
-  <li><strong>Compare Loan Types</strong> — FHA, VA, USDA, Conventional side-by-side</li>
-  <li><strong>No Sign-Up</strong> — Free tools, no email required</li>
-</ul>
+<!-- ❓ FAQ 섹션 추가 -->
+<div class="faq-section" style="margin-top: 40px;">
+  <h2>Frequently Asked Questions (FAQ)</h2>
+  
+  <div style="margin-bottom: 20px;">
+    <h3 style="font-size: 18px; margin-bottom: 8px;">How are the 2026 loan limits determined?</h3>
+    <p style="color: #555;">The FHFA sets conforming loan limits based on the average home price in a county. HUD sets FHA limits at 65% of the conforming limit, with a floor and ceiling applied to account for high-cost and low-cost areas.</p>
+  </div>
 
-<p class="methodology">
-  <strong>Data Source:</strong> FHFA Conforming Loan Limits 2026, HUD FHA
-  Forward Mortgage Limits 2026, FRED (Federal Reserve Bank of St. Louis),
-  U.S. Census Bureau ACS 5-Year Estimates. All data is public domain.
-</p>
+  <div style="margin-bottom: 20px;">
+    <h3 style="font-size: 18px; margin-bottom: 8px;">What is the difference between a conforming and a conventional loan?</h3>
+    <p style="color: #555;">A conventional loan is any mortgage not backed by a government agency. A conforming loan is a specific type of conventional loan that meets the dollar limits set by Fannie Mae and Freddie Mac. If a loan exceeds the conforming limit, it becomes a "jumbo" loan, which usually requires a higher credit score and down payment.</p>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <h3 style="font-size: 18px; margin-bottom: 8px;">Can I use these tools for a jumbo loan?</h3>
+    <p style="color: #555;">While our tools primarily focus on FHA and conforming limits, you can still use the mortgage calculator to estimate payments for jumbo loans by manually inputting your desired loan amount.</p>
+  </div>
+</div>
+
+<!-- ⚖️ 하단 면책 조항 (AdSense 승인에 매우 중요) -->
+<div class="disclaimer-section" style="margin-top: 50px; padding: 20px; background: #f5f5f5; border-radius: 8px; font-size: 13px; color: #666; line-height: 1.6;">
+  <p><strong>LEGAL DISCLAIMER:</strong> This website provides estimates for informational purposes only and does not constitute financial, tax, or investment advice. The calculations are based on public data and standardized assumptions. Actual mortgage rates, loan limits, and property tax rates vary based on your specific situation, lender, and location. Always consult with a licensed mortgage professional.</p>
+  <p><strong>DATA SOURCES & ATTRIBUTION:</strong> Mortgage rate data is sourced from the Federal Reserve Bank of St. Louis (FRED). Loan limits are sourced from the Federal Housing Finance Agency (FHFA) and the U.S. Department of Housing and Urban Development (HUD). Home value and income data are based on U.S. Census Bureau ACS 5-Year Estimates.</p>
+</div>
+
+<!-- 🔍 검색 및 위치 기능을 위한 JavaScript -->
+<script>
+  // 검색 기능 (ZIP, County, State 검색)
+  function performSearch() {
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    if (!query) return;
+
+    // 5자리 숫자(ZIP)인 경우
+    if (/^\d{5}$/.test(query)) {
+      // ZIP5 데이터를 기반으로 리다이렉트 (추후 zip 데이터 매핑 필요)
+      window.location.href = `/search.html?zip=${query}`;
+    } 
+    // 텍스트인 경우 (주 이름 또는 카운티 이름)
+    else {
+      window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+    }
+  }
+
+  // 엔터키로 검색
+  document.getElementById('searchInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') performSearch();
+  });
+
+  // 내 위치 찾기 기능
+  function useMyLocation(event) {
+    event.preventDefault();
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported by your browser.');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        
+        // 무료 Reverse Geocoding API 사용 (예: BigDataCloud) - 카운티 정보 획득
+        fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`)
+          .then(response => response.json())
+          .then(data => {
+            // 예: data.locality (city), data.principalSubdivision (state)
+            const state = data.principalSubdivision;
+            const city = data.city || data.locality;
+            
+            // 상태나 도시 기반으로 검색 페이지로 이동하거나, 가장 가까운 카운티 페이지로 이동
+            if (state) {
+              window.location.href = `/search.html?q=${encodeURIComponent(city + ' ' + state)}`;
+            } else {
+              alert('Could not determine your location.');
+            }
+          })
+          .catch(() => alert('Error fetching location data.'));
+      },
+      function(error) {
+        alert('Unable to retrieve your location. Please ensure location services are enabled.');
+      }
+    );
+  }
+</script>
 
 
 </main>

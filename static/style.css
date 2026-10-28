@@ -1050,3 +1050,80 @@ h2 { font-size: 1.4em; margin-top: 1.8em; color: #1a3d5c; border-bottom: 2px sol
   .heloc-hub .rate-banner { font-size: 0.95em; padding: 12px 16px; }
   .heloc-hub .rate-banner .rate-value { font-size: 1.3em; }
 }
+/* ═══════════════════════════════════════════
+   SEARCH BAR (Housing Site Style)
+   ═══════════════════════════════════════════ */
+.search-wrapper {
+  max-width: 700px;
+  margin: 25px 0 30px 0; /* 상하 여백 */
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #b3d4f0; /* 연한 파란색 테두리 */
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  overflow: hidden;
+  padding: 4px; /* 내부 여백 */
+}
+
+.search-icon {
+  margin-left: 12px;
+  margin-right: 8px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 12px 0;
+  font-size: 1rem;
+  outline: none;
+  color: #333;
+}
+.search-box input::placeholder {
+  color: #999;
+}
+
+.search-box button {
+  background: #e67e22; /* 주황색 버튼 */
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-right: 2px;
+}
+
+.search-box button:hover {
+  background: #d35400;
+}
+
+.search-sub-links {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #555;
+  padding-left: 4px;
+}
+
+.search-sub-links a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.search-sub-links a:hover {
+  text-decoration: underline;
+}
+
+.location-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #1a3d5c !important; /* 파란색 텍스트 */
+  font-weight: 600;
+}
