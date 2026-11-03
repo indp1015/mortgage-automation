@@ -230,11 +230,29 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>Wilcox County, Georgia, presents a distinct affordability profile where federal loan limits significantly exceed local property values. The 2026 FHA single-family limit of $541,287 covers 618% of the median home value of $87,600, while the conforming limit of $832,750 covers 951%. Consequently, no typical buyer in this market faces loan limit constraints. The primary financial friction stems from the current 30-year fixed rate of 7.32%, which elevates monthly principal and interest (P&I) costs relative to historical averages. For a median-priced home, an FHA loan with 3.5% down results in a $580 monthly P&I payment, representing 12.9% of the median household income of $54,138. A conventional loan with 20% down reduces this burden to $481 per month, or 10.7% of income. Both figures fall within standard debt-to-income guidelines, indicating that the median buyer can service debt without excessive strain, provided they maintain stable employment.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Wilcox County, Georgia.
+    *   **Data provided:** 2026 Loan Limits (FHA, Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED 2026-10-29), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Task:** Write a 280-320 word mortgage affordability analysis.
+    *   **Required Content:**
+        1. Financing coverage (FHA vs Conforming vs median price).
+        2. Monthly payment burden (P&I vs median income).
+        3. Loan type recommendation (FHA/VA/USDA/Conventional).
+        4. Down payment barriers (minimum required at median price).
+        5. Rate sensitivity (7.24% vs lower rates).
+        6. Practical takeaway (one concrete insight).
+    *   **Style Requirements:** Professional, analytical tone; specific dollar amounts and percentages; third person only; no speculation/predictions; 280-320 words; 2-3 paragraphs; begin directly with the analysis.
 
-Loan type selection in Wilcox County is driven more by down payment capability than by price ceilings. Given the low median home value, the minimum down payment for an FHA loan is approximately $3,066, a threshold that is highly feasible for many local residents. Conversely, a 20% conventional down payment requires $17,520, which may pose a significant barrier for first-time buyers or those with limited savings. While USDA loans are often relevant for rural areas, the specific eligibility requirements for Wilcox County must be verified, as the low price point already makes FHA and conventional options accessible without needing government-subsidized rates. The recent 23.0% year-over-year price increase to $87,600 has slightly increased entry costs, yet the absolute dollar amounts remain low compared to national averages.
-
-The current interest rate environment significantly impacts total cost of ownership. At 7.32%, the interest portion of the payment is substantial, meaning that even small rate fluctuations alter the long-term financial outlook. However, because the loan principal is small, the absolute dollar impact of rate changes is less severe than in higher-priced markets. For prospective buyers, the most practical insight is that the low median home value minimizes the absolute dollar amount of required down payments. An FHA loan offers the most accessible entry point, requiring only $3,066 to close, making homeownership attainable for households with modest savings. Buyers should prioritize securing pre-approval to lock in current rates, as the low leverage required for a median-priced home allows for manageable monthly obligations despite the elevated interest rate environment.</p>
+2.  **Drafting - Section by Section:**
+    *   *Paragraph 1: Financing Coverage & Loan Type Recommendation*
+        *   Need to address point 1 and 3.
+        *   Data: FHA limit covers 618% of median home price ($87,600 / $541,287 = ~16.2% of limit, or 618% covered). Conforming covers 951%. Median home is within FHA limit.
+        *   Recommendation: Since the median home is well below the FHA limit but above the conforming limit, Conventional is the best fit for typical buyers seeking maximum loan amounts. However, wait, let's look at the monthly payment estimates. FHA P&I is $576, Conventional 20% is $477. The prompt asks "which loan type... is likely the best fit". Given the high cost of down payment for conventional (20%), FHA might be better for typical buyers who cannot afford 20%. Let's re-read carefully. "Given local prices and limits, which loan type... is likely the best fit". Actually, since the median home is under the FHA limit, FHA allows financing. But Conventional 20% is $477 vs FHA 3.5% is $576. Wait, if they can't afford 20%, FHA is better. Let's frame it as: Conventional offers lower monthly payments but requires a 20% down payment, whereas FHA accommodates smaller down payments. Given the median income, Conventional 20% is 10.6% of income, while FHA is 12.8%. Both are manageable, but Conventional is more budget-friendly. However, the prompt says "best fit for typical buyers". Usually, in low-cost markets, Conventional with 20% down is preferred if they can afford it, but if they can't, FHA. Let's just state that Conventional is optimal for buyers who can secure 20% down, while FHA serves those needing lower reserves. Actually, let's look at the numbers: Conventional 20% is 10.6% of income, FHA is 12.8%. Both are under 28% (Housing expense ratio). I will recommend Conventional for buyers who can meet the 20% down payment requirement, as it minimizes the monthly payment burden, but note FHA as an alternative for those lacking reserves.
+    *   *Paragraph 2: Monthly Payment Burden & Down Payment Barriers*
+        *   Need to address points 2 and 4.
+        *   Data: Median income $54,138/month. FHA P&I $576 (12.8% of income). Conventional 20% P&I $477 (10.6% of income).
+        *   Down payment barrier: Conventional requires 20% down ($17,520 at median price). FHA requires 3.5% down ($3,066). Is this feasible? Yes, $3,066 is very feasible compared to $17,520.
+        *   Drafting: The estimated monthly principal and interest payments for a median-priced home</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>
