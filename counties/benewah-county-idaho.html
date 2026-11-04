@@ -228,6 +228,31 @@
 
 <!-- AI 인사이트 (향후 추가) -->
 
+<div class="ai-insight">
+  <h2>📝 Mortgage Market Notes</h2>
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Benewah County, Idaho.
+    *   **Data provided:** 2026 Loan Limits (FHA/Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED, 7.24%), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Task:** Write a 280-320 word mortgage affordability analysis covering 6 specific points.
+    *   **Style Requirements:** Professional, analytical tone; use specific dollar amounts/percentages; third person only; no speculation/predictions; 280-320 words (2-3 paragraphs); begin directly with the analysis.
+
+2.  **Deconstruct the Content Requirements:**
+    *   *Point 1: Financing coverage.* FHA limit ($837,720 for 3-unit, but wait, the prompt says "FHA limit covers 184% of median home price" - wait, $837,720 / $293,500 = 2.85? Ah, the prompt's "FHA 3-Unit Limit" is $837,720, but the prompt states "FHA limit covers 184% of median home price". Let me check the math: $293,500 * 1.84 = $540,540. The FHA 1-unit limit is $541,287. So the prompt implies the *residential* limit or specifically 1-unit covers 184%. I will use the prompt's provided metric: "FHA limit covers 184% of median home price" and "Conforming limit covers 284%". Conforming 1-unit limit is $832,750 / $293,500 = 2.83 -> 283%. Matches prompt.)
+    *   *Point 2: Monthly payment burden.* FHA P&I $1,930 vs income $59,794/mo ($4,982,500/yr). $1,930 / $4,982.50 = 38.7%. Matches prompt. Conventional 20% $1,600 / $4,982.50 = 32.1%.
+    *   *Point 3: Loan type recommendation.* Given local prices and limits, which loan type is best? FHA is well within limits (covers 184%). Conforming also well within limits (284%). But FHA requires only 3.5% down, making it feasible where conventional might require 20%. Wait, if both are within limits, why is FHA better? Because it lowers the down payment barrier, which leads to point 4. Let's recommend FHA as the best fit for typical buyers due to lower down payment requirements and adequate limit coverage.
+    *   *Point 4: Down payment barriers.* Minimum down payment at median price ($293,500). FHA: 3.5% = $10,272. Conventional 10%: $29,350. Conventional 20%: $58,700. Is this feasible? Yes, FHA is highly feasible.
+    *   *Point 5: Rate sensitivity.* Current rate 7.24%. FHA monthly $1,930 (38.7% of income). At a lower rate (e.g., 5%), monthly would be significantly lower (~$1,570), bringing it to ~31.5% of income. High rates create a heavy burden.
+    *   *Point 6: Practical takeaway.* One concrete insight. E.g., Buyers should prioritize FHA financing to minimize upfront costs, or buyers should be aware that even with FHA, current rates push payments near or above the 43% debt-to-income (DTI) threshold, requiring careful budget planning.
+
+3.  **Drafting - Paragraph by Paragraph (aiming for 280-320 words):**
+
+    *Paragraph 1: Coverage & Burden*
+    Benewah County’s median home price of $293,500 falls comfortably within both FHA and conforming loan limits. Specifically, the FHA limit covers 18</p>
+  <p class="insight-meta">
+    Based on FHFA, HUD, and U.S. Census data.
+  </p>
+</div>
+
 <!-- 🆕 Cross-link to sister sites -->
 <div class="cross-link-box">
   <h3>📍 Researching This Market?</h3>

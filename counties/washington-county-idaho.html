@@ -228,6 +228,31 @@
 
 <!-- AI 인사이트 (향후 추가) -->
 
+<div class="ai-insight">
+  <h2>📝 Mortgage Market Notes</h2>
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Washington County, Idaho.
+    *   **Data provided:** 2026 Loan Limits (FHA/Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED 2026-10-29), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Task:** Write a 280-320 word mortgage affordability analysis covering 6 specific points (Financing coverage, Monthly payment burden, Loan type recommendation, Down payment barriers, Rate sensitivity, Practical takeaway).
+    *   **Style Requirements:** Professional, analytical tone; use specific dollar amounts and percentages; third person only; no speculation/predictions; 280-320 words; begin directly with the analysis.
+
+2.  **Deconstruct the Data & Map to Prompts:**
+    *   *Financing coverage:* FHA limit ($541,287) covers 195% of median home price ($278,100). Conforming limit ($832,750) covers 299%. Median home is within FHA limit.
+    *   *Monthly payment burden:* FHA P&I ($1,828) is 40.6% of monthly income ($54,000 / 12 = $4,500). Conventional 20% P&I ($1,516) is 33.7% of income. Both exceed standard debt-to-income (DTI) limits (typically 43-50%), though FHA is closer to the upper bound.
+    *   *Loan type recommendation:* Conventional (20% down) or FHA? Since the median home is within the FHA limit, FHA is an option, but the high P&I burden makes Conventional more attractive. However, Conventional requires 20% down (barrier). Let's recommend Conventional for lower monthly burden, but note the down payment barrier. Or recommend FHA if they can't do 20%? Wait, the prompt asks "which loan type... is likely the best fit". Given the high rates and tight income, Conventional 20% down offers the lowest P&I ($1,516), making it the most affordable, despite the 20% down payment barrier. Alternatively, FHA is accessible but burdensome. I will recommend Conventional due to the lower monthly payment, while acknowledging the down payment requirement.
+    *   *Down payment barriers:* Conventional requires 20% ($55,620). FHA requires 3.5% ($9,733.50). The $55,620 is a significant barrier given the median income.
+    *   *Rate sensitivity:* Current rate is 7.24%. At this rate, affordability is strained. A lower rate environment would significantly reduce the P&I payments (e.g., at 5%, Conventional 20% P&I would be ~$1,240, FHA ~$1,510). The 7.24% rate pushes the FHA payment to 40.6% of income, a heavy burden.
+    *   *Practical takeaway:* Buyers should prioritize saving for the 20% down payment to secure the most affordable Conventional loan, or consider alternative financing if the down payment is unattainable, as the current rate severely restricts FHA affordability.
+
+3.  **Drafting - Paragraph by Paragraph (aiming for ~280-320 words):**
+
+    *Paragraph 1: Financing Coverage & Down Payment Barriers*
+    Washington County’s 2026 financing limits adequately cover the local market. The FHA 1-unit limit of $541,287 covers 195% of the median home value of $278,100, while the conforming limit covers 299%. Consequently, the typical home falls well within the FHA threshold. However, the primary barrier to entry remains the down payment. For a conventional loan at the median price, a 20% down payment of $55,620 is required, representing a substantial upfront hurdle relative to the median household income of $54,000. Conversely, an FHA loan requires only a 3.5% down payment of $9,733.50, making</p>
+  <p class="insight-meta">
+    Based on FHFA, HUD, and U.S. Census data.
+  </p>
+</div>
+
 <!-- 🆕 Cross-link to sister sites -->
 <div class="cross-link-box">
   <h3>📍 Researching This Market?</h3>
