@@ -228,6 +228,45 @@
 
 <!-- AI 인사이트 (향후 추가) -->
 
+<div class="ai-insight">
+  <h2>📝 Mortgage Market Notes</h2>
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Cass County, Iowa.
+    *   **Length:** 280-320 words (2-3 paragraphs).
+    *   **Content requirements:**
+        1. Financing coverage (FHA vs Conforming limit vs median home price).
+        2. Monthly payment burden (P&I vs median income).
+        3. Loan type recommendation (FHA/VA/USDA/Conventional).
+        4. Down payment barriers (minimum down payment at median price, feasibility).
+        5. Rate sensitivity (7.24% rate vs lower rates).
+        6. Practical takeaway (one concrete insight).
+    *   **Style:** Professional, analytical tone, specific dollar amounts and percentages, third person only, no speculation/predictions.
+    *   **Starting condition:** Begin directly with the analysis.
+
+2.  **Extract Data & Calculate:**
+    *   Median Home Value: $150,300
+    *   Median Household Income: $63,013
+    *   FHA 3-Unit Limit: $837,720 (Wait, the prompt says "FHA limit covers 360% of median home price" - let me check this. $150,300 * 3.6 = $541,080. Yes, that matches the FHA 1-unit limit of $541,287. So "FHA limit" refers to the 1-unit limit here, or the max loan amount for a typical buyer. Let's stick to the prompt's framing: "FHA limit covers 360% of median home price", "Conforming limit covers 554%".)
+    *   Conforming 1-Unit Limit: $832,750 ($150,300 * 5.54 = $832,262, close enough).
+    *   Median Monthly Rent: $777 (Good to know, but maybe not strictly necessary for the prompt, though good context).
+    *   30-Year Fixed Rate: 7.24%
+    *   FHA P&I: $988/month (3.5% down on $145,040 loan). Wait, if the loan is $145,040, that's > $150k? No, $145,040 < $150,300. Actually, $150,300 * 0.965 = $144,979. Close enough. The prompt gives these exact numbers, so I will use them).
+    *   Conventional 20% P&I: $819/month (20% down on $120,240 loan. $150,300 * 0.8 = $120,240. Correct).
+    *   FHA monthly as % of income: 18.8%
+    *   Conventional 20% monthly as % of income: 15.6%
+    *   Median Income: $63,013 -> $5,251/month.
+    *   Wait, $988 / $5,251 = 18.8%. Matches perfectly.
+    *   $819 / $5,251 = 15.6%. Matches perfectly.
+
+3.  **Drafting the Content - Step-by-Step:**
+
+    *   *Paragraph 1: Financing Coverage & Down Payment Barriers*
+        The FHA 1-unit loan limit of $541,287 covers 360% of the local median home value of $150,300, making the typical home fully accessible under FHA financing. Conversely, the conforming limit of $832,750 covers 554% of the median price, which is highly restrictive for standard buyers. To purchase at the median price, a buyer must make a down payment of at least 3.5% for an FHA loan or 20% for a conventional loan. While the 3.5% FHA down payment is financially feasible, the 20% conventional barrier is substantial, requiring roughly $30,060 upfront, which represents nearly half of the median household income of $63,013.</p>
+  <p class="insight-meta">
+    Based on FHFA, HUD, and U.S. Census data.
+  </p>
+</div>
+
 <!-- 🆕 Cross-link to sister sites -->
 <div class="cross-link-box">
   <h3>📍 Researching This Market?</h3>

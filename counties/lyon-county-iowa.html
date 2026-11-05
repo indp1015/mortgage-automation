@@ -230,11 +230,23 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>Financing coverage is robust in Lyon County. The 2026 FHA limit of $541,287 exceeds the $230,000 median home value by 235%, while the conforming limit of $832,750 provides 362% coverage. Neither limit constrains purchasing power for typical buyers; the median-priced home falls well within both programs' parameters.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Lyon County, Iowa.
+    *   **Data provided:** 2026 Loan Limits (FHA 1-4, Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Tasks:**
+        1. Financing coverage (FHA vs Conforming vs median price).
+        2. Monthly payment burden (P&I vs median income).
+        3. Loan type recommendation (FHA/VA/USDA/Conventional).
+        4. Down payment barriers (minimum down at median price, feasibility).
+        5. Rate sensitivity (7.24% vs lower rates).
+        6. Practical takeaway (concrete insight).
+    *   **Style Requirements:** Professional, analytical tone; specific dollar amounts and percentages; third person only; no speculation/predictions; length 280-320 words; begin directly with the analysis.
 
-Monthly principal and interest payments represent a moderate burden relative to the $76,746 median household income ($6,396/month). At the current 7.40% rate, an FHA loan with 3.5% down ($221,950 loan) yields a $1,536 P&I payment—24.0% of gross monthly income. Conventional financing with 20% down ($184,000 loan) reduces P&I to $1,273, or 19.9% of income. Both ratios remain below the 28% front-end threshold, though the FHA option approaches it when adding mortgage insurance premiums, taxes, and insurance.
-
-For the typical buyer, conventional financing with 10–20% down offers the strongest value proposition given the ample conforming limit and absence of upfront or ongoing mortgage insurance at 20% equity. However, the 10% down payment ($23,000) and 20% down payment ($46,000) present meaningful liquidity barriers. FHA's 3.5% minimum ($8,050) significantly lowers the entry threshold, and USDA financing—available in this rural county—offers 0% down for eligible borrowers, eliminating the down payment barrier entirely. VA loans provide the same advantage for</p>
+2.  **Drafting - Section by Section:**
+    *   *Task 1: Financing coverage.* FHA limit ($837,720 for 3 units) covers 362% of median home price ($230,000). Conforming limit ($832,750) covers 362% as well (wait, the prompt says "Conforming limit covers 362% of median home price" but the math is $832,750 / $230,000 = 362%. FHA 3-unit limit is $837,720 / $230,000 = 364%. The prompt says "FHA limit covers 235%... Conforming limit covers 362%". Wait, $541,287 / $230,000 = 235%. So it's referring to the 1-unit FHA limit. I will just use the provided text: "FHA limit covers 235% of median home price" and "Conforming limit covers 362% of median home price". Actually, let's look at the numbers. Median home is $230k. FHA 1-unit is $541k (235%). Conforming is $832k (362%). Since the typical buyer might be looking at a 1-unit or 2-unit, Conforming covers it well. I'll state that both limits comfortably exceed the median home price, ensuring standard financing availability.)
+    *   *Task 2: Monthly payment burden.* FHA P&I is $1,512/month (23.6% of median income $76,746). Conventional 20% P&I is $1,253/month (19.6% of income). The FHA payment exceeds 20% of income, indicating a significant affordability hurdle.
+    *   *Task 3: Loan type recommendation.* Given the high prices relative to incomes and the high 7.24% rate, Conventional (20% down) offers the most stable, lowest-risk path. FHA is accessible but burdensome due to the high payment-to-income ratio. VA/USDA are not explicitly detailed in the prompt's data, so stick to FHA vs Conventional based on the provided metrics. Conventional 20% down is best for typical buyers seeking stability without private mortgage insurance (PMI) concerns, though 20% down means cash for a larger upfront down payment. Wait, if they don't have 20%, FHA is the only way to get a conventional-like term (30yr) with less than 20% down, but PMI is required until 7 years. Let's recommend Conventional 20% down for long-term stability, or FHA for those who cannot meet the 20% down payment but must accept the higher monthly burden. Actually, the prompt asks "which loan type... is likely the best fit". Given the high payment burden of FHA (23.6% of income), Conventional 20% down is financially optimal despite the larger down payment requirement.
+    *   *Task 4: Down payment barriers.* At the median price of $230,000, a Conventional 20% down payment requires $46,000. An FHA 3</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>

@@ -228,6 +228,24 @@
 
 <!-- AI 인사이트 (향후 추가) -->
 
+<div class="ai-insight">
+  <h2>📝 Mortgage Market Notes</h2>
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Louisa County, Iowa.
+    *   **Data Provided:** 2026 Loan Limits (FHA, Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Task:** Write a 280-320 word mortgage affordability analysis covering 6 specific points (Financing coverage, Monthly payment burden, Loan type recommendation, Down payment barriers, Rate sensitivity, Practical takeaway).
+    *   **Style Requirements:** Professional, analytical tone, specific dollar amounts/percentages, third person only, no speculation/predictions, 280-320 words, begin directly with the analysis.
+
+2.  **Drafting - Section by Section:**
+    *   *Point 1: Financing coverage.* FHA limit covers 361% of median home price; Conforming covers 555%. Median home is within FHA limit.
+    *   *Point 2: Monthly payment burden.* FHA P&I is $987/month. Median household income is $77,354/year ($6,446/month). $987 / $6,446 = ~15.3% (matches the provided data). Conventional 20% P&I is $818/month.
+    *   *Point 3: Loan type recommendation.* FHA is best fit because the median home ($150,100) exceeds the Conforming limit ($832,750? Wait, 150,100 is way below 832,750. Let me re-read the prompt's data).
+        *   Prompt says: "Conforming 1-Unit Limit: $832,750". Wait, $150,100 is *below* $832,750. Why does the prompt say "Conforming limit covers 555% of median home price"? Let me check the math. $832,750 / $150,100 = 5.54 = 555%. Yes, mathematically it covers 555%, but practically, since the median is well below the conforming limit, conventional *is* available. However, the prompt specifically asks to analyze based on the provided text. The text says "✅ Median home within FHA limit". It doesn't explicitly say it's within Conforming, though mathematically it is. But wait, if the median is $150k and Conforming is $832k, Conventional is definitely an option. Why would FHA be recommended? Maybe because of the 3.5% down payment requirement making it more accessible? Or maybe just because the prompt highlights "✅ Median home within FHA limit". Let's look at the monthly payments: FHA 3.5% down is $987/mo. Conventional 20% down is $818/mo. Conventional 10% down is $920/mo. Since the median is well under the Conforming limit, Conventional is highly viable. But the prompt asks "which loan type... is likely the best fit". Often in markets where conforming limits are high relative to prices, Conventional is preferred due to lowerPMI. However, if we look at the financing coverage section, it emphasizes the FHA limit. I will state that Conventional is viable but FHA offers broader buyer access due to its low down payment requirement, or vice versa. Actually, since Conforming limit is $832,750 and median is $150,100, Conventional is perfectly accessible. Let's recommend Conventional for typical buyers seeking lower PMI, but note FHA is also highly accessible. Wait, let's look at the prompt's framing: "FHA limit covers 361%... Conforming limit covers 555%... ✅ Median home within FHA limit". This implies the prompt wants me to focus on FHA as the primary driver of coverage, even though Conforming is higher. I will recommend Conventional as the primary choice for typical buyers because the median home is well within the Conforming limit, allowing for competitive P&I without insurance, but FHA is a strong alternative. Actually, let's just stick to the data: Conventional is viable. Let's recommend Conventional because the median home is comfortably within the Con</p>
+  <p class="insight-meta">
+    Based on FHFA, HUD, and U.S. Census data.
+  </p>
+</div>
+
 <!-- 🆕 Cross-link to sister sites -->
 <div class="cross-link-box">
   <h3>📍 Researching This Market?</h3>
