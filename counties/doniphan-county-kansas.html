@@ -137,7 +137,7 @@
 <div class="chart-container fhfa-section">
   <h2>💰 Monthly Payment Estimate (Median-Priced Home)</h2>
   <p class="chart-subtitle">
-    Based on current 30-year fixed rate of 7.24%
+    Based on current 30-year fixed rate of 7.18%
     and a home price of $135,200
   </p>
   <table class="data-table">
@@ -154,18 +154,18 @@
         <td><strong>FHA</strong></td>
         
         <td>3.5% ($4,732)</td>
-        <td>$889/mo</td>
+        <td>$883/mo</td>
         
       </tr>
       <tr>
         <td><strong>Conventional (10%)</strong></td>
         <td>10% ($13,520)</td>
-        <td>$829/mo</td>
+        <td>$824/mo</td>
       </tr>
       <tr>
         <td><strong>Conventional (20%)</strong></td>
         <td>20% ($27,040)</td>
-        <td>$737/mo</td>
+        <td>$732/mo</td>
       </tr>
     </tbody>
   </table>
@@ -230,11 +230,41 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>The financing landscape in Doniphan County, Kansas, is characterized by substantial regulatory headroom relative to local property values. The 2026 FHA single-family loan limit of $541,287 covers 400% of the median home value of $135,200, while the conforming limit of $832,750 covers 616% of that figure. Consequently, loan limits do not constrain access to credit for typical buyers, as the median-priced property falls well within both FHA and conventional parameters. This ample coverage indicates that financing availability is not a barrier to entry for the average household seeking to purchase a home in this rural market.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Doniphan County, Kansas.
+    *   **Data provided:** 2026 Loan Limits (FHA/Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Tasks:**
+        1. Financing coverage (FHA vs Conforming vs median price).
+        2. Monthly payment burden (P&I vs median income).
+        3. Loan type recommendation (FHA/VA/USDA/Conventional based on local prices/limits).
+        4. Down payment barriers (minimum down payment at median price, feasibility).
+        5. Rate sensitivity (7.24% rate effect on affordability vs lower rates).
+        6. Practical takeaway (concrete insight for buyers).
+    *   **Style Requirements:** Professional, analytical tone; specific dollar amounts and percentages; third person only; no speculation/predictions; 280-320 words; begin directly with the analysis.
 
-Monthly payment burdens remain manageable when benchmarked against local income levels. For a median-priced home, an FHA loan with a 3.5% down payment requires a principal and interest payment of $903, which represents 14.6% of the median household income of $74,028. A conventional loan with a 20% down payment reduces this burden to $748, or 12.1% of income. Both scenarios fall well below the standard 28% housing expense ratio, suggesting that debt-to-income ratios are unlikely to disqualify typical borrowers based on housing costs alone. However, the current 30-year fixed rate of 7.40% significantly impacts affordability compared to historical lower-rate environments. This elevated interest rate increases the monthly cost of capital, meaning that while the home price is low, the cost of borrowing is a primary driver of the total payment. Buyers should note that the minimum down payment for an FHA loan is approximately $4,732, a relatively modest barrier given the median income.
+2.  **Drafting - Section by Section:**
 
-Given the low median home value and strong owner-occupancy rate of 81.1%, conventional financing is likely the most efficient option for buyers with sufficient savings, as it avoids FHA mortgage insurance premiums. For those with limited cash reserves, the FHA option remains highly accessible due to the low absolute dollar amount required for the down payment. The 5-year price CAGR of 7.2% reflects a recent period of appreciation, with the median value rising from $95,300 in 2017 to $135,200 in 2024. Prospective buyers should recognize that while the entry price point is low, the high interest rate environment necessitates careful budgeting. A concrete insight for buyers is that saving for a 20% down payment is not strictly necessary to qualify for affordable financing; rather, prioritizing a lower loan-to-value ratio to mitigate the impact of the 7.40% interest rate on the total monthly outlay is a prudent strategy. This approach balances immediate cash flow constraints with long-term debt service stability.</p>
+    *   *Task 1: Financing coverage.*
+        *   FHA limit: $837,720. Median home value: $135,200. Covers 400%.
+        *   Conforming limit: $832,750. Covers 616%.
+        *   Both adequately cover the typical home, but Conforming covers a significantly larger percentage of the median price, leaving more room for price appreciation or higher-priced properties.
+
+    *   *Task 2: Monthly payment burden.*
+        *   Median monthly rent: $776.
+        *   FHA P&I: $889/month (14.4% of income).
+        *   Conventional 20% P&I: $737/month (11.9% of income).
+        *   The FHA payment exceeds the median monthly rent, while the Conventional 20% payment is lower than the median rent. The 14.4% ratio for FHA is notably high relative to standard guidelines (usually capped at 28-31%), indicating a heavy payment burden.
+
+    *   *Task 3: Loan type recommendation.*
+        *   Given the low conforming limit (covers 616% of median price) and the fact that both limits easily cover the median price, Conventional is highly viable. However, FHA is also viable. Wait, the prompt asks "which loan type... is likely the best fit". Since the Conforming limit covers 616% of the median price, Conventional loans are highly accessible. But wait, at 7.24%, FHA's higher P&I makes it less attractive. Let's recommend Conventional 20% as the most practical fit due to the lower monthly payment burden compared to FHA, though FHA remains an option for those needing smaller down payments. Actually, let's look at the numbers: Conventional 20% P&I ($737) is less than median rent ($776), making it very affordable. FHA P&I ($889) is over the median rent. So Conventional 20% is the best fit.
+
+    *   *Task 4: Down payment barriers.*
+        *   Conventional 20% down on $135,200 = $27,040. This is feasible.
+        *   FHA 3.5% down = $4,732. Also feasible, but the high P&I makes it less ideal.
+        *   The primary barrier isn't the down payment amount itself, but rather the overall cost of credit at current rates, which pushes the effective cost of homeownership higher than the down payment alone.
+
+    *   *Task 5: Rate sensitivity.*
+        *   At 7.24%, the FHA payment is $889, which is 14.4% of median income ($74,028/mo). This is well above the typical 28% front-end DTI limit, severely limiting affordability. If rates were lower (e.g., 5%), the FHA payment would drop significantly, bringing it closer to the 28% threshold. Conversely, Conventional 20% at 7.24% is $737 (11.9% of</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>

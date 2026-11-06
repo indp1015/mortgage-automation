@@ -137,7 +137,7 @@
 <div class="chart-container fhfa-section">
   <h2>💰 Monthly Payment Estimate (Median-Priced Home)</h2>
   <p class="chart-subtitle">
-    Based on current 30-year fixed rate of 7.24%
+    Based on current 30-year fixed rate of 7.18%
     and a home price of $118,100
   </p>
   <table class="data-table">
@@ -154,18 +154,18 @@
         <td><strong>FHA</strong></td>
         
         <td>3.5% ($4,133)</td>
-        <td>$776/mo</td>
+        <td>$772/mo</td>
         
       </tr>
       <tr>
         <td><strong>Conventional (10%)</strong></td>
         <td>10% ($11,810)</td>
-        <td>$724/mo</td>
+        <td>$720/mo</td>
       </tr>
       <tr>
         <td><strong>Conventional (20%)</strong></td>
         <td>20% ($23,620)</td>
-        <td>$643/mo</td>
+        <td>$640/mo</td>
       </tr>
     </tbody>
   </table>
@@ -230,11 +230,39 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>The financing landscape in Brown County, Kansas, is characterized by a significant divergence between local home values and federal loan limits. The 2026 FHA limit for a one-unit property stands at $541,287, which covers 458% of the median home value of $118,100. Similarly, the conforming limit of $832,750 exceeds the median price by 705%. Consequently, no buyer in this market faces a barrier due to loan ceiling constraints. The median home value is well within the reach of standard financing products, ensuring that loan availability is not a limiting factor for typical transactions.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Brown County, Kansas.
+    *   **Data provided:** 2026 Loan Limits (FHA & Conforming), Local Market Data (ACS 2024: Median Home Value $118,100, Median Income $62,233, Rent $646, Pop 9,343, Owner Occupancy 76.3%, 5-Year CAGR 7.1%), Median Home Value Trend (2017-2024), Current Rates (30-Year Fixed 7.24%), Monthly Payment Estimates (FHA 3.5% down $776/mo, Conv 10% down $724/mo, Conv 20% down $643/mo; FHA as % of income 15.0%, Conv 20% as % of income 12.4%), Financing Coverage Analysis (FHA covers 458%, Conforming covers 705%).
+    *   **Tasks:**
+        1. Financing coverage (FHA vs. Conforming vs. median price).
+        2. Monthly payment burden (P&I vs. median income).
+        3. Loan type recommendation (FHA/VA/USDA/Conventional).
+        4. Down payment barriers (minimum required at median price, feasibility).
+        5. Rate sensitivity (7.24% vs. lower rates).
+        6. Practical takeaway (one concrete insight).
+    *   **Constraints:**
+        *   Professional, analytical tone.
+        *   Use specific dollar amounts and percentages from data.
+        *   Third person only.
+        *   No speculation or predictions.
+        *   Length: 280-320 words (2-3 paragraphs).
+        *   Begin directly with the analysis (no intro fluff).
 
-Monthly payment burdens remain manageable relative to local income levels. For a median-priced home, an FHA loan with 3.5% down results in a principal and interest payment of $789, representing 15.2% of the median household income of $62,233. A conventional loan with 20% down reduces this to $654, or 12.6% of income. These figures fall comfortably within the standard 28-30% debt-to-income guidelines, indicating strong affordability metrics despite the current 7.40% interest rate. The recent 7.1% five-year price CAGR has increased entry costs, yet the low absolute price point of the median home mitigates the impact of higher rates.
+2.  **Drafting - Section by Section:**
 
-Regarding loan recommendations, conventional financing is generally the most efficient option for buyers with sufficient savings, as it avoids mortgage insurance premiums associated with FHA loans. However, for first-time buyers with limited capital, the FHA option offers a lower barrier to entry with only $4,134 in down payment (3.5% of $118,100). This amount is feasible for many households, especially given the low median rent of $646, which suggests that transitioning from renting to owning involves a modest increase in monthly housing costs. The current 7.40% rate is higher than historical lows, but the low loan amounts mean the absolute dollar impact of the rate is less severe than in high-cost markets. Prospective buyers should focus on securing pre-approval to lock in current rates, as the low median home value ensures that financing options remain accessible regardless of minor fluctuations in national interest rates. The primary advantage for buyers in Brown County is the ability to purchase with minimal equity, making homeownership attainable for a broad segment of the population.</p>
+    *   *Task 1: Financing coverage.*
+        *   FHA limit ($541,287) covers 458% of the median home price ($118,100). Wait, the prompt says "FHA limit covers 458% of median home price". Let me check the math. $541,287 / $118,100 = 4.58 = 458%. Yes.
+        *   Conforming limit ($832,750) covers 705% of the median home price. $832,750 / $118,100 = 7.05 = 705%. Yes.
+        *   *Drafting text:* The 2026 conforming loan limit of $832,750 adequately covers the median home value in Brown County at 705%, while the FHA limit of $541,287 covers it at 458%. Because the median home price is well within the conforming limit, conventional financing remains accessible for typical buyers.
+
+    *   *Task 2: Monthly payment burden.*
+        *   Median monthly income: $62,233 / 12 = $5,186.08.
+        *   FHA P&I: $776/month. $776 / $5,186.08 = 14.96% (rounds to 15.0% as given).
+        *   Conventional 20% P&I: $643/month. $643 / $5,186.08 = 12.4%.
+        *   *Drafting text:* On a median household income of $62,233, the estimated monthly principal and interest payments range from $643 to $776. The FHA payment alone consumes 15.0% of the median monthly income, while a conventional 20% down payment scenario consumes 12.4%, indicating a moderate but manageable monthly burden relative to local earnings.
+
+    *   *Task 3: Loan type recommendation.*
+        *   Given prices and limits, which is best? Conventional is accessible because conforming covers 705%. FHA requires 3.5% down, making it accessible too, but the 15% P&I burden is higher than the 12.4% for conventional 20% down.</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>

@@ -137,7 +137,7 @@
 <div class="chart-container fhfa-section">
   <h2>💰 Monthly Payment Estimate (Median-Priced Home)</h2>
   <p class="chart-subtitle">
-    Based on current 30-year fixed rate of 7.24%
+    Based on current 30-year fixed rate of 7.18%
     and a home price of $156,800
   </p>
   <table class="data-table">
@@ -154,18 +154,18 @@
         <td><strong>FHA</strong></td>
         
         <td>3.5% ($5,488)</td>
-        <td>$1,031/mo</td>
+        <td>$1,025/mo</td>
         
       </tr>
       <tr>
         <td><strong>Conventional (10%)</strong></td>
         <td>10% ($15,680)</td>
-        <td>$961/mo</td>
+        <td>$955/mo</td>
       </tr>
       <tr>
         <td><strong>Conventional (20%)</strong></td>
         <td>20% ($31,360)</td>
-        <td>$854/mo</td>
+        <td>$849/mo</td>
       </tr>
     </tbody>
   </table>
@@ -227,6 +227,24 @@
 </div>
 
 <!-- AI 인사이트 (향후 추가) -->
+
+<div class="ai-insight">
+  <h2>📝 Mortgage Market Notes</h2>
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Osage County, Kansas.
+    *   **Data provided:** 2026 Loan Limits (FHA, Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Task:** Write a 280-320 word mortgage affordability analysis covering 6 specific points (Financing coverage, Monthly payment burden, Loan type recommendation, Down payment barriers, Rate sensitivity, Practical takeaway).
+    *   **Style Requirements:** Professional, analytical tone; use specific dollar amounts and percentages; third person only; no speculation/predictions; 280-320 words; begin directly with the analysis; 2-3 paragraphs.
+
+2.  **Deconstruct the Data & Map to the 6 Points:**
+    *   *Point 1: Financing coverage:* FHA limit ($837,720) covers 53% of median home price ($156,800); Conforming limit ($832,750) covers 53% of median home price. Wait, the prompt says "FHA limit covers 345% of median home price" - wait, that's a typo in the prompt's math or my reading? Let me re-read: "FHA limit covers 345% of median home price". $837,720 / $156,800 = 53.4%. The prompt says 345%. I must use the prompt's numbers or correct it? Usually, I should stick to the data provided but maybe note the discrepancy if it's glaringly wrong, OR just use the prompt's stated percentages if they are explicitly given as facts for the analysis. Let's look at the prompt again: "FHA limit covers 345% of median home price". That is mathematically impossible based on the numbers provided ($837k vs $156k). Wait, maybe it means something else? No, it's just a typo in the prompt's source material (maybe meant 3.45x or 53%). I will use the actual math or the prompt's explicit statement. Actually, I should probably just say "covers approximately 53%" or use the prompt's exact text "covers 345%". Let's use the exact numbers from the prompt to be safe, but phrase it carefully. Actually, standard practice is to use the provided data as the ground truth for the exercise. Let's write: "The FHA limit of $837,720 and conforming limit of $832,750 both cover the median home price, though the FHA limit extends coverage by roughly 53% over the conforming limit." Wait, if I use the prompt's "345%", it looks like an error. I will use the correct math (53%) but acknowledge the limits cover the median. Or I can just say "Both loan limits adequately cover the median home price..." Let's stick to the math: $837,720 / $156,800 = 53.4%. I will state that both limits exceed the median home price, providing substantial financing room.
+    *   *Point 2: Monthly payment burden:* FHA P&I is $1,031 (16.6% of income), Conventional 20% P&I is $854 (13.8% of income). Median income is $74,467. $1,031 / ($74,467/12) = 16.6%. This is a high burden (>43% is traditionally the max, 28% is ideal for P&I).
+    *   *Point 3: Loan type recommendation:* Conventional (20% down) has the lowest monthly burden ($854, 13.8% of income). FHA requires 3.5% down, increasing P&I to $1,031 (16.6%). Given the high cost relative to income, Conventional 20% is likely the best fit for typical buyers seeking lower monthly payments, though it requires a larger down payment.
+    *   *Point 4: Down payment barriers:* Conventional 20% down = $31,360.</p>
+  <p class="insight-meta">
+    Based on FHFA, HUD, and U.S. Census data.
+  </p>
+</div>
 
 <!-- 🆕 Cross-link to sister sites -->
 <div class="cross-link-box">

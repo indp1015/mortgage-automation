@@ -137,7 +137,7 @@
 <div class="chart-container fhfa-section">
   <h2>💰 Monthly Payment Estimate (Median-Priced Home)</h2>
   <p class="chart-subtitle">
-    Based on current 30-year fixed rate of 7.24%
+    Based on current 30-year fixed rate of 7.18%
     and a home price of $192,300
   </p>
   <table class="data-table">
@@ -154,18 +154,18 @@
         <td><strong>FHA</strong></td>
         
         <td>3.5% ($6,730)</td>
-        <td>$1,264/mo</td>
+        <td>$1,257/mo</td>
         
       </tr>
       <tr>
         <td><strong>Conventional (10%)</strong></td>
         <td>10% ($19,230)</td>
-        <td>$1,179/mo</td>
+        <td>$1,172/mo</td>
       </tr>
       <tr>
         <td><strong>Conventional (20%)</strong></td>
         <td>20% ($38,460)</td>
-        <td>$1,048/mo</td>
+        <td>$1,042/mo</td>
       </tr>
     </tbody>
   </table>
@@ -230,11 +230,32 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>The mortgage financing landscape in Allen County, Kentucky, demonstrates robust coverage for typical residential purchases. The 2026 FHA single-unit limit of $541,287 covers 281% of the median home value of $192,300, while the conforming limit of $832,750 covers 433%. Consequently, no buyer in this market faces loan limit restrictions for a standard property. With a median household income of $61,403, the primary affordability challenge remains the current 30-year fixed interest rate of 7.40%. At this rate, the principal and interest payment for an FHA loan on a median-priced home is $1,284 per month, consuming 25.1% of median monthly income. This ratio sits near the upper threshold of conventional lender guidelines, suggesting that while technically affordable, the margin for error regarding additional housing costs or fluctuating income is narrow.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Allen County, Kentucky.
+    *   **Data provided:** 2026 Loan Limits (FHA, Conforming), Local Market Data (ACS 2024: Median Home Value $192,300, Median Income $61,403, Rent $844, Pop 21,293, Owner Occ 74.5%, 5-yr CAGR 13.4%), Median Home Value Trend (2017-2024), Current Rates (30-yr Fixed 7.24%), Monthly Payment Estimates (FHA, Conventional 10%, Conventional 20%), Financing Coverage Analysis (FHA covers 281%, Conforming covers 433%).
+    *   **Tasks:**
+        1. Financing coverage (Does FHA/conforming limit adequately cover typical home?).
+        2. Monthly payment burden (P&I vs median income).
+        3. Loan type recommendation (Given prices/limits, best fit for typical buyers).
+        4. Down payment barriers (Minimum down at median price, feasibility).
+        5. Rate sensitivity (Effect of 7.24% vs lower rates).
+        6. Practical takeaway (One concrete insight).
+    *   **Style Requirements:** Professional, analytical tone; specific dollar amounts and percentages; third person only; no speculation/predictions; 280-320 words; 2-3 paragraphs; begin directly with the analysis.
 
-Regarding loan type recommendations, FHA financing appears most suitable for the typical Allen County buyer due to its low down payment requirement. The minimum 3.5% down payment on a $192,300 home amounts to approximately $6,731. This capital requirement is significantly more accessible than the 20% down payment ($38,460) required for conventional loans without private mortgage insurance. While USDA loans may be available if specific rural census tract criteria are met, the FHA’s broad applicability and lower barrier to entry make it the default recommendation for first-time buyers in this price range. The feasibility of the down payment is high relative to local income levels, as the required amount represents less than one month’s median household income, allowing for rapid savings accumulation.
+2.  **Drafting - Step-by-Step:**
 
-Rate sensitivity significantly impacts purchasing power in this environment. Compared to historical low-rate environments, the current 7.40% rate increases the monthly payment burden by hundreds of dollars, effectively reducing the maximum affordable home price for a given income level. For instance, the difference between a 7.40% rate and a hypothetical 5.00% rate would alter the monthly payment by over $400. Prospective buyers should prioritize securing pre-approval with an FHA lender to lock in financing terms early. A concrete takeaway for buyers is that focusing on the FHA option minimizes initial capital hurdles, but they must budget strictly for property taxes and insurance, as the 25.1% P&I ratio leaves limited room for these additional monthly obligations within a standard debt-to-income framework.</p>
+    *   *Task 1: Financing coverage*
+        *   FHA covers 281% of median home price ($192,300 * 2.81 = ~$541k, matches FHA limit). Conforming covers 433% ($192,300 * 4.33 = ~$832k, matches conforming limit). Both limits vastly exceed the typical home value, meaning financing is highly accessible.
+    *   *Task 2: Monthly payment burden*
+        *   FHA P&I is $1,264/month. As a % of median income ($61,403 / 12 = $5,117/mo), that's 24.7%. Conventional 20% is $1,048/month (20.5%). Both are high burdens relative to local income.
+    *   *Task 3: Loan type recommendation*
+        *   Since both limits easily cover the median home, either loan type works. However, FHA requires only 3.5% down, making it more accessible for typical buyers compared to Conventional's 20% down requirement. VA/USDA aren't explicitly in the data, but FHA is the standard recommendation for typical buyers given the low down payment barrier and adequate limits. Let's recommend FHA as the primary fit for typical buyers due to the low down payment, or Conventional if they can afford 20% down. The prompt asks "which loan type... is likely the best fit". Given the high costs and 3.5% FHA option, FHA is often the best fit for typical buyers in high-cost-adjacent markets, but wait, Allen County isn't a "High-Cost County" per the data. Actually, the 5-year CAGR of 13.4% makes it very hot. FHA is the most accessible. Let's recommend FHA for its low down payment requirement, though Conventional is also viable.
+    *   *Task 4: Down payment barriers*
+        *   At $192,300, FHA requires 3.5% ($6,730) or Conventional requires 10% ($19,230) or 20% ($38,460). The minimum feasible down payment is $6,730 (FHA), which is highly feasible compared to Conventional's 10% minimum.
+    *   *Task 5: Rate sensitivity*
+        *   At 7.24%, the FHA payment is $1,264/month (24.7% of income). Lower rates would significantly reduce this burden, making homeownership much more attainable relative to the median income of $61,403.
+    *   *Task 6: Practical takeaway*
+        *   Prospective buyers should prioritize securing an FHA loan due to</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>

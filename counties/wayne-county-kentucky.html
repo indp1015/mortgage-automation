@@ -137,7 +137,7 @@
 <div class="chart-container fhfa-section">
   <h2>💰 Monthly Payment Estimate (Median-Priced Home)</h2>
   <p class="chart-subtitle">
-    Based on current 30-year fixed rate of 7.24%
+    Based on current 30-year fixed rate of 7.18%
     and a home price of $135,700
   </p>
   <table class="data-table">
@@ -154,18 +154,18 @@
         <td><strong>FHA</strong></td>
         
         <td>3.5% ($4,749)</td>
-        <td>$892/mo</td>
+        <td>$887/mo</td>
         
       </tr>
       <tr>
         <td><strong>Conventional (10%)</strong></td>
         <td>10% ($13,570)</td>
-        <td>$832/mo</td>
+        <td>$827/mo</td>
       </tr>
       <tr>
         <td><strong>Conventional (20%)</strong></td>
         <td>20% ($27,140)</td>
-        <td>$739/mo</td>
+        <td>$735/mo</td>
       </tr>
     </tbody>
   </table>
@@ -230,11 +230,28 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>Wayne County, Kentucky, presents a financing landscape where loan limits significantly exceed local property values, ensuring broad eligibility for standard mortgage products. The 2026 FHA limit of $541,287 covers 399% of the median home value of $135,700, while the conforming limit covers 614%. Consequently, virtually all residential transactions in this market fall well within federal and agency guidelines, eliminating high-balance loan complexities. This ample coverage allows typical buyers to access favorable financing terms without encountering the higher costs associated with jumbo loans or high-cost county surcharges, which do not apply to Wayne County.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Wayne County, Kentucky.
+    *   **Data provided:** 2026 LOAN LIMITS (FHA/Conforming), LOCAL MARKET DATA (ACS 2024), MEDIAN HOME VALUE TREND (2017-2024), CURRENT RATES (FRED), MONTHLY PAYMENT ESTIMATES (Median-Priced Home), FINANCING COVERAGE ANALYSIS.
+    *   **Tasks:**
+        1. Financing coverage (FHA vs Conforming vs Median price).
+        2. Monthly payment burden (P&I vs Median income).
+        3. Loan type recommendation (FHA/VA/USDA/Conventional).
+        4. Down payment barriers (minimum down for median price).
+        5. Rate sensitivity (7.24% rate impact).
+        6. Practical takeaway (concrete insight).
+    *   **Style Requirements:** Professional, analytical tone; specific dollar amounts/percentages; third person only; no speculation/predictions; 280-320 words; 2-3 paragraphs; begin directly with the analysis.
 
-Monthly payment burdens remain manageable relative to local income levels, though the current interest rate environment exerts noticeable pressure. At a 7.40% 30-year fixed rate, an FHA loan on the median-priced home requires a principal and interest payment of $906 per month. This figure represents 23.8% of the median monthly household income of $3,812. While this ratio is below the typical 28% debt-to-income threshold, it leaves limited room for other housing-related expenses. A conventional loan with a 20% down payment reduces the monthly P&I to $751, or 19.7% of income, offering a more comfortable margin. However, the 7.40% rate is substantially higher than the sub-4% environments seen in recent years, meaning buyers pay significantly more in total interest over the life of the loan compared to historical averages.
+2.  **Drafting - Step-by-Step:**
 
-For most prospective buyers, the FHA loan is likely the most accessible entry point due to its low 3.5% down payment requirement, which amounts to $4,750 for the median home. This barrier is feasible for many households, especially given the low absolute dollar amount. In contrast, the 20% down payment required for optimal conventional rates totals $27,140, a substantial hurdle for families earning the median income of $45,739. USDA loans may also be relevant if specific rural tract eligibility applies, but FHA offers broader availability. The primary practical insight for buyers is that while the low home prices in Wayne County provide a strong foundation for affordability, the high interest rate erodes some of that advantage. Buyers should prioritize securing the lowest possible rate or consider shorter loan terms to mitigate the impact of the 7.40% rate on long-term costs.</p>
+    *   *Task 1: Financing Coverage*
+        *   FHA limit: $541,287 (covers 399% of median $135,700 -> wait, 135,700 / 541,287 = 0.25, so FHA covers 250%? The prompt says "FHA limit covers 399% of median home price" - wait, 135,700 * 3.99 = 541,243. Yes, 399%. Actually, the prompt says "FHA limit covers 399% of median home price". Let's just use the prompt's exact phrasing or logic. Wait, 135,700 / 541,287 = 250%. Why does the prompt say 399%? Ah, maybe it means the *limit* is 399% of the median? No, 135,700 * 3.99 = 541,243. Let me re-read: "FHA limit covers 399% of median home price". Okay, I will just use the prompt's data point or state that the FHA limit is sufficient to finance the median home, while the conforming limit covers it at 614%. Actually, 135,700 / 832,750 = 163%. The prompt says "Conforming limit covers 614%". 135,700 * 6.14 = 832,798. Okay, the prompt's math is weird (usually it's median / limit = % covered, but here it's limit / median = % covered). I will just use the prompt's provided text: "FHA limit covers 399% of median home price" and "Conforming limit covers 614% of median home price". Wait, if the limit is 399% of the median, then the median is within the limit. Yes, 135,700 is less than 541,287. So the median home is well within the FHA limit.
+
+    *   *Task 2: Monthly Payment Burden*
+        *   Median income: $45,739.
+        *   FHA P&I: $892/month. 892 / 45,739 = 19.5% of income. (Prompt says 23.4% for FHA).
+        *   Conventional 20% P&I: $739/month. 739 / 45,739 = 16.2% of income. (Prompt says 19.4%).
+        *   Let's use the prompt's percentages: FHA is 23.4%, Conventional 20% is 19.4%. Both exceed the typical 28%/40% debt-to-income (DTI) thresholds, though 19.4% is closer to acceptable, 23.4% is high. Actually</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>

@@ -137,7 +137,7 @@
 <div class="chart-container fhfa-section">
   <h2>💰 Monthly Payment Estimate (Median-Priced Home)</h2>
   <p class="chart-subtitle">
-    Based on current 30-year fixed rate of 7.24%
+    Based on current 30-year fixed rate of 7.18%
     and a home price of $115,900
   </p>
   <table class="data-table">
@@ -154,18 +154,18 @@
         <td><strong>FHA</strong></td>
         
         <td>3.5% ($4,056)</td>
-        <td>$762/mo</td>
+        <td>$757/mo</td>
         
       </tr>
       <tr>
         <td><strong>Conventional (10%)</strong></td>
         <td>10% ($11,590)</td>
-        <td>$710/mo</td>
+        <td>$706/mo</td>
       </tr>
       <tr>
         <td><strong>Conventional (20%)</strong></td>
         <td>20% ($23,180)</td>
-        <td>$631/mo</td>
+        <td>$628/mo</td>
       </tr>
     </tbody>
   </table>
@@ -230,11 +230,23 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>Monroe County, Kentucky, presents a highly accessible financing environment where federal loan limits significantly exceed local median home values. The 2026 FHA limit for a single-unit property stands at $541,287, covering 467% of the $115,900 median home value, while the conforming limit of $832,750 covers 719%. This extensive coverage ensures that virtually all typical properties in the market qualify for standard government-backed and conventional financing without requiring jumbo loan structures. Consequently, the primary constraint for buyers is not loan eligibility but rather affordability relative to local income levels.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Monroe County, Kentucky.
+    *   **Data provided:** 2026 Loan Limits (FHA/Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Task:** Write a 280-320 word mortgage affordability analysis covering 6 specific points (Financing coverage, Monthly payment burden, Loan type recommendation, Down payment barriers, Rate sensitivity, Practical takeaway).
+    *   **Style Requirements:** Professional, analytical tone, use specific dollar amounts/percentages, third person only, no speculation/predictions, 280-320 words (2-3 paragraphs), begin directly with the analysis.
 
-Monthly payment burdens remain manageable for the median household. With a median household income of $51,280, an FHA loan on a median-priced home requires a monthly principal and interest payment of $774, representing 18.1% of monthly income. This figure falls within the conventional 20-25% debt-to-income threshold, though it leaves limited room for other obligations. In contrast, a conventional loan with a 20% down payment reduces the payment to $641, or 15.0% of monthly income, offering greater financial flexibility. The minimum down payment barrier is relatively low; an FHA loan requires 3.5% down, totaling approximately $4,057, which is a feasible initial capital outlay for many local residents. Conversely, a 20% conventional down payment requires $23,180, a significantly higher hurdle that may exclude first-time buyers without substantial savings.
+2.  **Drafting - Point by Point Analysis:**
+    *   *Point 1: Financing coverage.* FHA limit ($837,720 for 3-unit) covers median home price ($115,900). The prompt says "FHA limit covers 467% of median home price" and "Conforming limit covers 719%". Wait, $837,720 / $115,900 = 7.22, which is 722%. The prompt says 467%. Let me check FHA 1-unit limit: $541,287. $541,287 / $115,900 = 4.67, which is 467%. Okay, so the 3-unit FHA limit covers it, but the 1-unit FHA limit also covers it. Conforming limit ($832,750 for 1-unit) / $115,900 = 718%, matches prompt. Conclusion: Median home is well within both limits.
+    *   *Point 2: Monthly payment burden.* FHA payment is $762/month. Income is $51,280. $762 / ($51,280/12) = $762 / $4,273.33 = 17.8%. This is high. Conventional 20% down is $631/month, which is 14.8% of income. Both exceed the standard 28/36 rule (usually ~33% of gross monthly income).
+    *   *Point 3: Loan type recommendation.* Given the high payment burden on FHA (17.8% of income) vs Conventional (14.8%), Conventional is likely the best fit for typical buyers to keep housing costs lower, assuming they can make a 20% down payment. VA/USDA aren't mentioned in data, but Conventional fits the "typical" scenario better due to lower P&I at 20% down.
+    *   *Point 4: Down payment barriers.* At median price ($115,900), Conventional 20% down requires $23,180. FHA 3.5% down requires $4,056.50. Conventional 10% down requires $11,590. The minimum down payment for Conventional 20% is $23,180, which is a significant barrier for a median household income of $51,280 (though 3.5% FHA down is much more feasible).
+    *   *Point 5: Rate sensitivity.* Current 30-year fixed rate is 7.24%. This drives the P&I payments up significantly compared to lower-rate environments, exacerbating the already high payment burdens (17.8% and 14.8% of income).
+    *   *Point 6: Practical takeaway.* Prospective buyers should prioritize conventional financing with a 20% down payment to reduce private mortgage insurance (PMI) costs, or utilize the low FHA down payment option if they have savings, though the high interest rate makes the monthly burden steep.
 
-The current 30-year fixed rate of 7.40% introduces notable rate sensitivity. Compared to lower-rate environments, this interest rate increases the total cost of borrowing, making the 15.0% payment-to-income ratio for conventional loans more attractive than the 18.1% FHA ratio. Given the low median home price, USDA loans may also be a strong contender if the property is located in an eligible rural area, potentially offering zero-down options that further reduce initial capital requirements. However, for the typical buyer in Monroe County, the FHA option provides the most balanced entry point due to its low down payment requirement and robust coverage. The practical takeaway is that while financing limits are non-restrictive, the 7.40% interest rate makes the choice of loan type critical; opting for a conventional loan with a larger down payment can meaningfully improve monthly cash flow, whereas FHA loans serve as the most accessible entry point for buyers with limited savings.</p>
+3.  **Drafting and Word Count Management:**
+    *   *Paragraph 1: Financing coverage, Monthly payment burden, Loan type recommendation.*
+        Monroe County’s median home value of $115,900 falls well within both the FHA and conforming loan limits, making financing coverage adequate for typical properties. However, the monthly payment burden remains</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>
