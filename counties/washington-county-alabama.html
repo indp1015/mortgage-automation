@@ -230,11 +230,37 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>Washington County, Alabama, presents a financing landscape where federal loan limits significantly exceed local housing values, ensuring broad eligibility for standard mortgage products. The 2026 FHA limit for a one-unit property stands at $541,287, which covers 339% of the median home value of $159,700. Similarly, the conforming limit of $832,750 covers 521% of the median price. Because the county is not designated as high-cost, these standard limits provide ample headroom for typical transactions. Consequently, financing coverage is not a barrier to entry; rather, the primary constraints for local buyers revolve around income qualification and down payment availability rather than loan ceiling restrictions.
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Washington County, Alabama.
+    *   **Data provided:** 2026 Loan Limits (FHA/Conforming), Local Market Data (ACS 2024), Median Home Value Trend (2017-2024), Current Rates (FRED, 2026-11-05), Monthly Payment Estimates, Financing Coverage Analysis.
+    *   **Tasks:**
+        1.  Financing coverage (FHA vs Conforming vs median price).
+        2.  Monthly payment burden (P&I vs median household income).
+        3.  Loan type recommendation (FHA/VA/USDA/Conventional).
+        4.  Down payment barriers (minimum down for median price, feasibility).
+        5.  Rate sensitivity (7.18% rate effect on affordability vs lower rates).
+        6.  Practical takeaway (concrete insight).
+    *   **Style Requirements:** Professional, analytical tone, specific dollar amounts and percentages, third person only, no speculation/predictions.
+    *   **Length:** 280-320 words (2-3 paragraphs).
+    *   **Starting condition:** Begin directly with the analysis.
 
-The monthly payment burden remains manageable relative to local income levels. For a median-priced home, an FHA loan with 3.5% down results in a principal and interest payment of $1,050, representing 20.6% of the median household income of $61,042. A conventional loan with 20% down reduces this to $870, or 17.1% of income. Both figures fall within the general 28-36% debt-to-income thresholds typically used by underwriters. The current 30-year fixed rate of 7.24% significantly impacts affordability compared to historical lows; at this rate, the monthly cost is substantially higher than it would be at 4-5% rates, making the initial down payment size a critical lever for reducing total monthly outlay. The minimum down payment required for an FHA loan is approximately $5,590, a feasible amount for many households with savings, whereas the conventional 20% requirement of $31,940 poses a higher barrier.
+2.  **Drafting - Step-by-Step:**
 
-Given the low median home value and high owner-occupancy rate of 85.8%, FHA financing is likely the most accessible option for the typical buyer in Washington County. The low down payment requirement aligns well with the local income profile, allowing first-time buyers to enter the market without depleting emergency reserves. However, the rapid appreciation seen in recent years, with a 5-year CAGR of 13.7%, suggests that entry-level pricing is rising. Prospective buyers should prioritize securing pre-approval at current rates, as the 7.24% interest rate amplifies the cost of carrying debt. A concrete insight for buyers is that opting for a conventional loan with a 10% down payment offers a middle ground, reducing the principal to $143,730 and the monthly payment to $979, which balances lower upfront costs with a more sustainable monthly expense relative to the median income. This strategy mitigates the risk of over-leverage in a market where prices have nearly doubled since 2017.</p>
+    *   *Task 1: Financing coverage*
+        *   Data: FHA limit covers 339% of median home price; Conforming covers 521%. Median home is within FHA limit.
+        *   Draft: The 2026 FHA loan limit of $541,287 covers 339% of the local median home value of $159,700, while the conforming limit of $832,750 covers 521%. Because the median home falls well within the FHA threshold, buyers can secure conventional financing at the median price without exceeding county limits.
+
+    *   *Task 2: Monthly payment burden*
+        *   Data: FHA P&I = $1,043; Median income = $61,042. Conventional 20% P&I = $865. FHA monthly as % of income = 20.5%.
+        *   Draft: At the median price, an FHA loan requires a monthly principal and interest (P&I) payment of $1,043, representing a 20.5% burden against the median household income of $61,042. Even the more affordable conventional 20% down payment option yields a $865 P&I payment, or 17.0% of income. Both figures indicate a moderate but significant financial strain for typical buyers.
+
+    *   *Task 3: Loan type recommendation*
+        *   Data: FHA and Conventional limits are adequate. VA/USDA not explicitly mentioned in data, so stick to FHA/Conventional based on available data. Since FHA is within limit and offers lower P&I, it's likely best fit, but Conventional 20% avoids PMI. Let's recommend Conventional 20% as the most practical due to lower income-to-payment ratio, or FHA if they want less down. Wait, prompt asks "which loan type... is likely the best fit". Given the 20.5% burden, Conventional 20% (17.0%) is better for income stability, though FHA requires only 3.5% down. Let's frame it around Conventional 20% being optimal for income preservation, or FHA for lower down payment. Actually, let's recommend Conventional with 20% down to minimize the monthly burden, making it the most financially prudent fit for typical buyers.
+        *   Draft: Given the high monthly payment relative to income, the conventional loan with a 20% down payment is likely the most prudent fit, reducing the monthly P&I to 17.0% of income compared to the FHA's 20.5%.
+
+    *   *Task 4: Down payment barriers*
+        *   Data: Conventional 20% down = $31,940. FHA 3.5% down = $5,589.
+        *   Draft: A 20% down payment on the median home equates to $31,940, which is a substantial barrier. While an FHA loan requires only a 3.5% down payment of $5,</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>

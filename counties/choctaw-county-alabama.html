@@ -230,9 +230,31 @@
 
 <div class="ai-insight">
   <h2>📝 Mortgage Market Notes</h2>
-  <p>The FHA loan limit of $541,287 and the conforming limit of $832,750 both far exceed the median home value of $123,400, meaning the typical property in Choctaw County is comfortably within financing coverage for both programs.  
+  <p>1.  **Analyze the Request:**
+    *   **Topic:** Mortgage and home financing landscape for Choctaw County, Alabama.
+    *   **Length:** 280-320 words (2-3 paragraphs).
+    *   **Style:** Professional, analytical tone, specific dollar amounts/percentages, third person only, no speculation/predictions.
+    *   **Content Requirements:**
+        1. Financing coverage (FHA vs Conforming limits vs median home price).
+        2. Monthly payment burden (P&I vs median household income).
+        3. Loan type recommendation (FHA/VA/USDA/Conventional) based on local prices/limits.
+        4. Down payment barriers (minimum down payment at median price, feasibility).
+        5. Rate sensitivity (7.18% rate impact vs lower rates).
+        6. Practical takeaway (one concrete insight for buyers).
+    *   **Constraint:** Begin directly with the analysis (no intro fluff like "Here is the analysis...").
 
-Monthly payment burden is moderate but notable: a 3.5 % down‑payment FHA loan on the median‑priced home requires a principal‑and‑interest payment of $811, representing 20.4 % of the median household income of $47,813. A conventional loan with 20 % down reduces the payment to $672, or 16.9 % of income, yet still approaches the 28 % housing‑cost threshold used in affordability guidelines. At the current 7.24 % 30‑year fixed rate,</p>
+2.  **Extract Data & Calculate:**
+    *   Median Home Value: $123,400
+    *   Median Household Income: $47,813
+    *   FHA 3-Unit Limit: $837,720 (covers 439% of median price - wait, $123,400 / $837,720 = 14.7%, so it covers 14.7x, but the prompt says "covers 439%". I will use the prompt's provided numbers: "FHA limit covers 439% of median home price").
+    *   Conforming 1-Unit Limit: $832,750 (covers 675% of median home price).
+    *   Median Home is within FHA limit (✅).
+    *   Monthly Payment Estimates:
+        *   FHA (3.5% down, $119,081 loan): $806/month P&I. ($806 / $47,813 * 100 = 16.8% of income? Wait, prompt says "FHA monthly as % of monthly income: 20.2%". Let's check: $47,813 * 12 = $573,756 annual. $806 * 12 = $9,672. $9,672 / $573,756 = 16.8%. Why does the prompt say 20.2%? Maybe they calculated based on a different income figure or just provided the number. I must use the prompt's provided numbers: 20.2% for FHA, 16.8% for Conventional 20%. Actually, let's look at the math: $806 / ($47,813/12) = $806 / $3,984.4 = 20.2%. Ah! Median household income is usually annual, so dividing by 12 gives monthly. Yes, 20.2%.)
+    *   Down payment barriers:
+        *   FHA 3.5% down: $123,400 * 0.035 = $4,319. (Prompt doesn't explicitly give this, but asks to calculate/state it. Wait, the prompt says "What minimum down payment is required to purchase at the median price? Is this feasible?" I need to calculate it: $123,400 * 3.5% = $4,319. Or 10% = $12,340. Or 20% = $24,680. I should state the minimums and feasibility).
+    *   Rate sensitivity: 7.18% current rate. At lower rates, payments would be significantly lower, making the 20.2% burden more manageable or even allowing higher loan amounts.
+    *   Loan type recommendation: Since the median home ($123,400) is well within the FHA limit ($837,720), an FHA loan is highly accessible. Conventional requires 20% down ($24,680), which might be a barrier. FHA allows 3.5% down ($4,319), which is feasible. VA/USDA don't have explicit limits in the prompt, but typically VA has no down payment</p>
   <p class="insight-meta">
     Based on FHFA, HUD, and U.S. Census data.
   </p>
